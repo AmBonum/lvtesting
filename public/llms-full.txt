@@ -1,0 +1,142 @@
+# Lubomir Volcko — QA Automation Engineer & Full-Stack Developer
+
+> Personal portfolio and freelance services website of Lubomir Volcko, a QA Automation Engineer with 5+ years of experience in test automation, full-stack web and mobile development, and UX/UI design. Based in Slovakia, serving clients across Europe. Website: https://lvtesting.eu
+
+## About Lubomir Volcko
+
+Lubomir Volcko is a QA Automation Engineer with over 5 years of hands-on experience shipping quality software across enterprise platforms, mobile apps, and web applications. His journey started in professional athletics — where discipline, precision, and relentless iteration became second nature. Today, he brings that same mindset to software quality.
+
+He specializes in:
+- Building robust test automation frameworks with Playwright
+- Designing comprehensive test strategies
+- Ensuring every release meets the highest quality standards
+
+On the side, he is a passionate full-stack developer who builds production-grade mobile and web applications — from architecture to deployment. This gives him a unique perspective: he doesn't just test software, he understands how it's built.
+
+He also has over 7 years of experience in graphic design, with a strong focus on UX/UI design and Figma. His design background includes creating promotional materials, posters, billboards, and digital content that combine functionality with aesthetics.
+
+Career stats: 5+ years in QA, 100+ test suites built, 6 companies served.
+
+## Services Offered
+
+### QA Automation & Test Engineering
+- Automated testing framework design and implementation
+- Primary tool: Playwright (also experienced with Selenium, Appium, Cypress, Cucumber)
+- Test plan and test case design
+- CI/CD integration (Azure DevOps, GitHub Actions, Jenkins)
+- Regression testing, exploratory testing, UAT
+- Bug tracking and QA process management (Jira, TestRail, Azure TestPlans, qTest)
+- AI-assisted development workflows (GitHub Copilot)
+
+### Mobile App Development
+- Cross-platform development with Flutter (iOS & Android)
+- Full app lifecycle: from Figma prototypes to App Store/Google Play deployment
+- Real-time communication (WebSockets)
+- Payment integrations: Stripe, Google Pay, Apple Pay
+- Maps, geolocation, and ride logic
+- Backend integration with Firebase
+- Production monitoring and debugging
+
+### Web Application Development
+- Frontend: Next.js, React, TypeScript, Tailwind CSS
+- Backend: Node.js, REST APIs, system architecture
+- Admin panels and internal tools
+- Full-stack web applications
+
+### UX/UI Design
+- Figma prototyping and design
+- 7+ years graphic design experience
+- Promotional materials, posters, billboards
+- Digital content and social media graphics
+- Tools: Figma, Adobe Illustrator, Adobe Photoshop
+
+## Featured Projects
+
+### QA Automation at Caterpillar (via Moxymind)
+- Type: Enterprise Platform Testing
+- Description: Contributing to test automation for an internal platform handling dynamic inspection forms and inspection workflows
+- Responsibilities: Building Playwright test suites, writing test plans and test cases, improving QA processes with modern tooling
+- Tech stack: Playwright, Azure DevOps, GitHub, Copilot
+- Category: Enterprise
+
+### mobiX Mobility Platform
+- Type: End-to-End Mobility Ecosystem
+- Description: Took over an existing mobility platform and adapted it to client requirements. Redesigned mobile apps, added new functionality, and fixed existing features across the full stack — backend API, admin web platform, rider and driver mobile apps.
+- Features: Real-time communication (WebSockets), payment integrations (Stripe, Google/Apple Pay), maps, geolocation & ride logic, full mobile app lifecycle, production monitoring & debugging
+- Tech stack: Flutter, WebSockets, Stripe, Google Pay, Apple Pay, Maps, Firebase
+
+## Professional Experience (Chronological)
+
+1. **QA Automation Engineer at Caterpillar Slovakia (via Moxymind)** — Aug 2024 – Present
+   - Building automated tests for an internal platform handling dynamic inspection forms and workflows
+   - Contributing to QA process improvements with modern tooling
+   - Tools: Playwright, VS Code, Copilot, Azure DevOps
+
+2. **Flutter Engineer & Designer (Freelance)** — 2024 – Present
+   - Designing and building production mobile applications
+   - Full lifecycle: Figma prototypes to App Store deployment
+   - Tools: Flutter, Firebase, GoogleAuth, Figma, iOS, Android
+
+3. **Bolt Driver & Personal Break** — Aug 2022 – Dec 2023
+   - Took a deliberate break from IT to recharge and gain different perspective
+
+4. **QA Engineer at GlobalLogic Slovakia** — Jan 2022 – Jul 2022
+   - Automated testing for medical web applications
+   - Ensured compliance and reliability in highly regulated domain
+   - Tools: Serenity, Selenium, REST API, Jira, Java
+
+5. **QA Engineer at Ness KE** — Jun 2019 – Dec 2021
+   - Manual and automated testing for telematics management applications
+   - Built and maintained test suites across mobile and web
+   - Tools: Selenium, TestRail, Postman, Jenkins, Jira
+
+6. **Graphic Designer at IAESTE Slovakia** — Jul 2019 – Feb 2021
+   - Creating designs for social media and print materials
+   - Promotional content, posters, digital graphics
+   - Tools: Figma, Illustrator, Photoshop
+
+7. **Trainee Mobile Developer at GlobalLogic Slovakia** — Mar 2019 – Jun 2019
+   - Developed PoC mobile app 'Bethesda' for eldercare
+   - Features: pill organization, blood pressure tracking, daily care management
+   - Tools: Android Studio, Flutter, Dart, JSON, XML
+
+## Companies & Clients
+
+Caterpillar, mobiX, Moxymind, Masternaut, GlobalLogic, Ness KE, IAESTE
+
+## Technical Skills Matrix
+
+| Category | Tools | Proficiency |
+|---|---|---|
+| Test Automation | Playwright, Selenium, Appium, Cypress, Cucumber | 90% |
+| Manual Testing | Test Plans, Test Cases, Exploratory, Regression, UAT | 95% |
+| Mobile Development | Flutter, Firebase, iOS, Android, Figma | 75% |
+| Web Development | Next.js, React, TypeScript, Tailwind CSS, Node.js | 65% |
+| DevOps & Tools | Azure DevOps, GitHub Actions, Jenkins, Git, Postman | 80% |
+| Bug Tracking & QA | Jira, TestRail, Azure TestPlans, Bugzilla, qTest | 90% |
+
+## Contact & Hiring Information
+
+- Website: https://lvtesting.eu
+- Contact form: https://lvtesting.eu/#contact
+- Available for: Mobile app development, Web app development, Combined web & mobile solutions, Custom projects
+- Budget ranges: <€1,000 | €1,000–€5,000 | €5,000–€15,000 | €15,000+
+- Location: Slovakia, EU
+- Availability: Remote and on-site
+
+## Frequently Asked Questions
+
+**What does Lubomir Volcko do?**
+He is a QA Automation Engineer who also develops mobile and web applications. He combines testing expertise with development skills.
+
+**What technologies does he specialize in?**
+Playwright for test automation, Flutter for mobile development, Next.js/React for web development, and Figma for UX/UI design.
+
+**Where is he based?**
+Slovakia, EU. Available for remote work and on-site projects across Europe.
+
+**How can I hire him?**
+Through the contact form at https://lvtesting.eu/#contact. Specify your project type and budget range.
+
+**What industries has he worked in?**
+Enterprise/industrial (Caterpillar), mobility/transport (mobiX), medical software (GlobalLogic), telematics (Masternaut/Ness KE), and non-profit (IAESTE).

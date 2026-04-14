@@ -1,0 +1,69 @@
+# robots.txt for lvtesting.eu
+# Lubomir Volcko — QA Automation Engineer & Full-Stack Developer
+
+# Default: Allow all crawlers
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+Disallow: /_next/static/
+Disallow: /private/
+
+# Google Search
+User-agent: Googlebot
+Allow: /
+
+# Bing Search
+User-agent: Bingbot
+Allow: /
+
+# Google AI (Gemini)
+User-agent: Google-Extended
+Allow: /
+
+# OpenAI (ChatGPT, GPTBot)
+User-agent: GPTBot
+Allow: /
+
+# Anthropic (Claude)
+User-agent: ClaudeBot
+Allow: /
+
+# Anthropic Web Fetcher
+User-agent: anthropic-ai
+Allow: /
+
+# Perplexity AI
+User-agent: PerplexityBot
+Allow: /
+
+# Meta AI
+User-agent: FacebookBot
+Allow: /
+
+# Meta AI
+User-agent: meta-externalagent
+Allow: /
+
+# Cohere AI
+User-agent: cohere-ai
+Allow: /
+
+# Apple (Applebot / Apple Intelligence)
+User-agent: Applebot
+Allow: /
+
+# Microsoft Copilot / Bing AI
+User-agent: Bingbot
+Allow: /
+
+# Common Crawl (used for AI training)
+User-agent: CCBot
+Allow: /
+
+# Bytedance / TikTok
+User-agent: Bytespider
+Disallow: /
+
+# Sitemap
+Sitemap: https://lvtesting.eu/sitemap.xml

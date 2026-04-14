@@ -1,0 +1,48 @@
+# Lubomir Volcko — QA Automation Engineer & Full-Stack Developer
+
+> Personal portfolio and freelance services website of Lubomir Volcko, a QA Automation Engineer with 5+ years of experience in test automation, full-stack web and mobile development, and UX/UI design. Based in Slovakia, available for remote and on-site projects across Europe.
+
+Lubomir Volcko specializes in building robust test automation frameworks (primarily with Playwright), developing production-grade mobile apps with Flutter, creating web applications with Next.js/React, and designing user interfaces in Figma. He combines deep QA expertise with hands-on development skills, meaning he doesn't just test software — he understands how it's built.
+
+Key facts:
+- Current role: QA Automation Engineer at Caterpillar Slovakia (via Moxymind) — building automated tests for enterprise inspection platforms
+- Side work: Freelance Flutter Engineer & Designer — building production mobile apps from Figma prototypes to App Store deployment
+- Core expertise: Playwright, Selenium, Appium, Cypress, Cucumber, Flutter, Next.js, React, TypeScript, Node.js, Figma
+- Industries served: Enterprise/industrial (Caterpillar), mobility/transport (mobiX), medical (GlobalLogic), telematics (Masternaut/Ness KE)
+- Experience: 5+ years QA, 100+ test suites built, 6 companies served
+- Location: Slovakia, EU
+- Languages: Slovak (native), English (professional)
+- Background: Former professional athlete — brings discipline, precision, and iterative mindset to software quality
+
+## Services
+
+- [QA Automation & Test Strategy](https://lvtesting.eu/#skills): Automated testing with Playwright, Selenium, Appium, Cypress. Test plans, test cases, CI/CD integration, regression testing, UAT.
+- [Mobile App Development](https://lvtesting.eu/#projects): End-to-end Flutter development for iOS and Android. Real-time features, payment integrations (Stripe, Google/Apple Pay), maps and geolocation.
+- [Web Application Development](https://lvtesting.eu/#skills): Full-stack web apps and admin panels using Next.js, React, TypeScript, Tailwind CSS, Node.js.
+- [UX/UI Design](https://lvtesting.eu/#about): 7+ years of graphic design experience. Figma prototyping, promotional materials, posters, billboards, digital content.
+
+## Projects
+
+- [QA Automation at Caterpillar](https://lvtesting.eu/#projects): Enterprise platform testing for dynamic inspection forms and workflows. Playwright test suites, Azure DevOps CI/CD, AI-assisted development with GitHub Copilot.
+- [mobiX Mobility Platform](https://lvtesting.eu/#projects): Full-stack mobility ecosystem — backend API, admin web platform, rider and driver mobile apps. Flutter, WebSockets, Stripe payments, Firebase, maps and geolocation.
+
+## Experience & Companies
+
+- [Caterpillar Slovakia via Moxymind](https://lvtesting.eu/#experience): QA Automation Engineer (Aug 2024 – Present)
+- [Freelance Flutter Engineer](https://lvtesting.eu/#experience): Mobile development and design (2024 – Present)
+- [GlobalLogic Slovakia](https://lvtesting.eu/#experience): QA Engineer — medical web applications (Jan 2022 – Jul 2022)
+- [Ness KE](https://lvtesting.eu/#experience): QA Engineer — telematics management applications (Jun 2019 – Dec 2021)
+- [IAESTE Slovakia](https://lvtesting.eu/#experience): Graphic Designer (Jul 2019 – Feb 2021)
+
+## Technical Skills
+
+- [Test Automation Tools](https://lvtesting.eu/#skills): Playwright, Selenium, Appium, Cypress, Cucumber (90% proficiency)
+- [Manual Testing](https://lvtesting.eu/#skills): Test Plans, Test Cases, Exploratory, Regression, UAT (95% proficiency)
+- [Mobile Development](https://lvtesting.eu/#skills): Flutter, Firebase, iOS, Android, Figma (75% proficiency)
+- [Web Development](https://lvtesting.eu/#skills): Next.js, React, TypeScript, Tailwind CSS, Node.js (65% proficiency)
+- [DevOps & Tools](https://lvtesting.eu/#skills): Azure DevOps, GitHub Actions, Jenkins, Git, Postman (80% proficiency)
+- [Bug Tracking & QA](https://lvtesting.eu/#skills): Jira, TestRail, Azure TestPlans, Bugzilla, qTest (90% proficiency)
+
+## Contact
+
+- [Start a Project](https://lvtesting.eu/#contact): Contact form for project inquiries. Services include mobile apps, web apps, combined solutions, and custom projects. Budget ranges from <€1,000 to €15,000+.

@@ -1,36 +1,62 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# lvtesting.eu
+
+Personal portfolio and freelance services website of **Lubomir Volcko** — QA Automation Engineer with 5+ years of experience in test automation, full-stack web & mobile development, and UX/UI design.
+
+**Live:** [lvtesting.eu](https://lvtesting.eu)
+
+## Tech Stack
+
+- **Framework:** [Next.js 16](https://nextjs.org/) (App Router, static export)
+- **Language:** TypeScript
+- **Styling:** Tailwind CSS 4
+- **Animations:** Framer Motion
+- **Testing:** Vitest + React Testing Library
+- **Captcha:** hCaptcha
+- **Deployment:** Static export (`next build` &rarr; static HTML)
+
+## Features
+
+- Fully responsive single-page portfolio
+- Multi-language support (EN, SK, CS, DE, ES)
+- Smooth scroll animations with Framer Motion
+- Contact form with hCaptcha protection
+- AI/LLM discovery files (`llms.txt`, `llms-full.txt`)
+- SEO optimized with JSON-LD structured data (Person, WebSite, ProfessionalService)
+- Comprehensive `robots.txt` with AI crawler rules
+- XML sitemap
+
+## Project Structure
+
+```
+src/
+├── app/              # Next.js App Router (layout, page, globals)
+├── components/       # UI components (Hero, About, Skills, Projects, ...)
+│   └── ui/           # Reusable UI primitives (Badge, GlassCard, ScrollReveal)
+├── data/             # Static content data
+└── i18n/             # Internationalization (5 languages)
+public/
+├── llms.txt          # AI discovery — summary
+├── llms-full.txt     # AI discovery — full content
+├── robots.txt        # Crawler rules
+└── sitemap.xml       # XML sitemap
+```
 
 ## Getting Started
 
-First, run the development server:
-
 ```bash
+# Install dependencies
+npm install
+
+# Run development server
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+
+# Run tests
+npm test
+
+# Build for production
+npm run build
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## License
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+This project is licensed under the [MIT License](LICENSE).
