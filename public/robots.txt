@@ -1,5 +1,5 @@
 # robots.txt for lvtesting.eu
-# Lubomir Volcko — QA Automation Engineer & Full-Stack Developer
+# LV Testing — Development & QA Automation
 
 # Default: Allow all crawlers
 User-agent: *

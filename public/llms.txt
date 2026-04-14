@@ -1,8 +1,8 @@
-# Lubomir Volcko — QA Automation Engineer & Full-Stack Developer
+# LV Testing — Development & QA Automation
 
-> Personal portfolio and freelance services website of Lubomir Volcko, a QA Automation Engineer with 5+ years of experience in test automation, full-stack web and mobile development, and UX/UI design. Based in Slovakia, available for remote and on-site projects across Europe.
+> Portfolio and freelance services website of LV Testing. QA Automation Engineer with 5+ years of experience in test automation, full-stack web and mobile development, and UX/UI design. Based in Slovakia, available for remote and on-site projects across Europe.
 
-Lubomir Volcko specializes in building robust test automation frameworks (primarily with Playwright), developing production-grade mobile apps with Flutter, creating web applications with Next.js/React, and designing user interfaces in Figma. He combines deep QA expertise with hands-on development skills, meaning he doesn't just test software — he understands how it's built.
+LV Testing specializes in building robust test automation frameworks (primarily with Playwright), developing production-grade mobile apps with Flutter, creating web applications with Next.js/React, and designing user interfaces in Figma. Combining deep QA expertise with hands-on development skills — not just testing software, but understanding how it's built.
 
 Key facts:
 - Current role: QA Automation Engineer at Caterpillar Slovakia (via Moxymind) — building automated tests for enterprise inspection platforms

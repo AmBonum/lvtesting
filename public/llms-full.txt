@@ -1,19 +1,19 @@
-# Lubomir Volcko — QA Automation Engineer & Full-Stack Developer
+# LV Testing — Development & QA Automation
 
-> Personal portfolio and freelance services website of Lubomir Volcko, a QA Automation Engineer with 5+ years of experience in test automation, full-stack web and mobile development, and UX/UI design. Based in Slovakia, serving clients across Europe. Website: https://lvtesting.eu
+> Portfolio and freelance services website of LV Testing. QA Automation Engineer with 5+ years of experience in test automation, full-stack web and mobile development, and UX/UI design. Based in Slovakia, serving clients across Europe. Website: https://lvtesting.eu
 
-## About Lubomir Volcko
+## About LV Testing
 
-Lubomir Volcko is a QA Automation Engineer with over 5 years of hands-on experience shipping quality software across enterprise platforms, mobile apps, and web applications. His journey started in professional athletics — where discipline, precision, and relentless iteration became second nature. Today, he brings that same mindset to software quality.
+LV Testing is run by a QA Automation Engineer with over 5 years of hands-on experience shipping quality software across enterprise platforms, mobile apps, and web applications. The journey started in professional athletics — where discipline, precision, and relentless iteration became second nature. Today, that same mindset is applied to software quality.
 
-He specializes in:
+Specializations:
 - Building robust test automation frameworks with Playwright
 - Designing comprehensive test strategies
 - Ensuring every release meets the highest quality standards
 
-On the side, he is a passionate full-stack developer who builds production-grade mobile and web applications — from architecture to deployment. This gives him a unique perspective: he doesn't just test software, he understands how it's built.
+On the side, LV Testing delivers full-stack development — production-grade mobile and web applications from architecture to deployment. This gives a unique perspective: not just testing software, but understanding how it's built.
 
-He also has over 7 years of experience in graphic design, with a strong focus on UX/UI design and Figma. His design background includes creating promotional materials, posters, billboards, and digital content that combine functionality with aesthetics.
+Additionally, over 7 years of experience in graphic design, with a strong focus on UX/UI design and Figma. The design background includes creating promotional materials, posters, billboards, and digital content that combine functionality with aesthetics.
 
 Career stats: 5+ years in QA, 100+ test suites built, 6 companies served.
 
@@ -126,17 +126,17 @@ Caterpillar, mobiX, Moxymind, Masternaut, GlobalLogic, Ness KE, IAESTE
 
 ## Frequently Asked Questions
 
-**What does Lubomir Volcko do?**
-He is a QA Automation Engineer who also develops mobile and web applications. He combines testing expertise with development skills.
+**What does LV Testing do?**
+QA Automation Engineering combined with mobile and web application development. Testing expertise paired with hands-on development skills.
 
-**What technologies does he specialize in?**
+**What technologies are used?**
 Playwright for test automation, Flutter for mobile development, Next.js/React for web development, and Figma for UX/UI design.
 
-**Where is he based?**
+**Where is LV Testing based?**
 Slovakia, EU. Available for remote work and on-site projects across Europe.
 
-**How can I hire him?**
+**How can I hire LV Testing?**
 Through the contact form at https://lvtesting.eu/#contact. Specify your project type and budget range.
 
-**What industries has he worked in?**
+**What industries have been served?**
 Enterprise/industrial (Caterpillar), mobility/transport (mobiX), medical software (GlobalLogic), telematics (Masternaut/Ness KE), and non-profit (IAESTE).
