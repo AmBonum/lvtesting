@@ -98,6 +98,83 @@ export interface Translations {
     detailedServiceOptions: string[];
   };
 
+  // Consent
+  consent: {
+    banner: {
+      title: string;
+      description: string;
+      privacyLink: string;
+      acceptAll: string;
+      rejectAll: string;
+      customize: string;
+    };
+    settings: {
+      title: string;
+      description: string;
+      necessary: { title: string; description: string };
+      analytics: { title: string; description: string };
+      marketing: { title: string; description: string };
+      required: string;
+      savePreferences: string;
+      acceptAll: string;
+      rejectAll: string;
+    };
+    footerLinks: {
+      cookieSettings: string;
+      privacyPolicy: string;
+    };
+  };
+
+  // Privacy
+  privacy: {
+    title: string;
+    lastUpdated: string;
+    backHome: string;
+    sections: {
+      controller: { heading: string; content: string[] };
+      dataCollection: { heading: string; content: string[] };
+      cookies: {
+        heading: string;
+        intro: string;
+        table: {
+          name: string;
+          provider: string;
+          purpose: string;
+          duration: string;
+        };
+        necessary: { name: string; description: string };
+        analytics: { name: string; description: string };
+        marketing: { name: string; description: string };
+      };
+      usage: { heading: string; content: string[] };
+      rights: { heading: string; content: string[] };
+      contact: { heading: string; content: string[] };
+      authority: { heading: string; content: string[] };
+      changes: { heading: string; content: string[] };
+    };
+  };
+
+  // Errors
+  errors: {
+    notFound: {
+      title: string;
+      description: string;
+      backHome: string;
+    };
+    serverError: {
+      title: string;
+      description: string;
+      tryAgain: string;
+      backHome: string;
+    };
+    criticalError: {
+      title: string;
+      description: string;
+      reload: string;
+      backHome: string;
+    };
+  };
+
   // Footer
   footer: {
     rights: string;

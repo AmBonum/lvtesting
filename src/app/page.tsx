@@ -1,6 +1,6 @@
 "use client";
 
-import { I18nProvider } from "@/i18n/provider";
+import { useAnalyticsTracking } from "@/hooks/useAnalyticsTracking";
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import About from "@/components/About";
@@ -12,8 +12,10 @@ import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 
 export default function Home() {
+  useAnalyticsTracking();
+
   return (
-    <I18nProvider>
+    <>
       <Header />
       <main id="main-content">
         <Hero />
@@ -25,6 +27,6 @@ export default function Home() {
         <Contact />
       </main>
       <Footer />
-    </I18nProvider>
+    </>
   );
 }

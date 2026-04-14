@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import { Providers } from "@/components/Providers";
+import CookieConsent from "@/components/CookieConsent";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -228,13 +230,16 @@ export default function RootLayout({
         />
       </head>
       <body className="min-h-full flex flex-col overflow-x-hidden bg-bg-primary bg-noise bg-grid">
-        <a
-          href="#main-content"
-          className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-lg focus:bg-accent-purple focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-white"
-        >
-          Skip to content
-        </a>
-        {children}
+        <Providers>
+          <a
+            href="#main-content"
+            className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-lg focus:bg-accent-purple focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-white"
+          >
+            Skip to content
+          </a>
+          {children}
+          <CookieConsent />
+        </Providers>
       </body>
     </html>
   );

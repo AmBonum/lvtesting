@@ -203,6 +203,154 @@ export const sk: Translations = {
     ],
   },
 
+  consent: {
+    banner: {
+      title: "Vážime si vaše súkromie",
+      description: "Používame cookies na analýzu návštevnosti a optimalizáciu vášho zážitku. Môžete si vybrať, ktoré cookies povolíte.",
+      privacyLink: "Zásady ochrany osobných údajov",
+      acceptAll: "Prijať všetky",
+      rejectAll: "Odmietnuť všetky",
+      customize: "Prispôsobiť",
+    },
+    settings: {
+      title: "Nastavenia cookies",
+      description: "Vyberte si, ktoré cookies chcete povoliť. Tieto nastavenia môžete kedykoľvek zmeniť v pätičke stránky.",
+      necessary: {
+        title: "Nevyhnutné",
+        description: "Nevyhnutné pre fungovanie webovej stránky. Ukladajú vašu jazykovú preferenciu. Žiadne osobné údaje sa nezbierajú.",
+      },
+      analytics: {
+        title: "Analytické",
+        description: "Pomáhajú nám pochopiť, ako návštevníci používajú našu webovú stránku. Používame Google Analytics s anonymizovanými IP adresami.",
+      },
+      marketing: {
+        title: "Marketingové",
+        description: "Používajú sa na zobrazovanie relevantnej reklamy a sledovanie účinnosti kampaní. Momentálne sa nepoužívajú.",
+      },
+      required: "Povinné",
+      savePreferences: "Uložiť preferencie",
+      acceptAll: "Prijať všetky",
+      rejectAll: "Odmietnuť všetky",
+    },
+    footerLinks: {
+      cookieSettings: "Nastavenia cookies",
+      privacyPolicy: "Zásady ochrany osobných údajov",
+    },
+  },
+
+  privacy: {
+    title: "Zásady ochrany osobných údajov",
+    lastUpdated: "Posledná aktualizácia: 14. apríla 2026",
+    backHome: "Späť na úvod",
+    sections: {
+      controller: {
+        heading: "Prevádzkovateľ",
+        content: [
+          "Lubomír Volčko (\"my\", \"nás\", \"náš\")",
+          "Webová stránka: https://lvtesting.eu",
+          "E-mail: segnities@gmail.com",
+          "Sídlo: Slovensko, Európska únia",
+        ],
+      },
+      dataCollection: {
+        heading: "Aké údaje zbierame a prečo",
+        content: [
+          "Zbierame údaje na zlepšenie vášho zážitku na našej webovej stránke a na pochopenie toho, ako návštevníci interagujú s naším obsahom.",
+          "Jazyková preferencia — ukladá sa lokálne vo vašom prehliadači (localStorage) na zapamätanie zvoleného jazyka. Ide o nevyhnutnú funkciu, ktorá nevyžaduje súhlas.",
+          "Analytické údaje — zbierajú sa prostredníctvom Google Analytics 4 (GA4) iba po udelení vášho výslovného súhlasu. Zahŕňajú: navštívené stránky, čas strávený na stránke, hĺbku posúvania, zobrazené sekcie, kliknutia na kľúčové prvky, približnú polohu (na úrovni krajiny z anonymizovanej IP adresy), typ zariadenia a prehliadač. IP adresy sú pred spracovaním anonymizované.",
+          "Marketingové údaje — momentálne sa nezbierajú. Táto kategória existuje ako zástupný priestor pre budúce reklamné integrácie (napr. Facebook Pixel, Google Ads). Marketingové cookies sa aktivujú iba po vašom výslovnom súhlase.",
+        ],
+      },
+      cookies: {
+        heading: "Cookies, ktoré používame",
+        intro: "Nižšie je podrobný zoznam cookies používaných na tejto webovej stránke:",
+        table: {
+          name: "Názov cookie",
+          provider: "Poskytovateľ",
+          purpose: "Účel",
+          duration: "Trvanie",
+        },
+        necessary: {
+          name: "locale (localStorage)",
+          description: "Ukladá vašu jazykovú preferenciu. Bez expirácie — uchováva sa, kým nevymažete údaje prehliadača.",
+        },
+        analytics: {
+          name: "_ga, _ga_*, _gid",
+          description: "Google Analytics 4 — sleduje anonymné údaje o používaní. _ga expiruje po 2 rokoch, _gid po 24 hodinách. Nastavuje sa iba po udelení súhlasu.",
+        },
+        marketing: {
+          name: "Momentálne žiadne",
+          description: "Žiadne marketingové cookies sa momentálne nepoužívajú. Táto sekcia bude aktualizovaná, ak budú v budúcnosti pridané marketingové nástroje.",
+        },
+      },
+      usage: {
+        heading: "Ako používame vaše údaje",
+        content: [
+          "Analytické údaje sa používajú výhradne na pochopenie toho, ako návštevníci interagujú s našou webovou stránkou, a na zlepšenie jej obsahu a používateľského zážitku.",
+          "Vaše osobné údaje nepredávame, neprenajímame ani nezdieľame so žiadnymi tretími stranami okrem Google Analytics (ktorý spracúva údaje podľa vlastných zásad ochrany osobných údajov).",
+          "Všetky analytické údaje sa zbierajú s anonymizovanými IP adresami, čo znemožňuje identifikáciu jednotlivých používateľov.",
+        ],
+      },
+      rights: {
+        heading: "Vaše práva podľa GDPR",
+        content: [
+          "Podľa Všeobecného nariadenia o ochrane údajov (EÚ 2016/679) a zákona č. 18/2018 Z. z. o ochrane osobných údajov máte nasledujúce práva:",
+          "Právo na prístup — Môžete požiadať o kópiu údajov, ktoré o vás uchovávame.",
+          "Právo na opravu — Môžete nás požiadať o opravu nepresných údajov.",
+          "Právo na vymazanie — Môžete nás požiadať o vymazanie vašich údajov (\"právo byť zabudnutý\").",
+          "Právo na obmedzenie spracúvania — Môžete nás požiadať o obmedzenie spôsobu, akým používame vaše údaje.",
+          "Právo na prenosnosť údajov — Môžete požiadať o vaše údaje v strojovo čitateľnom formáte.",
+          "Právo namietať — Môžete namietať proti spracúvaniu na základe oprávneného záujmu.",
+          "Právo odvolať súhlas — Súhlas s cookies môžete kedykoľvek odvolať prostredníctvom odkazu \"Nastavenia cookies\" v pätičke. Odvolanie nemá vplyv na zákonnosť spracúvania pred jeho odvolaním.",
+        ],
+      },
+      contact: {
+        heading: "Ako uplatniť svoje práva",
+        content: [
+          "Na uplatnenie ktoréhokoľvek z týchto práv nás kontaktujte na: segnities@gmail.com",
+          "Na vašu žiadosť odpovieme do 30 dní v súlade s požiadavkami GDPR.",
+        ],
+      },
+      authority: {
+        heading: "Dozorný orgán",
+        content: [
+          "Ak sa domnievate, že vaše práva na ochranu údajov boli porušené, máte právo podať sťažnosť dozornému orgánu:",
+          "Úrad na ochranu osobných údajov Slovenskej republiky",
+          "Hraničná 12, 820 07 Bratislava 27, Slovensko",
+          "https://dataprotection.gov.sk",
+          "+421 2 3231 3214",
+        ],
+      },
+      changes: {
+        heading: "Zmeny týchto zásad",
+        content: [
+          "Tieto zásady ochrany osobných údajov môžeme príležitostne aktualizovať. Pri podstatných zmenách sa znova zobrazí banner so súhlasom, aby ste mohli skontrolovať a aktualizovať svoje preferencie.",
+          "Dátum \"Posledná aktualizácia\" na začiatku tejto stránky odráža najnovšie zmeny.",
+        ],
+      },
+    },
+  },
+
+  errors: {
+    notFound: {
+      title: "Stránka nenájdená",
+      description: "Stránka, ktorú hľadáte, neexistuje alebo bola presunutá.",
+      backHome: "Späť na úvod",
+    },
+    serverError: {
+      title: "Niečo sa pokazilo",
+      description: "Vyskytla sa neočakávaná chyba. Skúste to prosím znova.",
+      tryAgain: "Skúsiť znova",
+      backHome: "Späť na úvod",
+    },
+    criticalError: {
+      title: "Kritická chyba",
+      description: "Aplikácia narazila na kritickú chybu. Skúste prosím obnoviť stránku.",
+      reload: "Obnoviť",
+      backHome: "Späť na úvod",
+    },
+  },
+
   footer: {
     rights: "Všetky práva vyhradené.",
   },

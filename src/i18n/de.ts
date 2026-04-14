@@ -203,6 +203,154 @@ export const de: Translations = {
     ],
   },
 
+  consent: {
+    banner: {
+      title: "Ihre Privatsphäre ist uns wichtig",
+      description: "Wir verwenden Cookies, um den Website-Traffic zu analysieren und Ihr Erlebnis zu optimieren. Sie können wählen, welche Cookies Sie zulassen möchten.",
+      privacyLink: "Datenschutzerklärung",
+      acceptAll: "Alle akzeptieren",
+      rejectAll: "Alle ablehnen",
+      customize: "Anpassen",
+    },
+    settings: {
+      title: "Cookie-Einstellungen",
+      description: "Wählen Sie, welche Cookies Sie zulassen möchten. Sie können diese Einstellungen jederzeit über die Fußzeile ändern.",
+      necessary: {
+        title: "Notwendig",
+        description: "Essenziell für die Funktion der Website. Speichert Ihre Spracheinstellung. Es werden keine personenbezogenen Daten erhoben.",
+      },
+      analytics: {
+        title: "Analyse",
+        description: "Helfen uns zu verstehen, wie Besucher unsere Website nutzen. Wir verwenden Google Analytics mit anonymisierten IP-Adressen.",
+      },
+      marketing: {
+        title: "Marketing",
+        description: "Werden verwendet, um relevante Werbung anzuzeigen und die Wirksamkeit von Kampagnen zu messen. Derzeit nicht in Verwendung.",
+      },
+      required: "Erforderlich",
+      savePreferences: "Einstellungen speichern",
+      acceptAll: "Alle akzeptieren",
+      rejectAll: "Alle ablehnen",
+    },
+    footerLinks: {
+      cookieSettings: "Cookie-Einstellungen",
+      privacyPolicy: "Datenschutzerklärung",
+    },
+  },
+
+  privacy: {
+    title: "Datenschutzerklärung",
+    lastUpdated: "Zuletzt aktualisiert: 14. April 2026",
+    backHome: "Zurück zur Startseite",
+    sections: {
+      controller: {
+        heading: "Verantwortlicher",
+        content: [
+          "Lubomir Volcko (\"wir\", \"uns\", \"unser\")",
+          "Website: https://lvtesting.eu",
+          "E-Mail: segnities@gmail.com",
+          "Standort: Slowakei, Europäische Union",
+        ],
+      },
+      dataCollection: {
+        heading: "Welche Daten wir erheben und warum",
+        content: [
+          "Wir erheben Daten, um Ihr Erlebnis auf unserer Website zu verbessern und zu verstehen, wie Besucher mit unseren Inhalten interagieren.",
+          "Spracheinstellung — wird lokal in Ihrem Browser (localStorage) gespeichert, um Ihre gewählte Sprache zu merken. Dies ist eine notwendige Funktion und erfordert keine Einwilligung.",
+          "Analysedaten — werden über Google Analytics 4 (GA4) erst nach Ihrer ausdrücklichen Einwilligung erhoben. Dazu gehören: besuchte Seiten, Verweildauer, Scrolltiefe, angesehene Abschnitte, Klicks auf wichtige Elemente, ungefährer Standort (Länderebene aus anonymisierter IP), Gerätetyp und Browser. IP-Adressen werden vor der Verarbeitung anonymisiert.",
+          "Marketing-Daten — werden derzeit nicht erhoben. Diese Kategorie dient als Platzhalter für zukünftige Werbeintegrationen (z. B. Facebook Pixel, Google Ads). Marketing-Cookies werden erst nach Ihrer ausdrücklichen Einwilligung aktiviert.",
+        ],
+      },
+      cookies: {
+        heading: "Von uns verwendete Cookies",
+        intro: "Nachfolgend finden Sie eine detaillierte Auflistung der auf dieser Website verwendeten Cookies:",
+        table: {
+          name: "Cookie-Name",
+          provider: "Anbieter",
+          purpose: "Zweck",
+          duration: "Speicherdauer",
+        },
+        necessary: {
+          name: "locale (localStorage)",
+          description: "Speichert Ihre Spracheinstellung. Kein Ablaufdatum — bleibt bestehen, bis Sie die Browserdaten löschen.",
+        },
+        analytics: {
+          name: "_ga, _ga_*, _gid",
+          description: "Google Analytics 4 — erfasst anonyme Nutzungsdaten. _ga läuft nach 2 Jahren ab, _gid nach 24 Stunden. Wird erst nach Einwilligung gesetzt.",
+        },
+        marketing: {
+          name: "Derzeit keine",
+          description: "Es werden derzeit keine Marketing-Cookies verwendet. Dieser Abschnitt wird aktualisiert, sobald Marketing-Tools hinzugefügt werden.",
+        },
+      },
+      usage: {
+        heading: "Wie wir Ihre Daten verwenden",
+        content: [
+          "Analysedaten werden ausschließlich verwendet, um zu verstehen, wie Besucher mit unserer Website interagieren, und um deren Inhalte und Nutzererlebnis zu verbessern.",
+          "Wir verkaufen, vermieten oder teilen Ihre personenbezogenen Daten nicht mit Dritten — außer mit Google Analytics (das Daten gemäß seiner eigenen Datenschutzerklärung verarbeitet).",
+          "Alle Analysedaten werden mit anonymisierten IP-Adressen erhoben, sodass eine Identifizierung einzelner Nutzer nicht möglich ist.",
+        ],
+      },
+      rights: {
+        heading: "Ihre Rechte gemäß der DSGVO",
+        content: [
+          "Gemäß der Datenschutz-Grundverordnung (EU 2016/679) und dem slowakischen Gesetz 18/2018 Z.z. stehen Ihnen folgende Rechte zu:",
+          "Auskunftsrecht — Sie können eine Kopie der über Sie gespeicherten Daten anfordern.",
+          "Recht auf Berichtigung — Sie können die Korrektur unrichtiger Daten verlangen.",
+          "Recht auf Löschung — Sie können die Löschung Ihrer Daten verlangen (\"Recht auf Vergessenwerden\").",
+          "Recht auf Einschränkung der Verarbeitung — Sie können verlangen, dass wir die Nutzung Ihrer Daten einschränken.",
+          "Recht auf Datenübertragbarkeit — Sie können Ihre Daten in einem maschinenlesbaren Format anfordern.",
+          "Widerspruchsrecht — Sie können der Verarbeitung auf Grundlage berechtigter Interessen widersprechen.",
+          "Recht auf Widerruf der Einwilligung — Sie können Ihre Cookie-Einwilligung jederzeit über den Link \"Cookie-Einstellungen\" in der Fußzeile widerrufen. Dies berührt nicht die Rechtmäßigkeit der Verarbeitung vor dem Widerruf.",
+        ],
+      },
+      contact: {
+        heading: "So üben Sie Ihre Rechte aus",
+        content: [
+          "Um eines dieser Rechte auszuüben, kontaktieren Sie uns bitte unter: segnities@gmail.com",
+          "Wir werden Ihre Anfrage innerhalb von 30 Tagen beantworten, wie es die DSGVO vorschreibt.",
+        ],
+      },
+      authority: {
+        heading: "Aufsichtsbehörde",
+        content: [
+          "Wenn Sie der Ansicht sind, dass Ihre Datenschutzrechte verletzt wurden, haben Sie das Recht, eine Beschwerde bei der zuständigen Aufsichtsbehörde einzureichen:",
+          "Úrad na ochranu osobných údajov Slovenskej republiky (Amt zum Schutz personenbezogener Daten der Slowakischen Republik)",
+          "Hraničná 12, 820 07 Bratislava 27, Slowakei",
+          "Website: https://dataprotection.gov.sk",
+          "Telefon: +421 2 3231 3214",
+        ],
+      },
+      changes: {
+        heading: "Änderungen dieser Datenschutzerklärung",
+        content: [
+          "Wir können diese Datenschutzerklärung von Zeit zu Zeit aktualisieren. Bei wesentlichen Änderungen wird das Einwilligungsbanner erneut angezeigt, damit Sie Ihre Einstellungen überprüfen und aktualisieren können.",
+          "Das Datum \"Zuletzt aktualisiert\" oben auf dieser Seite gibt die letzten Änderungen wieder.",
+        ],
+      },
+    },
+  },
+
+  errors: {
+    notFound: {
+      title: "Seite nicht gefunden",
+      description: "Die gesuchte Seite existiert nicht oder wurde verschoben.",
+      backHome: "Zurück zur Startseite",
+    },
+    serverError: {
+      title: "Etwas ist schiefgelaufen",
+      description: "Ein unerwarteter Fehler ist aufgetreten. Bitte versuche es erneut.",
+      tryAgain: "Erneut versuchen",
+      backHome: "Zurück zur Startseite",
+    },
+    criticalError: {
+      title: "Kritischer Fehler",
+      description: "Die Anwendung hat einen kritischen Fehler festgestellt. Bitte lade die Seite neu.",
+      reload: "Neu laden",
+      backHome: "Zurück zur Startseite",
+    },
+  },
+
   footer: {
     rights: "Alle Rechte vorbehalten.",
   },

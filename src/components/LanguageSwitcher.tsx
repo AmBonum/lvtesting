@@ -5,7 +5,12 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useI18n } from "@/i18n/provider";
 import { locales, type Locale } from "@/i18n";
 
-export default function LanguageSwitcher() {
+interface LanguageSwitcherProps {
+  /** Open dropdown upward instead of downward (useful when near bottom of screen) */
+  dropUp?: boolean;
+}
+
+export default function LanguageSwitcher({ dropUp = false }: LanguageSwitcherProps) {
   const { locale, setLocale } = useI18n();
   const [open, setOpen] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
@@ -44,11 +49,15 @@ export default function LanguageSwitcher() {
       <AnimatePresence>
         {open && (
           <motion.div
-            initial={{ opacity: 0, y: -8, scale: 0.95 }}
+            initial={{ opacity: 0, y: dropUp ? 8 : -8, scale: 0.95 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, y: -8, scale: 0.95 }}
+            exit={{ opacity: 0, y: dropUp ? 8 : -8, scale: 0.95 }}
             transition={{ duration: 0.15 }}
-            className="absolute right-0 top-full z-50 mt-2 min-w-[140px] overflow-hidden rounded-xl border border-[var(--color-border-glass)] bg-[var(--color-bg-card)] shadow-xl backdrop-blur-xl"
+            className={`absolute z-50 min-w-[140px] overflow-hidden rounded-xl border border-[var(--color-border-glass)] bg-[var(--color-bg-card)] shadow-xl backdrop-blur-xl ${
+              dropUp
+                ? "bottom-full mb-2 left-1/2 -translate-x-1/2"
+                : "top-full mt-2 right-0"
+            }`}
           >
             {(Object.keys(locales) as Locale[]).map((key) => (
               <button

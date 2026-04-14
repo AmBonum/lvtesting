@@ -133,7 +133,7 @@ export default function Header() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.05 * navLinks.length, duration: 0.3 }}
               >
-                <LanguageSwitcher />
+                <LanguageSwitcher dropUp />
               </motion.div>
             </motion.div>
           )}

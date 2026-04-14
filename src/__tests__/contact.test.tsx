@@ -1,5 +1,11 @@
-import { describe, it, expect, vi, beforeEach } from "vitest";
-import { render, screen, fireEvent, waitFor } from "@testing-library/react";
+import { describe, it, expect, vi, beforeEach, afterEach } from "vitest";
+import {
+  render,
+  screen,
+  fireEvent,
+  waitFor,
+  cleanup,
+} from "@testing-library/react";
 import Contact from "@/components/Contact";
 
 // Mock framer-motion
@@ -25,9 +31,32 @@ vi.mock("@/components/ui/ScrollReveal", () => ({
   ScrollReveal: ({ children }: { children: React.ReactNode }) => <>{children}</>,
 }));
 
+// Mock hCaptcha — renders a button that triggers onVerify with a token
+vi.mock("@hcaptcha/react-hcaptcha", () => {
+  const React = require("react");
+  return {
+    default: React.forwardRef(({ onVerify }: any, ref: any) => {
+      React.useImperativeHandle(ref, () => ({ resetCaptcha: vi.fn() }));
+      return (
+        <button
+          type="button"
+          data-testid="captcha-verify"
+          onClick={() => onVerify?.("test-captcha-token")}
+        >
+          Verify captcha
+        </button>
+      );
+    }),
+  };
+});
+
 describe("Contact", () => {
   beforeEach(() => {
     vi.restoreAllMocks();
+  });
+
+  afterEach(() => {
+    cleanup();
   });
 
   it("renders the contact form", () => {
@@ -35,15 +64,18 @@ describe("Contact", () => {
     expect(screen.getByLabelText("Name")).toBeInTheDocument();
     expect(screen.getByLabelText("Email")).toBeInTheDocument();
     expect(screen.getByLabelText("Message")).toBeInTheDocument();
-    expect(screen.getByRole("button", { name: "Send Message" })).toBeInTheDocument();
+    expect(
+      screen.getByRole("button", { name: "Send Message" })
+    ).toBeInTheDocument();
   });
 
-  it("renders service selection buttons with aria-pressed", () => {
+  it("renders initial service selection buttons with aria-pressed", () => {
     render(<Contact />);
-    const buttons = screen.getAllByRole("button").filter(
-      (btn) => btn.getAttribute("aria-pressed") !== null
-    );
-    expect(buttons.length).toBe(6);
+    const buttons = screen
+      .getAllByRole("button")
+      .filter((btn) => btn.getAttribute("aria-pressed") !== null);
+    // 5 initial service options (I want a mobile app, web app, etc.)
+    expect(buttons.length).toBe(5);
     buttons.forEach((btn) => {
       expect(btn).toHaveAttribute("aria-pressed", "false");
     });
@@ -51,32 +83,57 @@ describe("Contact", () => {
 
   it("toggles service selection on click", () => {
     render(<Contact />);
-    const qaButtons = screen.getAllByRole("button", { name: "QA / Test Automation" });
-    const qaButton = qaButtons[0];
-    expect(qaButton).toHaveAttribute("aria-pressed", "false");
+    const mobileBtn = screen.getByRole("button", {
+      name: "I want a mobile app",
+    });
+    expect(mobileBtn).toHaveAttribute("aria-pressed", "false");
 
-    fireEvent.click(qaButton);
-    expect(qaButton).toHaveAttribute("aria-pressed", "true");
+    fireEvent.click(mobileBtn);
+    expect(mobileBtn).toHaveAttribute("aria-pressed", "true");
 
-    fireEvent.click(qaButton);
-    expect(qaButton).toHaveAttribute("aria-pressed", "false");
+    fireEvent.click(mobileBtn);
+    expect(mobileBtn).toHaveAttribute("aria-pressed", "false");
   });
 
   it("allows selecting multiple services", () => {
     render(<Contact />);
-    const qaButton = screen.getAllByRole("button", { name: "QA / Test Automation" })[0];
-    const webButton = screen.getAllByRole("button", { name: "Web Development" })[0];
+    const mobileBtn = screen.getByRole("button", {
+      name: "I want a mobile app",
+    });
+    const webBtn = screen.getByRole("button", {
+      name: "I want a web app",
+    });
 
-    fireEvent.click(qaButton);
-    fireEvent.click(webButton);
+    fireEvent.click(mobileBtn);
+    fireEvent.click(webBtn);
 
-    expect(qaButton).toHaveAttribute("aria-pressed", "true");
-    expect(webButton).toHaveAttribute("aria-pressed", "true");
+    expect(mobileBtn).toHaveAttribute("aria-pressed", "true");
+    expect(webBtn).toHaveAttribute("aria-pressed", "true");
+  });
+
+  it("clicking 'I know exactly what I want' reveals detailed service options", () => {
+    render(<Contact />);
+    const exactlyBtn = screen.getByRole("button", {
+      name: "I know exactly what I want",
+    });
+
+    // Initially no detailed options visible
+    expect(screen.queryByText("QA / Test Automation")).not.toBeInTheDocument();
+
+    fireEvent.click(exactlyBtn);
+    expect(exactlyBtn).toHaveAttribute("aria-pressed", "true");
+
+    // Detailed options now visible
+    expect(screen.getByText("QA / Test Automation")).toBeInTheDocument();
+    expect(screen.getByText("Web Development")).toBeInTheDocument();
+    expect(screen.getByText("UX/UI Design")).toBeInTheDocument();
   });
 
   it("has honeypot field hidden from users", () => {
     render(<Contact />);
-    const honeypot = document.querySelector('input[name="botcheck"]') as HTMLInputElement;
+    const honeypot = document.querySelector(
+      'input[name="botcheck"]'
+    ) as HTMLInputElement;
     expect(honeypot).toBeInTheDocument();
     expect(honeypot.style.display).toBe("none");
   });
@@ -86,9 +143,21 @@ describe("Contact", () => {
 
     render(<Contact />);
 
-    fireEvent.change(screen.getByLabelText("Name"), { target: { value: "Test" } });
-    fireEvent.change(screen.getByLabelText("Email"), { target: { value: "test@test.com" } });
-    fireEvent.change(screen.getByLabelText("Message"), { target: { value: "Hello" } });
+    // Fill the form
+    fireEvent.change(screen.getByLabelText("Name"), {
+      target: { value: "Test" },
+    });
+    fireEvent.change(screen.getByLabelText("Email"), {
+      target: { value: "test@test.com" },
+    });
+    fireEvent.change(screen.getByLabelText("Message"), {
+      target: { value: "Hello" },
+    });
+
+    // Complete the captcha mock
+    fireEvent.click(screen.getByTestId("captcha-verify"));
+
+    // Submit
     fireEvent.submit(screen.getByRole("button", { name: "Send Message" }));
 
     await waitFor(() => {
@@ -101,9 +170,17 @@ describe("Contact", () => {
 
     render(<Contact />);
 
-    fireEvent.change(screen.getByLabelText("Name"), { target: { value: "Test" } });
-    fireEvent.change(screen.getByLabelText("Email"), { target: { value: "test@test.com" } });
-    fireEvent.change(screen.getByLabelText("Message"), { target: { value: "Hello" } });
+    fireEvent.change(screen.getByLabelText("Name"), {
+      target: { value: "Test" },
+    });
+    fireEvent.change(screen.getByLabelText("Email"), {
+      target: { value: "test@test.com" },
+    });
+    fireEvent.change(screen.getByLabelText("Message"), {
+      target: { value: "Hello" },
+    });
+
+    fireEvent.click(screen.getByTestId("captcha-verify"));
     fireEvent.submit(screen.getByRole("button", { name: "Send Message" }));
 
     await waitFor(() => {
@@ -116,9 +193,17 @@ describe("Contact", () => {
 
     render(<Contact />);
 
-    fireEvent.change(screen.getByLabelText("Name"), { target: { value: "Test" } });
-    fireEvent.change(screen.getByLabelText("Email"), { target: { value: "test@test.com" } });
-    fireEvent.change(screen.getByLabelText("Message"), { target: { value: "Hello" } });
+    fireEvent.change(screen.getByLabelText("Name"), {
+      target: { value: "Test" },
+    });
+    fireEvent.change(screen.getByLabelText("Email"), {
+      target: { value: "test@test.com" },
+    });
+    fireEvent.change(screen.getByLabelText("Message"), {
+      target: { value: "Hello" },
+    });
+
+    fireEvent.click(screen.getByTestId("captcha-verify"));
     fireEvent.submit(screen.getByRole("button", { name: "Send Message" }));
 
     await waitFor(() => {
@@ -128,11 +213,20 @@ describe("Contact", () => {
 
   it("has social links with proper attributes", () => {
     render(<Contact />);
-    const socialLinks = screen.getAllByRole("link").filter(
-      (link) => link.getAttribute("target") === "_blank"
-    );
+    const socialLinks = screen
+      .getAllByRole("link")
+      .filter((link) => link.getAttribute("target") === "_blank");
     socialLinks.forEach((link) => {
       expect(link).toHaveAttribute("rel", "noopener noreferrer");
     });
+  });
+
+  it("submit button is disabled until captcha is verified", () => {
+    render(<Contact />);
+    const submitBtn = screen.getByRole("button", { name: "Send Message" });
+    expect(submitBtn).toBeDisabled();
+
+    fireEvent.click(screen.getByTestId("captcha-verify"));
+    expect(submitBtn).not.toBeDisabled();
   });
 });

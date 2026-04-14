@@ -203,6 +203,154 @@ export const en: Translations = {
     ],
   },
 
+  consent: {
+    banner: {
+      title: "We value your privacy",
+      description: "We use cookies to analyze site traffic and optimize your experience. You can choose which cookies to allow.",
+      privacyLink: "Privacy Policy",
+      acceptAll: "Accept all",
+      rejectAll: "Reject all",
+      customize: "Customize",
+    },
+    settings: {
+      title: "Cookie Settings",
+      description: "Choose which cookies you want to allow. You can change these settings at any time from the footer.",
+      necessary: {
+        title: "Necessary",
+        description: "Essential for the website to function. Stores your language preference. No personal data is collected.",
+      },
+      analytics: {
+        title: "Analytics",
+        description: "Help us understand how visitors use our website. We use Google Analytics with anonymized IP addresses.",
+      },
+      marketing: {
+        title: "Marketing",
+        description: "Used to deliver relevant advertisements and track campaign effectiveness. Currently not in use.",
+      },
+      required: "Required",
+      savePreferences: "Save preferences",
+      acceptAll: "Accept all",
+      rejectAll: "Reject all",
+    },
+    footerLinks: {
+      cookieSettings: "Cookie Settings",
+      privacyPolicy: "Privacy Policy",
+    },
+  },
+
+  privacy: {
+    title: "Privacy Policy",
+    lastUpdated: "Last updated: April 14, 2026",
+    backHome: "Back to home",
+    sections: {
+      controller: {
+        heading: "Data Controller",
+        content: [
+          "Lubomir Volcko (\"we\", \"us\", \"our\")",
+          "Website: https://lvtesting.eu",
+          "Email: segnities@gmail.com",
+          "Location: Slovakia, European Union",
+        ],
+      },
+      dataCollection: {
+        heading: "What data do we collect and why",
+        content: [
+          "We collect data to improve your experience on our website and to understand how visitors interact with our content.",
+          "Language preference — stored locally in your browser (localStorage) to remember your chosen language. This is a necessary function and does not require consent.",
+          "Analytics data — collected via Google Analytics 4 (GA4) only after you give explicit consent. This includes: pages visited, time spent on site, scroll depth, sections viewed, clicks on key elements, approximate location (country-level from anonymized IP), device type and browser. IP addresses are anonymized before processing.",
+          "Marketing data — currently not collected. This category exists as a placeholder for future advertising integrations (e.g., Facebook Pixel, Google Ads). Marketing cookies will only activate after your explicit consent.",
+        ],
+      },
+      cookies: {
+        heading: "Cookies we use",
+        intro: "Below is a detailed list of cookies used on this website:",
+        table: {
+          name: "Cookie name",
+          provider: "Provider",
+          purpose: "Purpose",
+          duration: "Duration",
+        },
+        necessary: {
+          name: "locale (localStorage)",
+          description: "Stores your language preference. No expiration — persists until you clear browser data.",
+        },
+        analytics: {
+          name: "_ga, _ga_*, _gid",
+          description: "Google Analytics 4 — tracks anonymous usage data. _ga expires after 2 years, _gid after 24 hours. Only set after consent.",
+        },
+        marketing: {
+          name: "None currently",
+          description: "No marketing cookies are currently in use. This section will be updated if marketing tools are added in the future.",
+        },
+      },
+      usage: {
+        heading: "How we use your data",
+        content: [
+          "Analytics data is used solely to understand how visitors interact with our website and to improve its content and user experience.",
+          "We do not sell, rent, or share your personal data with any third parties beyond Google Analytics (which processes data under its own privacy policy).",
+          "All analytics data is collected with anonymized IP addresses, making it impossible to identify individual users.",
+        ],
+      },
+      rights: {
+        heading: "Your rights under GDPR",
+        content: [
+          "Under the General Data Protection Regulation (EU 2016/679) and Slovak Act 18/2018 Z.z., you have the following rights:",
+          "Right of access — You can request a copy of the data we hold about you.",
+          "Right to rectification — You can ask us to correct inaccurate data.",
+          "Right to erasure — You can ask us to delete your data (\"right to be forgotten\").",
+          "Right to restrict processing — You can ask us to limit how we use your data.",
+          "Right to data portability — You can request your data in a machine-readable format.",
+          "Right to object — You can object to processing based on legitimate interest.",
+          "Right to withdraw consent — You can withdraw your cookie consent at any time via the \"Cookie Settings\" link in the footer. This does not affect the lawfulness of processing before withdrawal.",
+        ],
+      },
+      contact: {
+        heading: "How to exercise your rights",
+        content: [
+          "To exercise any of these rights, please contact us at: segnities@gmail.com",
+          "We will respond to your request within 30 days as required by GDPR.",
+        ],
+      },
+      authority: {
+        heading: "Supervisory authority",
+        content: [
+          "If you believe your data protection rights have been violated, you have the right to lodge a complaint with the supervisory authority:",
+          "Urad na ochranu osobnych udajov Slovenskej republiky (Office for Personal Data Protection of the Slovak Republic)",
+          "Hranicna 12, 820 07 Bratislava 27, Slovakia",
+          "Website: https://dataprotection.gov.sk",
+          "Phone: +421 2 3231 3214",
+        ],
+      },
+      changes: {
+        heading: "Changes to this policy",
+        content: [
+          "We may update this privacy policy from time to time. When we make material changes, the consent banner will reappear so you can review and update your preferences.",
+          "The \"Last updated\" date at the top of this page reflects the most recent changes.",
+        ],
+      },
+    },
+  },
+
+  errors: {
+    notFound: {
+      title: "Page not found",
+      description: "The page you're looking for doesn't exist or has been moved.",
+      backHome: "Back to home",
+    },
+    serverError: {
+      title: "Something went wrong",
+      description: "An unexpected error occurred. Please try again.",
+      tryAgain: "Try again",
+      backHome: "Back to home",
+    },
+    criticalError: {
+      title: "Critical error",
+      description: "The application encountered a critical error. Please try reloading the page.",
+      reload: "Reload",
+      backHome: "Back to home",
+    },
+  },
+
   footer: {
     rights: "All rights reserved.",
   },
