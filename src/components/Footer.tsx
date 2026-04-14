@@ -26,8 +26,8 @@ export default function Footer() {
             {t.consent.footerLinks.privacyPolicy}
           </a>
         </div>
-        <p className="text-sm text-[var(--color-text-muted)]">
-          &copy; {new Date().getFullYear()} Lubomir Volcko. {t.footer.rights}
+        <p className="text-center text-sm text-[var(--color-text-muted)]">
+          &copy; {new Date().getFullYear()} LV Testing. {t.footer.rights}
         </p>
       </div>
     </footer>
