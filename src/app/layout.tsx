@@ -12,7 +12,7 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://lvtesting.eu"),
-  title: "Lubomir Volcko | QA Automation Engineer",
+  title: "LV Testing | Development & QA Automation",
   description:
     "QA Automation Engineer with 5+ years of experience in Playwright, Selenium, and full-stack development. Specializing in test automation, end-to-end testing, and mobile app development with Flutter.",
   keywords: [
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: "https://lvtesting.eu",
     siteName: "LV Testing",
-    title: "Lubomir Volcko | QA Automation Engineer",
+    title: "LV Testing | Development & QA Automation",
     description:
       "QA Automation Engineer specializing in Playwright test automation, end-to-end testing, and full-stack development.",
     images: [
@@ -40,13 +40,13 @@ export const metadata: Metadata = {
         url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "Lubomir Volcko - QA Automation Engineer",
+        alt: "LV Testing - Development & QA Automation",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Lubomir Volcko | QA Automation Engineer",
+    title: "LV Testing | Development & QA Automation",
     description:
       "QA Automation Engineer specializing in Playwright test automation and full-stack development.",
     images: ["/og-image.png"],
@@ -83,7 +83,7 @@ export default function RootLayout({
               name: "Lubomir Volcko",
               alternateName: "Lubomír Volčko",
               url: "https://lvtesting.eu",
-              image: "https://lvtesting.eu/og-image.jpg",
+              image: "https://lvtesting.eu/og-image.png",
               jobTitle: "QA Automation Engineer",
               description:
                 "QA Automation Engineer with 5+ years of experience in test automation, full-stack web and mobile development, and UX/UI design. Based in Slovakia.",
@@ -148,7 +148,7 @@ export default function RootLayout({
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "WebSite",
-              name: "Lubomir Volcko | QA Automation Engineer",
+              name: "LV Testing | Development & QA Automation",
               url: "https://lvtesting.eu",
               description:
                 "Portfolio and freelance services of Lubomir Volcko — QA Automation Engineer, Flutter Developer, and UX/UI Designer based in Slovakia.",
