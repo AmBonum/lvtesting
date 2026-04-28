@@ -390,6 +390,26 @@ export const sk: Translations = {
       ],
       year: "2025",
     },
+    ongoingLabel: "Prebieha",
+    mobix: {
+      tagline:
+        "Mobix je produkčná full-stack taxi platforma postavená na Node.js, GraphQL, Flutter a Firebase, ktorá v reálnom čase prepája cestujúcich s vodičmi cez automatický dispatch, GPS sledovanie a viackanálové platby.",
+      description:
+        "Kompletná taxi platforma pre slovenský trh tvorená tromi vzájomne prepojenými systémami: mobilnou aplikáciou pre cestujúcich, mobilnou aplikáciou pre vodičov a backendom s administračným panelom. Pokrýva celý životný cyklus jazdy od objednávky cez GPS sledovanie až po platbu a hodnotenie.",
+      visitSite: "Súkromný projekt",
+      features: [
+        "Rezervácia jazdy — okamžitá aj plánovaná s časovým predstihom",
+        "Waterfall dispatch — automatické priraďovanie vodičov s fallback logikou",
+        "GPS sledovanie jazdy v reálnom čase cez WebSocket + Google Maps",
+        "OTP overenie telefónu cez Twilio (cestujúci aj vodič)",
+        "Viacero platobných metód: hotovosť, karta (Stripe), Google Pay, Paystack, peňaženka",
+        "Prehľad zárobkov vodiča — denný / týždenný / mesačný",
+        "Firebase push notifikácie a in-app upozornenia pre oba typy používateľov",
+        "Administračný panel s prehľadom jázd, vodičov, platby a analytika",
+        "Viacjazyčná podpora (SK, EN a ďalšie lokality)",
+      ],
+      year: "2024",
+    },
   },
 
   footer: {

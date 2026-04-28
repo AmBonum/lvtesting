@@ -180,6 +180,14 @@ export interface Translations {
       features: string[];
       year: string;
     };
+    ongoingLabel: string;
+    mobix: {
+      tagline: string;
+      description: string;
+      visitSite: string;
+      features: string[];
+      year: string;
+    };
   };
 
   // Errors

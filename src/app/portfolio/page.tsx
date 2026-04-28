@@ -6,7 +6,6 @@ import Link from "next/link";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { GlassCard } from "@/components/ui/GlassCard";
-import { Badge } from "@/components/ui/Badge";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { useI18n } from "@/i18n/provider";
@@ -54,6 +53,84 @@ const techStack = [
     icon: "https://cdn.simpleicons.org/vitest/A8D232",
   },
 ];
+
+// ─── Mobix tech stack ─────────────────────────────────────────────────────────
+const mobixTechStack = [
+  {
+    name: "Flutter",
+    url: "https://flutter.dev",
+    icon: "https://cdn.simpleicons.org/flutter/54C5F8",
+  },
+  {
+    name: "Dart",
+    url: "https://dart.dev",
+    icon: "https://cdn.simpleicons.org/dart/0175C2",
+  },
+  {
+    name: "Node.js",
+    url: "https://nodejs.org",
+    icon: "https://cdn.simpleicons.org/nodedotjs/6DB33F",
+  },
+  {
+    name: "GraphQL",
+    url: "https://graphql.org",
+    icon: "https://cdn.simpleicons.org/graphql/E10098",
+  },
+  {
+    name: "MySQL",
+    url: "https://mysql.com",
+    icon: "https://cdn.simpleicons.org/mysql/4479A1",
+  },
+  {
+    name: "Firebase",
+    url: "https://firebase.google.com",
+    icon: "https://cdn.simpleicons.org/firebase/DD2C00",
+  },
+  {
+    name: "Stripe",
+    url: "https://stripe.com",
+    icon: "https://cdn.simpleicons.org/stripe/9B8DFF",
+  },
+  {
+    name: "Twilio",
+    url: "https://twilio.com",
+    icon: "https://cdn.simpleicons.org/twilio/F22F46",
+  },
+  {
+    name: "Playwright",
+    url: "https://playwright.dev",
+    icon: "https://cdn.simpleicons.org/playwright/2EAD33",
+  },
+];
+
+// ─── Color helper ─────────────────────────────────────────────────────────────
+// Appends / alpha) to an oklch() color string: withAlpha("oklch(0.8 0.2 130)", 0.15) → "oklch(0.8 0.2 130 / 0.15)"
+function withAlpha(color: string, alpha: number) {
+  return color.replace(")", ` / ${alpha})`);
+}
+
+// ─── Tech icon with fallback ──────────────────────────────────────────────────
+function TechIcon({ src, alt }: { src: string; alt: string }) {
+  const [failed, setFailed] = useState(false);
+  if (failed) {
+    return (
+      <span className="flex h-3.5 w-3.5 flex-shrink-0 items-center justify-center rounded-sm bg-white/15 text-[7px] font-bold leading-none text-white/70">
+        {alt.slice(0, 2).toUpperCase()}
+      </span>
+    );
+  }
+  return (
+    // eslint-disable-next-line @next/next/no-img-element
+    <img
+      src={src}
+      alt={alt}
+      width={14}
+      height={14}
+      className="h-3.5 w-3.5 flex-shrink-0"
+      onError={() => setFailed(true)}
+    />
+  );
+}
 
 // ─── Arrow-left icon ──────────────────────────────────────────────────────────
 function ArrowLeftIcon() {
@@ -124,44 +201,64 @@ function GraphicPlaceholderCard() {
 interface WebProjectData {
   id: string;
   name: string;
-  favicon: string;
-  wordmark: string;
+  logo: string;
   year: string;
   tagline: string;
   description: string;
   features: string[];
-  visitUrl: string;
+  visitUrl?: string;
   visitLabel: string;
   subtitle: string;
-  techStack: typeof techStack;
+  techStack: { name: string; url: string; icon: string }[];
+  accentColor: string;
+  accentColorEnd: string;
+  glassAccent: "green" | "teal" | "purple" | "coral" | "yellow";
+  ongoing?: boolean;
 }
 
 // ─── Collapsed project tile ───────────────────────────────────────────────────
 function CollapsedProjectCard({
   project,
+  ongoingLabel,
   onClick,
 }: {
   project: WebProjectData;
+  ongoingLabel: string;
   onClick: () => void;
 }) {
+  const c = project.accentColor;
+  const wa = (alpha: number) => withAlpha(c, alpha);
   return (
     <button
       onClick={onClick}
-      className="group/c flex w-44 flex-shrink-0 cursor-pointer flex-col items-center justify-center gap-3 rounded-2xl border p-5 text-center transition-all duration-300 hover:shadow-[0_0_24px_oklch(0.88_0.22_130_/_0.35)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[oklch(0.88_0.22_130)]"
+      className="group/c relative flex w-44 flex-shrink-0 cursor-pointer flex-col items-center justify-center gap-3 rounded-2xl border p-5 text-center transition-all duration-300 focus-visible:outline-none"
       style={{
         aspectRatio: "1 / 1",
-        background: "oklch(0.88 0.22 130 / 0.06)",
-        borderColor: "oklch(0.88 0.22 130 / 0.2)",
+        background: wa(0.06),
+        borderColor: wa(0.2),
+      }}
+      onMouseEnter={(e) => {
+        (e.currentTarget as HTMLButtonElement).style.boxShadow = `0 0 24px ${wa(0.35)}`;
+      }}
+      onMouseLeave={(e) => {
+        (e.currentTarget as HTMLButtonElement).style.boxShadow = "";
       }}
       aria-label={`Expand ${project.name}`}
     >
+      {project.ongoing && (
+        <span
+          className="absolute right-2.5 top-2.5 h-2 w-2 animate-pulse rounded-full"
+          style={{ background: c }}
+          title={ongoingLabel}
+        />
+      )}
       <Image
-        src={project.favicon}
+        src={project.logo}
         alt={project.name}
-        width={40}
-        height={40}
+        width={120}
+        height={32}
         unoptimized
-        className="h-10 w-10 flex-shrink-0"
+        className="h-8 w-auto max-w-[120px] flex-shrink-0 object-contain"
       />
       <div className="w-full">
         <p className="text-sm font-bold text-[var(--color-text-primary)]">{project.name}</p>
@@ -174,86 +271,99 @@ function CollapsedProjectCard({
 }
 
 // ─── Expanded project card ────────────────────────────────────────────────────
-function ExpandedProjectCard({ project }: { project: WebProjectData }) {
+function ExpandedProjectCard({
+  project,
+  ongoingLabel,
+}: {
+  project: WebProjectData;
+  ongoingLabel: string;
+}) {
+  const c = project.accentColor;
+  const cEnd = project.accentColorEnd;
+  const wa = (alpha: number) => withAlpha(c, alpha);
+  const waEnd = (alpha: number) => withAlpha(cEnd, alpha);
   return (
     <GlassCard
-      accent="green"
+      hover={false}
       className="group relative overflow-hidden p-8 md:p-10"
       style={{
-        background: "oklch(0.88 0.22 130 / 0.15)",
-        borderColor: "oklch(0.88 0.22 130 / 0.5)",
+        background: wa(0.15),
+        borderColor: wa(0.5),
       }}
     >
       {/* Ambient glow */}
       <div
-        className="pointer-events-none absolute -right-20 -top-20 h-72 w-72 rounded-full blur-3xl transition-opacity duration-700 group-hover:opacity-30"
-        style={{ background: "oklch(0.88 0.22 130 / 0.12)" }}
+        className="pointer-events-none absolute -right-20 -top-20 h-72 w-72 rounded-full blur-3xl opacity-0 transition-opacity duration-700 group-hover:opacity-100"
+        style={{ background: wa(0.12) }}
       />
       <div
-        className="pointer-events-none absolute -bottom-10 -left-10 h-48 w-48 rounded-full blur-3xl transition-opacity duration-700 group-hover:opacity-20"
-        style={{ background: "oklch(0.78 0.18 165 / 0.1)" }}
+        className="pointer-events-none absolute -bottom-10 -left-10 h-48 w-48 rounded-full blur-3xl opacity-0 transition-opacity duration-700 group-hover:opacity-100"
+        style={{ background: waEnd(0.1) }}
       />
 
       {/* Header row */}
       <div className="relative z-10 mb-6 flex flex-wrap items-start justify-between gap-4">
         <div className="flex items-center gap-4">
-          <div className="flex-shrink-0">
-            <Image
-              src={project.favicon}
-              alt={project.name}
-              width={52}
-              height={52}
-              unoptimized
-            />
-          </div>
           <div>
-            <div className="mb-1 flex items-center gap-3">
+            <div className="mb-1 flex flex-wrap items-center gap-2">
               <Image
-                src={project.wordmark}
+                src={project.logo}
                 alt={project.name}
                 width={160}
                 height={38}
                 unoptimized
-                className="h-9 w-auto"
+                className="h-9 w-auto max-w-[180px] object-contain"
               />
-              <Badge variant="outline" accent="green" className="text-xs">
+              <span
+                className="rounded-full border px-2.5 py-0.5 text-xs font-medium"
+                style={{ borderColor: wa(0.5), color: c }}
+              >
                 {project.year}
-              </Badge>
+              </span>
+              {project.ongoing && (
+                <span
+                  className="inline-flex items-center gap-1 rounded-full border px-2 py-0.5 text-[10px] font-semibold"
+                  style={{
+                    background: wa(0.12),
+                    borderColor: wa(0.35),
+                    color: c,
+                  }}
+                >
+                  <span className="h-1.5 w-1.5 animate-pulse rounded-full" style={{ background: c }} />
+                  {ongoingLabel}
+                </span>
+              )}
             </div>
-            <p
-              className="text-sm font-medium"
-              style={{ color: "oklch(0.88 0.22 130)" }}
-            >
+            <p className="text-sm font-medium" style={{ color: c }}>
               {project.subtitle}
             </p>
           </div>
         </div>
 
-        <a
-          href={project.visitUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-flex items-center gap-1.5 rounded-full px-4 py-2 text-xs font-semibold transition-all duration-200"
-          style={{
-            border: "1px solid oklch(0.88 0.22 130 / 0.6)",
-            backgroundColor: "oklch(0.88 0.22 130 / 0.5)",
-            color: "#ffffff",
-          }}
-          onMouseEnter={(e) => {
-            (e.currentTarget as HTMLAnchorElement).style.background =
-              "oklch(0.88 0.22 130)";
-            (e.currentTarget as HTMLAnchorElement).style.color =
-              "oklch(0.18 0.05 265)";
-          }}
-          onMouseLeave={(e) => {
-            (e.currentTarget as HTMLAnchorElement).style.background =
-              "oklch(0.88 0.22 130 / 0.5)";
-            (e.currentTarget as HTMLAnchorElement).style.color = "#ffffff";
-          }}
-        >
-          {project.visitLabel}
-          <ExternalLinkIcon />
-        </a>
+        {project.visitUrl && (
+          <a
+            href={project.visitUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-1.5 rounded-full px-4 py-2 text-xs font-semibold transition-all duration-200"
+            style={{
+              border: `1px solid ${wa(0.6)}`,
+              backgroundColor: wa(0.5),
+              color: "#ffffff",
+            }}
+            onMouseEnter={(e) => {
+              (e.currentTarget as HTMLAnchorElement).style.background = c;
+              (e.currentTarget as HTMLAnchorElement).style.color = "oklch(0.18 0.05 265)";
+            }}
+            onMouseLeave={(e) => {
+              (e.currentTarget as HTMLAnchorElement).style.background = wa(0.5);
+              (e.currentTarget as HTMLAnchorElement).style.color = "#ffffff";
+            }}
+          >
+            {project.visitLabel}
+            <ExternalLinkIcon />
+          </a>
+        )}
       </div>
 
       {/* Tagline */}
@@ -275,7 +385,7 @@ function ExpandedProjectCard({ project }: { project: WebProjectData }) {
           >
             <span
               className="mt-1.5 inline-block h-1.5 w-1.5 flex-shrink-0 rounded-full"
-              style={{ background: "oklch(0.88 0.22 130)" }}
+              style={{ background: c }}
             />
             {feature}
           </div>
@@ -297,13 +407,7 @@ function ExpandedProjectCard({ project }: { project: WebProjectData }) {
               className="group/tech inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1.5 text-xs font-medium text-[var(--color-text-muted)] transition-all duration-200 hover:border-white/20 hover:bg-white/10 hover:text-[var(--color-text-primary)]"
             >
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src={tech.icon}
-                alt={tech.name}
-                width={14}
-                height={14}
-                className="h-3.5 w-3.5 flex-shrink-0"
-              />
+              <TechIcon src={tech.icon} alt={tech.name} />
               {tech.name}
               <ExternalLinkIcon size={10} />
             </a>
@@ -315,8 +419,7 @@ function ExpandedProjectCard({ project }: { project: WebProjectData }) {
       <div
         className="absolute bottom-0 left-1/2 h-px w-2/3 -translate-x-1/2 opacity-0 transition-opacity duration-500 group-hover:opacity-100"
         style={{
-          background:
-            "linear-gradient(90deg, transparent, oklch(0.88 0.22 130 / 0.6), transparent)",
+          background: `linear-gradient(90deg, transparent, ${wa(0.6)}, transparent)`,
         }}
       />
     </GlassCard>
@@ -333,8 +436,7 @@ export default function PortfolioPage() {
     {
       id: "subenai",
       name: "subenai",
-      favicon: "/subenai-favicon.svg",
-      wordmark: "/subenai-logo.svg",
+      logo: "/subenai-logo.svg",
       year: p.subenai.year,
       tagline: p.subenai.tagline,
       description: p.subenai.description,
@@ -342,8 +444,26 @@ export default function PortfolioPage() {
       visitUrl: "https://subenai.sk",
       visitLabel: p.subenai.visitSite,
       subtitle: "Digital Safety · Education · Full-Stack",
-      techStack,
+      techStack,      accentColor: "oklch(0.88 0.22 130)",
+      accentColorEnd: "oklch(0.78 0.18 165)",
+      glassAccent: "green",
+      ongoing: true,
     },
+    {
+      id: "mobix",
+      name: "Mobix",
+      logo: "/mobix-icon.svg",
+      year: p.mobix.year,
+      tagline: p.mobix.tagline,
+      description: p.mobix.description,
+      features: p.mobix.features,
+      visitLabel: p.mobix.visitSite,
+      subtitle: "Taxi Platform \u00b7 Mobile \u00b7 Full-Stack",
+      techStack: mobixTechStack,
+      accentColor: "rgb(41 144 200)",
+      accentColorEnd: "rgb(15 60 113)",
+      glassAccent: "teal",
+      ongoing: true,    },
   ];
 
   const scrollRef = useRef<HTMLDivElement>(null);
@@ -384,18 +504,18 @@ export default function PortfolioPage() {
 
         {/* ── Web Projects ──────────────────────────────────────────────────── */}
         <section className="mt-20">
-          <ScrollReveal>
+          {/* <ScrollReveal>
             <SectionHeading
               title={p.webProjects.heading}
               subtitle={p.webProjects.subtitle}
               size="sm"
               className="mb-12"
             />
-          </ScrollReveal>
+          </ScrollReveal> */}
 
           {/* Expanded card */}
           <ScrollReveal delay={0.1}>
-            <ExpandedProjectCard project={expandedProject} />
+            <ExpandedProjectCard project={expandedProject} ongoingLabel={p.ongoingLabel} />
           </ScrollReveal>
 
           {/* Collapsed cards – horizontally scrollable when there are multiple */}
@@ -405,6 +525,7 @@ export default function PortfolioPage() {
                 <CollapsedProjectCard
                   key={pr.id}
                   project={pr}
+                  ongoingLabel={p.ongoingLabel}
                   onClick={() => setExpandedId(pr.id)}
                 />
               ))}
