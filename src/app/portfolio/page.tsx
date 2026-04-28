@@ -94,12 +94,12 @@ const mobixTechStack = [
   {
     name: "Twilio",
     url: "https://twilio.com",
-    icon: "https://cdn.simpleicons.org/twilio/F22F46",
+    icon: "/twilio-icon.svg",
   },
   {
     name: "Playwright",
     url: "https://playwright.dev",
-    icon: "https://cdn.simpleicons.org/playwright/2EAD33",
+    icon: "/playwright-icon.svg",
   },
 ];
 

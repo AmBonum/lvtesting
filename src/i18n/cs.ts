@@ -388,7 +388,7 @@ export const cs: Translations = {
         "Cookie consent respektující volbu uživatele",
         "SEO základ se sitemapou a meta daty",
       ],
-      year: "2025",
+      year: "2026",
     },
     ongoingLabel: "Probíhá",
     mobix: {
@@ -408,7 +408,7 @@ export const cs: Translations = {
         "Administrační panel s přehledem jízd, řidičů, plateb a analytiky",
         "Vícejazyčná podpora (SK, EN a další lokály)",
       ],
-      year: "2024",
+      year: "2025",
     },
   },
 

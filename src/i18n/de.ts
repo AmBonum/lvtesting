@@ -388,7 +388,7 @@ export const de: Translations = {
         "Cookie-Consent und datenschutzkonforme Analytics",
         "SEO-Grundlage mit Sitemap und Meta-Tags",
       ],
-      year: "2025",
+      year: "2026",
     },
     ongoingLabel: "Laufend",
     mobix: {
@@ -408,7 +408,7 @@ export const de: Translations = {
         "Admin-Panel mit Übersicht über Fahrten, Fahrer, Zahlungen und Analytik",
         "Mehrsprachige Unterstützung (SK, EN und weitere Lokale)",
       ],
-      year: "2024",
+      year: "2025",
     },
   },
 

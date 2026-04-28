@@ -388,7 +388,7 @@ export const es: Translations = {
         "Cookie consent respetando la preferencia del usuario",
         "Base SEO con sitemap y meta tags",
       ],
-      year: "2025",
+      year: "2026",
     },
     ongoingLabel: "En curso",
     mobix: {
@@ -408,7 +408,7 @@ export const es: Translations = {
         "Panel de administración con resumen de viajes, conductores, pagos y analítica",
         "Soporte multiidioma (SK, EN y otros idiomas)",
       ],
-      year: "2024",
+      year: "2025",
     },
   },
 

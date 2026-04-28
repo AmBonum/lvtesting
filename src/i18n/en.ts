@@ -388,7 +388,7 @@ export const en: Translations = {
         "Cookie consent and privacy-respecting analytics",
         "SEO foundation with sitemap and meta tags",
       ],
-      year: "2025",
+      year: "2026",
     },
     ongoingLabel: "Ongoing",
     mobix: {
@@ -408,7 +408,7 @@ export const en: Translations = {
         "Admin panel with rides, drivers, payments overview and analytics",
         "Multi-language support (SK, EN and more locales)",
       ],
-      year: "2024",
+      year: "2025",
     },
   },
 
