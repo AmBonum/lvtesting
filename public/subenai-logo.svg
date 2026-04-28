@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 305 80">
+  <defs>
+    <linearGradient id="subenaiBrand" gradientUnits="objectBoundingBox" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="oklch(0.88 0.22 130)"/>
+      <stop offset="100%" stop-color="oklch(0.78 0.18 165)"/>
+    </linearGradient>
+  </defs>
+  <text x="0" y="68"
+        font-family="ui-rounded, 'Nunito', 'Varela Round', system-ui, sans-serif"
+        font-weight="900" font-size="80" fill="url(#subenaiBrand)">subenai</text>
+</svg>

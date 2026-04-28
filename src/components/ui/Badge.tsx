@@ -5,6 +5,7 @@ const filledStyles = {
   coral: "bg-[var(--color-accent-coral)]/20 text-[var(--color-accent-coral)]",
   teal: "bg-[var(--color-accent-teal)]/20 text-[var(--color-accent-teal)]",
   yellow: "bg-[var(--color-accent-yellow)]/20 text-[var(--color-accent-yellow)]",
+  green: "bg-[var(--color-accent-green-muted)] text-[var(--color-accent-green)]",
 } as const;
 
 const outlineStyles = {
@@ -12,6 +13,7 @@ const outlineStyles = {
   coral: "border-[var(--color-accent-coral)] text-[var(--color-accent-coral)]",
   teal: "border-[var(--color-accent-teal)] text-[var(--color-accent-teal)]",
   yellow: "border-[var(--color-accent-yellow)] text-[var(--color-accent-yellow)]",
+  green: "border-[var(--color-accent-green)] text-[var(--color-accent-green)]",
 } as const;
 
 type Accent = keyof typeof filledStyles;

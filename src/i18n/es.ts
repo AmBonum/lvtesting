@@ -7,6 +7,7 @@ export const es: Translations = {
     skills: "Habilidades",
     experience: "Experiencia",
     contact: "Contacto",
+    portfolio: "Portfolio",
     openMenu: "Abrir menú",
     closeMenu: "Cerrar menú",
     skipToContent: "Ir al contenido",
@@ -348,6 +349,46 @@ export const es: Translations = {
       description: "La aplicación encontró un error crítico. Por favor, recarga la página.",
       reload: "Recargar",
       backHome: "Volver al inicio",
+    },
+  },
+
+  portfolio: {
+    title: "Portfolio — LV Testing",
+    seoDescription:
+      "Portfolio de Lubomir Volcko — desarrollador full-stack e ingeniero de QA. Aplicaciones web, apps móviles y trabajos de diseño gráfico creados con React, TypeScript, Flutter y más.",
+    copyright:
+      "Todos los proyectos y diseños son propiedad intelectual de Lubomir Volcko. Todos los derechos reservados.",
+    heading: "Portfolio",
+    subtitle: "Una selección de mis trabajos",
+    backHome: "Volver al inicio",
+    webProjects: {
+      heading: "Proyectos web",
+      subtitle: "Aplicaciones full-stack construidas desde cero",
+    },
+    graphicDesigns: {
+      heading: "Diseño gráfico",
+      subtitle: "Trabajo de diseño visual y branding",
+      comingSoon: "Muestras de trabajo próximamente",
+    },
+    subenai: {
+      tagline:
+        "subenai es una aplicación web educativa full-stack construida con React, TypeScript, Supabase y Cloudflare que enseña a los usuarios a reconocer estafas online a través de tests interactivos, lecciones de contenido y resultados medibles.",
+      description:
+        "Una aplicación web centrada en la seguridad digital. Ayuda a los usuarios a reconocer amenazas online como phishing, SMS fraudulentos, tiendas falsas e ingeniería social mediante tests interactivos y contenido educativo.",
+      tech:
+        "React 19 · TypeScript · TanStack Start/Router/Query · Vite · Tailwind CSS v4 · Radix UI · Supabase · Cloudflare Pages · Stripe · Vitest",
+      visitSite: "Visitar sitio",
+      features: [
+        "Tests interactivos de detección de estafas",
+        "Paquetes de tests temáticos y sectoriales",
+        "Páginas educativas explicando tipos de ataques",
+        "Evaluación detallada de respuestas y puntuación",
+        "Compartir resultados y generación de imagen para redes sociales",
+        "Sección de patrocinadores con pagos Stripe",
+        "Cookie consent respetando la preferencia del usuario",
+        "Base SEO con sitemap y meta tags",
+      ],
+      year: "2025",
     },
   },
 

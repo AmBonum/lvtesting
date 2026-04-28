@@ -7,6 +7,7 @@ export const en: Translations = {
     skills: "Skills",
     experience: "Experience",
     contact: "Contact",
+    portfolio: "Portfolio",
     openMenu: "Open menu",
     closeMenu: "Close menu",
     skipToContent: "Skip to content",
@@ -348,6 +349,46 @@ export const en: Translations = {
       description: "The application encountered a critical error. Please try reloading the page.",
       reload: "Reload",
       backHome: "Back to home",
+    },
+  },
+
+  portfolio: {
+    title: "Portfolio — LV Testing",
+    seoDescription:
+      "Portfolio of Lubomir Volcko — full-stack developer and QA engineer. Web applications, mobile apps, and graphic design works built with React, TypeScript, Flutter, and more.",
+    copyright:
+      "All projects and designs are the intellectual property of Lubomir Volcko. All rights reserved.",
+    heading: "Portfolio",
+    subtitle: "A selection of my work",
+    backHome: "Back to home",
+    webProjects: {
+      heading: "Web Projects",
+      subtitle: "Full-stack applications built from scratch",
+    },
+    graphicDesigns: {
+      heading: "Graphic Design",
+      subtitle: "Visual design and branding work",
+      comingSoon: "Work samples coming soon",
+    },
+    subenai: {
+      tagline:
+        "subenai is a full-stack educational web application built on React, TypeScript, Supabase and Cloudflare that teaches users to recognize online scams through interactive tests, educational content, and measurable results.",
+      description:
+        "A web application focused on digital safety. Helps users recognize online threats such as phishing, fraudulent SMS, fake e-shops, and social engineering through interactive tests and educational modules.",
+      tech:
+        "React 19 · TypeScript · TanStack Start/Router/Query · Vite · Tailwind CSS v4 · Radix UI · Supabase · Cloudflare Pages · Stripe · Vitest",
+      visitSite: "Visit site",
+      features: [
+        "Interactive scam-detection quizzes",
+        "Thematic and industry test packs",
+        "Educational pages explaining specific attack types",
+        "Detailed answer evaluation and result scoring",
+        "Result sharing and social media visual generation",
+        "Sponsor/support section with Stripe payments",
+        "Cookie consent and privacy-respecting analytics",
+        "SEO foundation with sitemap and meta tags",
+      ],
+      year: "2025",
     },
   },
 

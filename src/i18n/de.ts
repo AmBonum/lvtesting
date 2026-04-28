@@ -7,6 +7,7 @@ export const de: Translations = {
     skills: "Fähigkeiten",
     experience: "Erfahrung",
     contact: "Kontakt",
+    portfolio: "Portfolio",
     openMenu: "Menü öffnen",
     closeMenu: "Menü schließen",
     skipToContent: "Zum Inhalt springen",
@@ -348,6 +349,46 @@ export const de: Translations = {
       description: "Die Anwendung hat einen kritischen Fehler festgestellt. Bitte lade die Seite neu.",
       reload: "Neu laden",
       backHome: "Zurück zur Startseite",
+    },
+  },
+
+  portfolio: {
+    title: "Portfolio — LV Testing",
+    seoDescription:
+      "Portfolio von Lubomir Volcko — Full-Stack-Entwickler und QA-Ingenieur. Webanwendungen, mobile Apps und Grafikarbeiten, erstellt mit React, TypeScript, Flutter und mehr.",
+    copyright:
+      "Alle Projekte und Designs sind geistiges Eigentum von Lubomir Volcko. Alle Rechte vorbehalten.",
+    heading: "Portfolio",
+    subtitle: "Eine Auswahl meiner Arbeiten",
+    backHome: "Zurück zur Startseite",
+    webProjects: {
+      heading: "Web-Projekte",
+      subtitle: "Full-Stack-Anwendungen von Grund auf gebaut",
+    },
+    graphicDesigns: {
+      heading: "Grafikdesign",
+      subtitle: "Visuelles Design und Branding",
+      comingSoon: "Arbeitsbeispiele bald verfügbar",
+    },
+    subenai: {
+      tagline:
+        "subenai ist eine Full-Stack-Lern-Webanwendung, die auf React, TypeScript, Supabase und Cloudflare basiert und Nutzern beibringt, Online-Betrug durch interaktive Tests, Lernmodule und messbare Ergebnisse zu erkennen.",
+      description:
+        "Eine Webanwendung für digitale Sicherheit. Hilft Nutzern, Online-Bedrohungen wie Phishing, betrügerische SMS, gefälschte Online-Shops und Social Engineering durch interaktive Tests und Lernmodule zu erkennen.",
+      tech:
+        "React 19 · TypeScript · TanStack Start/Router/Query · Vite · Tailwind CSS v4 · Radix UI · Supabase · Cloudflare Pages · Stripe · Vitest",
+      visitSite: "Website besuchen",
+      features: [
+        "Interaktive Betrugserkennungs-Quizze",
+        "Thematische und branchenspezifische Test-Pakete",
+        "Lernseiten zu spezifischen Angriffstypen",
+        "Detaillierte Antwortauswertung und Ergebnis-Scoring",
+        "Ergebnis-Sharing und Social-Media-Bildgenerierung",
+        "Sponsor-/Unterstützungsbereich mit Stripe-Zahlungen",
+        "Cookie-Consent und datenschutzkonforme Analytics",
+        "SEO-Grundlage mit Sitemap und Meta-Tags",
+      ],
+      year: "2025",
     },
   },
 

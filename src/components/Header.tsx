@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { siteConfig } from "@/data/content";
 import { useI18n } from "@/i18n/provider";
@@ -10,13 +11,16 @@ export default function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const { t } = useI18n();
+  const pathname = usePathname();
+  const isHome = pathname === "/";
 
   const navLinks = [
-    { label: t.nav.about, href: "#about" },
-    { label: t.nav.projects, href: "#projects" },
-    { label: t.nav.skills, href: "#skills" },
-    { label: t.nav.experience, href: "#experience" },
-    { label: t.nav.contact, href: "#contact" },
+    { label: t.nav.about, href: isHome ? "#about" : "/#about" },
+    { label: t.nav.projects, href: isHome ? "#projects" : "/#projects" },
+    { label: t.nav.skills, href: isHome ? "#skills" : "/#skills" },
+    { label: t.nav.experience, href: isHome ? "#experience" : "/#experience" },
+    { label: t.nav.contact, href: isHome ? "#contact" : "/#contact" },
+    { label: t.nav.portfolio, href: "/portfolio" },
   ];
 
   useEffect(() => {

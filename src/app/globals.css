@@ -9,13 +9,18 @@
   --color-accent-purple: #6C63FF;
   --color-accent-coral: #FF6B6B;
   --color-accent-teal: #4ECDC4;
+  --color-accent-green: oklch(0.88 0.22 130);
+  --color-accent-green-end: oklch(0.78 0.18 165);
+  --color-accent-green-muted: oklch(0.88 0.22 130 / 0.14);
+  --color-accent-green-border: oklch(0.88 0.22 130 / 0.3);
   --color-accent-yellow: #FFD93D;
   --color-text-primary: #F8F8F2;
-  --color-text-muted: #8892B0;
+  --color-text-muted: #d2d2d4;
   --color-border-glass: rgba(255, 255, 255, 0.1);
   --color-glow-purple: rgba(108, 99, 255, 0.3);
   --color-glow-coral: rgba(255, 107, 107, 0.3);
   --color-glow-teal: rgba(78, 205, 196, 0.3);
+  --color-glow-green: oklch(0.88 0.22 130 / 0.35);
   --font-sans: var(--font-inter);
 }
 
@@ -60,6 +65,18 @@ body {
 
 .glow-teal {
   box-shadow: 0 0 40px rgba(78, 205, 196, 0.15), 0 0 80px rgba(78, 205, 196, 0.05);
+}
+
+.glow-green {
+  box-shadow: 0 0 40px oklch(0.88 0.22 130 / 0.2), 0 0 80px oklch(0.88 0.22 130 / 0.08);
+}
+
+/* Subenai brand gradient text */
+.text-subenai-gradient {
+  background: linear-gradient(135deg, oklch(0.88 0.22 130), oklch(0.78 0.18 165));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 /* Gradient text */

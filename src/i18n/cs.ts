@@ -7,6 +7,7 @@ export const cs: Translations = {
     skills: "Dovednosti",
     experience: "Zkušenosti",
     contact: "Kontakt",
+    portfolio: "Portfolio",
     openMenu: "Otevřít menu",
     closeMenu: "Zavřít menu",
     skipToContent: "Přeskočit na obsah",
@@ -348,6 +349,46 @@ export const cs: Translations = {
       description: "Aplikace narazila na kritickou chybu. Zkuste prosím obnovit stránku.",
       reload: "Obnovit",
       backHome: "Zpět na úvod",
+    },
+  },
+
+  portfolio: {
+    title: "Portfolio — LV Testing",
+    seoDescription:
+      "Portfolio Lubomíra Volcka — full-stack vývojář a QA inženýr. Webové aplikace, mobilní aplikace a grafické práce vytvořené v Reactu, TypeScriptu, Flutteru a dalších technologiích.",
+    copyright:
+      "Všechny projekty a designy jsou duševním vlastnictvím Lubomíra Volcka. Všechna práva vyhrazena.",
+    heading: "Portfolio",
+    subtitle: "Výber z mojích prací",
+    backHome: "Zpět na hlavní stránku",
+    webProjects: {
+      heading: "Webové projekty",
+      subtitle: "Full-stack aplikace postavené od základů",
+    },
+    graphicDesigns: {
+      heading: "Grafické práce",
+      subtitle: "Vizuální design a branding",
+      comingSoon: "Ukázky prací brzy",
+    },
+    subenai: {
+      tagline:
+        "subenai je full-stack edukační webová aplikace postavená na Reactu, TypeScriptu, Supabase a Cloudflare, která učí uživatele rozpoznávat online podvody přes interaktivní testy, obsahové lekce a měřitelné výsledky.",
+      description:
+        "Webová aplikace zaměřená na digitální bezpečnost. Pomáhá uživatelům rozpoznávat online hrozby jako phishing, podvodné SMS, falešné e-shopy a sociální inženýrství prostřednictvím interaktivních testů a edukačního obsahu.",
+      tech:
+        "React 19 · TypeScript · TanStack Start/Router/Query · Vite · Tailwind CSS v4 · Radix UI · Supabase · Cloudflare Pages · Stripe · Vitest",
+      visitSite: "Navštívit stránku",
+      features: [
+        "Interaktivní testy na odhalíování podvodů",
+        "Tematické a odvětvové testové balíčky",
+        "Vzdělávací stránky s vysvětleními typů útoky",
+        "Detailní vyhodnocení odpovědí a výsledné skóre",
+        "Sdílení výsledků a generování vizuálu pro sociální sítě",
+        "Sponzorská sekce s platbami přes Stripe",
+        "Cookie consent respektující volbu uživatele",
+        "SEO základ se sitemapou a meta daty",
+      ],
+      year: "2025",
     },
   },
 

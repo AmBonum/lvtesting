@@ -8,6 +8,7 @@ export interface Translations {
     skills: string;
     experience: string;
     contact: string;
+    portfolio: string;
     openMenu: string;
     closeMenu: string;
     skipToContent: string;
@@ -151,6 +152,33 @@ export interface Translations {
       contact: { heading: string; content: string[] };
       authority: { heading: string; content: string[] };
       changes: { heading: string; content: string[] };
+    };
+  };
+
+  // Portfolio
+  portfolio: {
+    title: string;
+    seoDescription: string;
+    copyright: string;
+    heading: string;
+    subtitle: string;
+    backHome: string;
+    webProjects: {
+      heading: string;
+      subtitle: string;
+    };
+    graphicDesigns: {
+      heading: string;
+      subtitle: string;
+      comingSoon: string;
+    };
+    subenai: {
+      tagline: string;
+      description: string;
+      tech: string;
+      visitSite: string;
+      features: string[];
+      year: string;
     };
   };
 
