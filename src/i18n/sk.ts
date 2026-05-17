@@ -380,7 +380,7 @@ export const sk: Translations = {
       visitSite: "Navštíviť stránku",
       features: [
         "Interaktívne testy na odhaľovanie podvodov",
-        "Tematické a odvetvëowé testové balíky",
+        "Tematické a odvetvové testové balíky",
         "Edukačné stránky s vysvetleniami typov útokov",
         "Detailné vyhodnotenie odpovedianí a výsledné skóre",
         "Zdielanie výsledkov a generovanie vizuálu pre sociálne siete",
@@ -393,10 +393,10 @@ export const sk: Translations = {
     ongoingLabel: "Prebieha",
     mobix: {
       tagline:
-        "Mobix je produkčná full-stack taxi platforma postavená na Node.js, GraphQL, Flutter a Firebase, ktorá v reálnom čase prepája cestujúcich s vodičmi cez automatický dispatch, GPS sledovanie a viackanálové platby.",
+        "Mobix je produkčná full-stack platforma postavená na Node.js, GraphQL, Flutter a Firebase, ktorá v reálnom čase prepája cestujúcich s vodičmi cez automatický dispatch, GPS sledovanie a viackanálové platby.",
       description:
-        "Kompletná taxi platforma pre slovenský trh tvorená tromi vzájomne prepojenými systémami: mobilnou aplikáciou pre cestujúcich, mobilnou aplikáciou pre vodičov a backendom s administračným panelom. Pokrýva celý životný cyklus jazdy od objednávky cez GPS sledovanie až po platbu a hodnotenie.",
-      visitSite: "Súkromný projekt",
+        "Kompletná platforma pre slovenský trh tvorená tromi vzájomne prepojenými systémami: mobilnou aplikáciou pre cestujúcich, mobilnou aplikáciou pre vodičov a backendom s administračným panelom. Pokrýva celý životný cyklus jazdy od objednávky cez GPS sledovanie až po platbu a hodnotenie.",
+      visitSite: "Navštíviť stránku",
       features: [
         "Rezervácia jazdy — okamžitá aj plánovaná s časovým predstihom",
         "Waterfall dispatch — automatické priraďovanie vodičov s fallback logikou",

@@ -393,10 +393,10 @@ export const es: Translations = {
     ongoingLabel: "En curso",
     mobix: {
       tagline:
-        "Mobix es una plataforma de taxi full-stack lista para producción, construida con Node.js, GraphQL, Flutter y Firebase, que conecta pasajeros y conductores en tiempo real mediante despacho automático, seguimiento GPS y pagos multicanal.",
+        "Mobix es una plataforma full-stack lista para producción, construida con Node.js, GraphQL, Flutter y Firebase, que conecta pasajeros y conductores en tiempo real mediante despacho automático, seguimiento GPS y pagos multicanal.",
       description:
-        "Una plataforma de taxi completa para el mercado eslovaco compuesta por tres sistemas interconectados: una app para pasajeros, una app para conductores y un backend con panel de administración. Cubre todo el ciclo de vida del viaje, desde la reserva hasta el pago y la valoración.",
-      visitSite: "Proyecto privado",
+        "Una plataforma completa para el mercado eslovaco compuesta por tres sistemas interconectados: una app para pasajeros, una app para conductores y un backend con panel de administración. Cubre todo el ciclo de vida del viaje, desde la reserva hasta el pago y la valoración.",
+      visitSite: "Visitar sitio",
       features: [
         "Reserva de viaje — inmediata y programada con antelación",
         "Dispatch en cascada con asignación automática de conductores y lógica de fallback",

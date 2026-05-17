@@ -393,10 +393,10 @@ export const en: Translations = {
     ongoingLabel: "Ongoing",
     mobix: {
       tagline:
-        "Mobix is a production-ready full-stack taxi platform connecting passengers and drivers in real time through automatic dispatch, GPS tracking, and multi-channel payments.",
+        "Mobix is a production-ready full-stack platform connecting passengers and drivers in real time through automatic dispatch, GPS tracking, and multi-channel payments.",
       description:
-        "A complete taxi platform for the Slovak market built from three interconnected systems: a passenger app, a driver app, and a backend with admin panel. Covers the full ride lifecycle — from booking (immediate and scheduled) through real-time GPS tracking to payment and rating.",
-      visitSite: "Private project",
+        "A complete platform for the Slovak market built from three interconnected systems: a passenger app, a driver app, and a backend with admin panel. Covers the full ride lifecycle — from booking (immediate and scheduled) through real-time GPS tracking to payment and rating.",
+      visitSite: "Visit site",
       features: [
         "Ride booking — immediate and scheduled in advance",
         "Waterfall dispatch with automatic driver assignment and fallback logic",
