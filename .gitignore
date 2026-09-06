@@ -46,3 +46,6 @@ next-env.d.ts
 
 # superpowers brainstorming session files
 .superpowers/
+
+# zdrojove PNG zo scen (velke, do gitu ide len optimalizovany vystup)
+assets-src/
