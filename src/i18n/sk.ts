@@ -68,16 +68,16 @@ export const sk: Translations = {
         ],
       },
       {
-        title: "Platforma mobiX",
-        subtitle: "End-to-End mobilný ekosystém",
+        title: "lvtesting.eu",
+        subtitle: "Tento web · návrh, vývoj aj nasadenie",
         description:
-          "Prevzal som existujúcu mobilnú platformu a prispôsobil ju požiadavkám klienta. Prepracoval som mobilné aplikácie, pridal novú funkcionalitu a opravil existujúce funkcie naprieč celým stackom — backend API, admin webová platforma, mobilné aplikácie pre jazdcov a vodičov.",
+          "Stránka, ktorú práve čítaš. Staticky exportovaná aplikácia v Next.js s kinematickým pozadím riadeným scrollovaním, piatimi jazykmi, vlastnou optimalizáciou obrázkov a otestovaným kontaktným formulárom — bez šablóny, bez page builderu, bez servera.",
         highlights: [
-          "Real-time komunikácia (WebSockets)",
-          "Platobné integrácie (Stripe, Google/Apple Pay)",
-          "Mapy, geolokácia a logika jázd",
-          "Kompletný životný cyklus mobilnej aplikácie",
-          "Produkčný monitoring a ladenie",
+          "Parallax príbeh riadený scrollovaním, skladaný na GPU",
+          "Statický export — beží na obyčajnom hostingu bez servera",
+          "Päť jazykov, ktoré stráži test úplnosti prekladov",
+          "Kontaktný formulár s hCaptcha a súhlasom podľa GDPR",
+          "Jednotkové testy analytiky, súhlasu aj i18n vrstvy",
         ],
       },
     ],
@@ -391,25 +391,6 @@ export const sk: Translations = {
       year: "2026",
     },
     ongoingLabel: "Prebieha",
-    mobix: {
-      tagline:
-        "Mobix je produkčná full-stack platforma postavená na Node.js, GraphQL, Flutter a Firebase, ktorá v reálnom čase prepája cestujúcich s vodičmi cez automatický dispatch, GPS sledovanie a viackanálové platby.",
-      description:
-        "Kompletná platforma pre slovenský trh tvorená tromi vzájomne prepojenými systémami: mobilnou aplikáciou pre cestujúcich, mobilnou aplikáciou pre vodičov a backendom s administračným panelom. Pokrýva celý životný cyklus jazdy od objednávky cez GPS sledovanie až po platbu a hodnotenie.",
-      visitSite: "Navštíviť stránku",
-      features: [
-        "Rezervácia jazdy — okamžitá aj plánovaná s časovým predstihom",
-        "Waterfall dispatch — automatické priraďovanie vodičov s fallback logikou",
-        "GPS sledovanie jazdy v reálnom čase cez WebSocket + Google Maps",
-        "OTP overenie telefónu cez Twilio (cestujúci aj vodič)",
-        "Viacero platobných metód: hotovosť, karta (Stripe), Google Pay, Paystack, peňaženka",
-        "Prehľad zárobkov vodiča — denný / týždenný / mesačný",
-        "Firebase push notifikácie a in-app upozornenia pre oba typy používateľov",
-        "Administračný panel s prehľadom jázd, vodičov, platby a analytika",
-        "Viacjazyčná podpora (SK, EN a ďalšie lokality)",
-      ],
-      year: "2025",
-    },
   },
 
   footer: {

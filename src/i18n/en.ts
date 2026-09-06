@@ -68,16 +68,16 @@ export const en: Translations = {
         ],
       },
       {
-        title: "mobiX Platform",
-        subtitle: "End-to-End Mobility Ecosystem",
+        title: "lvtesting.eu",
+        subtitle: "This Site · Designed, Built & Deployed Solo",
         description:
-          "Took over an existing mobility platform and adapted it to client requirements. Redesigned the mobile apps, added new functionality, and fixed existing features across the full stack — backend API, admin web platform, rider and driver mobile apps.",
+          "The site you are reading right now. A static-export Next.js application with a scroll-driven cinematic background, five languages, hand-rolled image optimisation and a tested contact pipeline — no template, no page builder, no server.",
         highlights: [
-          "Real-time communication (WebSockets)",
-          "Payment integrations (Stripe, Google/Apple Pay)",
-          "Maps, geolocation & ride logic",
-          "Full mobile app lifecycle",
-          "Production monitoring & debugging",
+          "Scroll-driven parallax narrative, composited on the GPU",
+          "Static export — runs on plain shared hosting, no server",
+          "Five languages, guarded by a translation completeness test",
+          "Contact form with hCaptcha and GDPR-compliant consent",
+          "Unit-tested analytics, consent and i18n layers",
         ],
       },
     ],
@@ -391,25 +391,6 @@ export const en: Translations = {
       year: "2026",
     },
     ongoingLabel: "Ongoing",
-    mobix: {
-      tagline:
-        "Mobix is a production-ready full-stack platform connecting passengers and drivers in real time through automatic dispatch, GPS tracking, and multi-channel payments.",
-      description:
-        "A complete platform for the Slovak market built from three interconnected systems: a passenger app, a driver app, and a backend with admin panel. Covers the full ride lifecycle — from booking (immediate and scheduled) through real-time GPS tracking to payment and rating.",
-      visitSite: "Visit site",
-      features: [
-        "Ride booking — immediate and scheduled in advance",
-        "Waterfall dispatch with automatic driver assignment and fallback logic",
-        "Real-time GPS tracking via WebSocket + Google Maps",
-        "OTP phone verification via Twilio (passengers and drivers)",
-        "Multiple payment methods: cash, card (Stripe), Google Pay, Paystack, wallet",
-        "Driver earnings dashboard — daily / weekly / monthly overview",
-        "Firebase push notifications and in-app alerts for both user types",
-        "Admin panel with rides, drivers, payments overview and analytics",
-        "Multi-language support (SK, EN and more locales)",
-      ],
-      year: "2025",
-    },
   },
 
   footer: {

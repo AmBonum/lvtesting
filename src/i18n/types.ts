@@ -181,13 +181,6 @@ export interface Translations {
       year: string;
     };
     ongoingLabel: string;
-    mobix: {
-      tagline: string;
-      description: string;
-      visitSite: string;
-      features: string[];
-      year: string;
-    };
   };
 
   // Errors

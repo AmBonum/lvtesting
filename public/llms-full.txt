@@ -59,11 +59,11 @@ Career stats: 5+ years in QA, 100+ test suites built, 6 companies served.
 - Tech stack: Playwright, Azure DevOps, GitHub, Copilot
 - Category: Enterprise
 
-### mobiX Mobility Platform
-- Type: End-to-End Mobility Ecosystem
-- Description: Took over an existing mobility platform and adapted it to client requirements. Redesigned mobile apps, added new functionality, and fixed existing features across the full stack — backend API, admin web platform, rider and driver mobile apps.
-- Features: Real-time communication (WebSockets), payment integrations (Stripe, Google/Apple Pay), maps, geolocation & ride logic, full mobile app lifecycle, production monitoring & debugging
-- Tech stack: Flutter, WebSockets, Stripe, Google Pay, Apple Pay, Maps, Firebase
+### lvtesting.eu — This Site
+- Type: Portfolio site, designed, built and deployed solo
+- Description: The site itself, built from scratch as a static-export Next.js application with a scroll-driven cinematic background telling the story of how software is made, from idea to release.
+- Features: Scroll-driven parallax narrative composited on the GPU, static export running on plain shared hosting, five languages guarded by a translation completeness test, contact form with hCaptcha and GDPR-compliant consent, unit-tested analytics, consent and i18n layers
+- Tech stack: Next.js 16, TypeScript, Tailwind CSS 4, Framer Motion, Vitest
 
 ## Professional Experience (Chronological)
 
@@ -102,7 +102,7 @@ Career stats: 5+ years in QA, 100+ test suites built, 6 companies served.
 
 ## Companies & Clients
 
-Caterpillar, mobiX, Moxymind, Masternaut, GlobalLogic, Ness KE, IAESTE
+Caterpillar, Moxymind, Masternaut, GlobalLogic, Ness KE, IAESTE
 
 ## Technical Skills Matrix
 
@@ -139,4 +139,4 @@ Slovakia, EU. Available for remote work and on-site projects across Europe.
 Through the contact form at https://lvtesting.eu/#contact. Specify your project type and budget range.
 
 **What industries have been served?**
-Enterprise/industrial (Caterpillar), mobility/transport (mobiX), medical software (GlobalLogic), telematics (Masternaut/Ness KE), and non-profit (IAESTE).
+Enterprise/industrial (Caterpillar), mobility/transport, medical software (GlobalLogic), telematics (Masternaut/Ness KE), and non-profit (IAESTE).

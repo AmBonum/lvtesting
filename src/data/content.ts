@@ -55,26 +55,25 @@ export const projects = [
     ],
   },
   {
-    title: "mobiX Platform",
-    subtitle: "End-to-End Mobility Ecosystem",
+    title: "lvtesting.eu",
+    subtitle: "This Site · Designed, Built & Deployed Solo",
     description:
-      "Took over an existing mobility platform and adapted it to client requirements. Redesigned the mobile apps, added new functionality, and fixed existing features across the full stack — backend API, admin web platform, rider and driver mobile apps.",
+      "The site you are reading right now. A static-export Next.js application with a scroll-driven cinematic background, five languages, hand-rolled image optimisation and a tested contact pipeline — no template, no page builder, no server.",
     tags: [
-      "Flutter",
-      "WebSockets",
-      "Stripe",
-      "Google Pay",
-      "Apple Pay",
-      "Maps",
-      "Firebase",
+      "Next.js 16",
+      "TypeScript",
+      "Tailwind 4",
+      "Framer Motion",
+      "Vitest",
+      "i18n",
     ],
     accent: "coral" as const,
     highlights: [
-      "Real-time communication (WebSockets)",
-      "Payment integrations (Stripe, Google/Apple Pay)",
-      "Maps, geolocation & ride logic",
-      "Full mobile app lifecycle",
-      "Production monitoring & debugging",
+      "Scroll-driven parallax narrative, composited on the GPU",
+      "Static export — runs on plain shared hosting, no server",
+      "Five languages, guarded by a translation completeness test",
+      "Contact form with hCaptcha and GDPR-compliant consent",
+      "Unit-tested analytics, consent and i18n layers",
     ],
   },
 ];
@@ -139,8 +138,17 @@ export const experience = [
     company: "Freelance",
     period: "2024 – Present",
     description:
-      "Designing and building production mobile applications. Full lifecycle — from Figma prototypes to App Store deployment.",
-    stack: ["Flutter", "Firebase", "GoogleAuth", "Figma", "iOS", "Android"],
+      "Designing and building production mobile applications — including a full mobility platform for a transport-sector client: rider and driver apps, real-time ride tracking, and card and wallet payments. Full lifecycle — from Figma prototypes to App Store deployment.",
+    stack: [
+      "Flutter",
+      "Firebase",
+      "WebSockets",
+      "Stripe",
+      "Maps",
+      "Figma",
+      "iOS",
+      "Android",
+    ],
     accent: "coral" as const,
   },
   {
@@ -192,7 +200,6 @@ export const experience = [
 
 export const companies = [
   { name: "Caterpillar", url: "https://www.caterpillar.com" },
-  { name: "mobiX", url: "https://mobix.eu.sk/" },
   { name: "Moxymind", url: "https://moxymind.eu/" },
   { name: "Masternaut", url: "https://www.masternaut.com" },
   { name: "GlobalLogic", url: "https://www.globallogic.com" },

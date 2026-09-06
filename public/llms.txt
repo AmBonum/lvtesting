@@ -8,7 +8,7 @@ Key facts:
 - Current role: QA Automation Engineer at Caterpillar Slovakia (via Moxymind) — building automated tests for enterprise inspection platforms
 - Side work: Freelance Flutter Engineer & Designer — building production mobile apps from Figma prototypes to App Store deployment
 - Core expertise: Playwright, Selenium, Appium, Cypress, Cucumber, Flutter, Next.js, React, TypeScript, Node.js, Figma
-- Industries served: Enterprise/industrial (Caterpillar), mobility/transport (mobiX), medical (GlobalLogic), telematics (Masternaut/Ness KE)
+- Industries served: Enterprise/industrial (Caterpillar), mobility/transport, medical (GlobalLogic), telematics (Masternaut/Ness KE)
 - Experience: 5+ years QA, 100+ test suites built, 6 companies served
 - Location: Slovakia, EU
 - Languages: Slovak (native), English (professional)
@@ -24,7 +24,7 @@ Key facts:
 ## Projects
 
 - [QA Automation at Caterpillar](https://lvtesting.eu/#projects): Enterprise platform testing for dynamic inspection forms and workflows. Playwright test suites, Azure DevOps CI/CD, AI-assisted development with GitHub Copilot.
-- [mobiX Mobility Platform](https://lvtesting.eu/#projects): Full-stack mobility ecosystem — backend API, admin web platform, rider and driver mobile apps. Flutter, WebSockets, Stripe payments, Firebase, maps and geolocation.
+- [lvtesting.eu](https://lvtesting.eu/#projects): This site — a static-export Next.js application with a scroll-driven cinematic background, five languages, hand-rolled image optimisation and a tested contact pipeline. Next.js 16, TypeScript, Tailwind CSS 4, Framer Motion, Vitest.
 
 ## Experience & Companies
 

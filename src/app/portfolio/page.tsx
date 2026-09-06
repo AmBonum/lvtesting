@@ -54,54 +54,6 @@ const techStack = [
   },
 ];
 
-// ─── Mobix tech stack ─────────────────────────────────────────────────────────
-const mobixTechStack = [
-  {
-    name: "Flutter",
-    url: "https://flutter.dev",
-    icon: "https://cdn.simpleicons.org/flutter/54C5F8",
-  },
-  {
-    name: "Dart",
-    url: "https://dart.dev",
-    icon: "https://cdn.simpleicons.org/dart/0175C2",
-  },
-  {
-    name: "Node.js",
-    url: "https://nodejs.org",
-    icon: "https://cdn.simpleicons.org/nodedotjs/6DB33F",
-  },
-  {
-    name: "GraphQL",
-    url: "https://graphql.org",
-    icon: "https://cdn.simpleicons.org/graphql/E10098",
-  },
-  {
-    name: "MySQL",
-    url: "https://mysql.com",
-    icon: "https://cdn.simpleicons.org/mysql/4479A1",
-  },
-  {
-    name: "Firebase",
-    url: "https://firebase.google.com",
-    icon: "https://cdn.simpleicons.org/firebase/DD2C00",
-  },
-  {
-    name: "Stripe",
-    url: "https://stripe.com",
-    icon: "https://cdn.simpleicons.org/stripe/9B8DFF",
-  },
-  {
-    name: "Twilio",
-    url: "https://twilio.com",
-    icon: "/twilio-icon.svg",
-  },
-  {
-    name: "Playwright",
-    url: "https://playwright.dev",
-    icon: "/playwright-icon.svg",
-  },
-];
 
 // ─── Color helper ─────────────────────────────────────────────────────────────
 // Appends / alpha) to an oklch() color string: withAlpha("oklch(0.8 0.2 130)", 0.15) → "oklch(0.8 0.2 130 / 0.15)"
@@ -449,22 +401,6 @@ export default function PortfolioPage() {
       glassAccent: "green",
       ongoing: true,
     },
-    {
-      id: "mobix",
-      name: "Mobix",
-      logo: "/mobix-icon.svg",
-      year: p.mobix.year,
-      tagline: p.mobix.tagline,
-      description: p.mobix.description,
-      features: p.mobix.features,
-      visitUrl: "https://mobix.eu.sk/",
-      visitLabel: p.mobix.visitSite,
-      subtitle: "Platform \u00b7 Mobile \u00b7 Full-Stack",
-      techStack: mobixTechStack,
-      accentColor: "rgb(41 144 200)",
-      accentColorEnd: "rgb(15 60 113)",
-      glassAccent: "teal",
-      ongoing: true,    },
   ];
 
   const scrollRef = useRef<HTMLDivElement>(null);

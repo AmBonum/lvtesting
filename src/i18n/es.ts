@@ -68,16 +68,16 @@ export const es: Translations = {
         ],
       },
       {
-        title: "Plataforma mobiX",
-        subtitle: "Ecosistema de movilidad End-to-End",
+        title: "lvtesting.eu",
+        subtitle: "Este sitio · diseño, desarrollo y despliegue",
         description:
-          "Tomé una plataforma de movilidad existente y la adapté a los requisitos del cliente. Rediseñé las aplicaciones móviles, añadí nueva funcionalidad y corregí funciones existentes en todo el stack — API backend, plataforma web admin, aplicaciones móviles de pasajeros y conductores.",
+          "La página que estás leyendo. Una aplicación Next.js de exportación estática con fondo cinematográfico guiado por el scroll, cinco idiomas, optimización de imágenes propia y un formulario de contacto probado — sin plantilla, sin page builder, sin servidor.",
         highlights: [
-          "Comunicación en tiempo real (WebSockets)",
-          "Integraciones de pago (Stripe, Google/Apple Pay)",
-          "Mapas, geolocalización y lógica de viajes",
-          "Ciclo de vida completo de app móvil",
-          "Monitoreo y depuración en producción",
+          "Narrativa parallax guiada por scroll, compuesta en la GPU",
+          "Exportación estática — funciona en hosting compartido común",
+          "Cinco idiomas, protegidos por un test de completitud",
+          "Formulario de contacto con hCaptcha y consentimiento RGPD",
+          "Capas de analítica, consentimiento e i18n con tests unitarios",
         ],
       },
     ],
@@ -391,25 +391,6 @@ export const es: Translations = {
       year: "2026",
     },
     ongoingLabel: "En curso",
-    mobix: {
-      tagline:
-        "Mobix es una plataforma full-stack lista para producción, construida con Node.js, GraphQL, Flutter y Firebase, que conecta pasajeros y conductores en tiempo real mediante despacho automático, seguimiento GPS y pagos multicanal.",
-      description:
-        "Una plataforma completa para el mercado eslovaco compuesta por tres sistemas interconectados: una app para pasajeros, una app para conductores y un backend con panel de administración. Cubre todo el ciclo de vida del viaje, desde la reserva hasta el pago y la valoración.",
-      visitSite: "Visitar sitio",
-      features: [
-        "Reserva de viaje — inmediata y programada con antelación",
-        "Dispatch en cascada con asignación automática de conductores y lógica de fallback",
-        "Seguimiento GPS del viaje en tiempo real vía WebSocket + Google Maps",
-        "Verificación OTP del teléfono vía Twilio (pasajeros y conductores)",
-        "Múltiples métodos de pago: efectivo, tarjeta (Stripe), Google Pay, Paystack, monedero",
-        "Panel de ganancias del conductor — diario / semanal / mensual",
-        "Notificaciones push Firebase y alertas in-app para ambos tipos de usuario",
-        "Panel de administración con resumen de viajes, conductores, pagos y analítica",
-        "Soporte multiidioma (SK, EN y otros idiomas)",
-      ],
-      year: "2025",
-    },
   },
 
   footer: {
