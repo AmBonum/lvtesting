@@ -112,7 +112,7 @@ export const de: Translations = {
         company: "Freelance",
         period: "2024 – Gegenwart",
         description:
-          "Gestaltung und Entwicklung produktionsreifer mobiler Anwendungen. Vollständiger Lebenszyklus — von Figma-Prototypen bis zum App-Store-Deployment.",
+          "Gestaltung und Entwicklung produktionsreifer mobiler Anwendungen. Bis Mai 2026 zudem eine vollständige Mobilitätsplattform für einen Kunden aus dem Transportsektor — Fahrgast- und Fahrer-Apps, Echtzeit-Fahrtverfolgung sowie Karten- und Wallet-Zahlungen. Vollständiger Lebenszyklus — von Figma-Prototypen bis zum App-Store-Deployment.",
       },
       {
         role: "Bolt-Fahrer & persönliche Pause",

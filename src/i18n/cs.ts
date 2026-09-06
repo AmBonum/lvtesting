@@ -112,7 +112,7 @@ export const cs: Translations = {
         company: "Freelance",
         period: "2024 – Současnost",
         description:
-          "Navrhuji a tvořím produkční mobilní aplikace. Kompletní životní cyklus — od Figma prototypů po nasazení do App Store.",
+          "Navrhuji a tvořím produkční mobilní aplikace. Do května 2026 také kompletní platforma pro mobilitu pro klienta v dopravě — aplikace pro cestující i řidiče, sledování jízd v reálném čase a platby kartou i peněženkou. Kompletní životní cyklus — od Figma prototypů po nasazení do App Store.",
       },
       {
         role: "Bolt řidič & osobní přestávka",

@@ -112,7 +112,7 @@ export const es: Translations = {
         company: "Freelance",
         period: "2024 – Presente",
         description:
-          "Diseñando y construyendo aplicaciones móviles de producción. Ciclo de vida completo — desde prototipos en Figma hasta despliegue en App Store.",
+          "Diseñando y construyendo aplicaciones móviles de producción. Hasta mayo de 2026, una plataforma de movilidad completa para un cliente del sector del transporte — apps de pasajeros y conductores, seguimiento de viajes en tiempo real y pagos con tarjeta y monedero. Ciclo de vida completo — desde prototipos en Figma hasta despliegue en App Store.",
       },
       {
         role: "Conductor Bolt & Pausa personal",

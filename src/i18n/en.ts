@@ -112,7 +112,7 @@ export const en: Translations = {
         company: "Freelance",
         period: "2024 – Present",
         description:
-          "Designing and building production mobile applications. Full lifecycle — from Figma prototypes to App Store deployment.",
+          "Designing and building production mobile applications. Through May 2026, a full mobility platform for a transport-sector client — rider and driver apps, real-time ride tracking, and card and wallet payments. Full lifecycle — from Figma prototypes to App Store deployment.",
       },
       {
         role: "Bolt Driver & Personal Break",
