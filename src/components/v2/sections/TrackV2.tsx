@@ -23,6 +23,10 @@ export function TrackV2() {
 
       <ol className="mt-9 border-l border-white/15 pl-5">
         {experience.map((item, i) => {
+          // Translated copy wins when present; `content.ts` is only the
+          // fallback (matches `Experience.tsx`'s own
+          // `t.experience.items[index]?.description ?? item.description`
+          // precedence, so all five locales stay in control of this text).
           const translated = t.experience.items[i];
           return (
             <motion.li
@@ -43,12 +47,28 @@ export function TrackV2() {
               <p className="text-xs text-v2-amber">
                 {translated?.company ?? item.company}
               </p>
+              <p className="mt-2 text-sm leading-relaxed text-v2-muted">
+                {translated?.description ?? item.description}
+              </p>
+              <ul className="mt-3 flex flex-wrap gap-1.5">
+                {item.stack.map((tech) => (
+                  <li
+                    key={tech}
+                    className="rounded-full border border-white/15 px-2.5 py-0.5 text-[10px] text-v2-muted"
+                  >
+                    {tech}
+                  </li>
+                ))}
+              </ul>
             </motion.li>
           );
         })}
       </ol>
 
-      <ul className="mt-8 flex flex-wrap gap-x-5 gap-y-2">
+      <p className="mt-8 font-mono text-[11px] uppercase tracking-[0.2em] text-v2-muted/70">
+        {t.companies.heading}
+      </p>
+      <ul className="mt-3 flex flex-wrap gap-x-5 gap-y-2">
         {companies.map((company) => (
           <li key={company.name}>
             <a

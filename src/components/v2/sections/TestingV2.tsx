@@ -21,7 +21,11 @@ function SkillBar({
     target: ref,
     offset: ["start 0.9", "start 0.35"],
   });
-  const width = useTransform(scrollYProgress, [0, 1], ["0%", `${level}%`]);
+  // Global constraint: animate only transform/opacity, never layout
+  // properties like `width`. The fill is a full-width node scaled down with
+  // `scaleX`; its border-radius is deliberately omitted (see below) so the
+  // transform can't stretch a circular corner into an ellipse.
+  const scaleX = useTransform(scrollYProgress, [0, 1], [0, level / 100]);
 
   return (
     <div ref={ref} className="space-y-1.5">
@@ -31,10 +35,13 @@ function SkillBar({
         </span>
         <span className="font-mono text-v2-teal">{level}%</span>
       </div>
+      {/* The pill radius lives on the track (unscaled) and clips the fill
+          via overflow-hidden. Putting the radius on the scaled fill instead
+          would squash it into an ellipse at low scaleX values. */}
       <div className="h-1 w-full overflow-hidden rounded-full bg-white/10">
         <motion.div
-          className="h-full rounded-full bg-gradient-to-r from-v2-teal to-v2-amber"
-          style={reduceMotion ? { width: `${level}%` } : { width }}
+          className="h-full w-full origin-left bg-gradient-to-r from-v2-teal to-v2-amber"
+          style={reduceMotion ? { scaleX: level / 100 } : { scaleX }}
         />
       </div>
     </div>
