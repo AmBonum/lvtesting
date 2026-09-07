@@ -12,7 +12,7 @@ import { SCENES } from "@/lib/v2/scenes";
 import { SceneLayer } from "./SceneLayer";
 
 /** Stable DOM ids of the six sections, in scroll order — see page.tsx. */
-const SECTION_IDS = ["hero", "process", "work", "testing", "track", "contact"] as const;
+const SECTION_IDS = ["hero", "process", "work", "testing", "track", "get-in-touch"] as const;
 
 type SceneWindow = { start: number; end: number };
 

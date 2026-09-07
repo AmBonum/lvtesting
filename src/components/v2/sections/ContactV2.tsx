@@ -7,10 +7,20 @@ import { SectionShell } from "./Shell";
 export function ContactV2() {
   const { t } = useI18n();
 
+  /* The shell below is "get-in-touch", not "contact", because v1's
+     <Contact/> renders its own <section id="contact"> inside it. Two
+     elements sharing an id is invalid HTML, and more importantly SceneStage
+     measures this section via document.getElementById(SECTION_IDS[5]) —
+     with a duplicate id that call resolved to whichever element came first
+     in document order, so the last scene's window silently depended on the
+     nesting order of two components rather than on anything explicit.
+     Renaming the outer shell (the one v2 owns) leaves v1's inner id
+     untouched and makes the lookup unambiguous. HeroV2's CTA points at
+     #get-in-touch. */
   return (
-    <SectionShell id="contact" kicker={t.v2.contact.kicker}>
+    <SectionShell id="get-in-touch" kicker={t.v2.contact.kicker}>
       <h2
-        id="contact-heading"
+        id="get-in-touch-heading"
         className="text-2xl font-semibold leading-tight text-[var(--v2-text)] sm:text-3xl"
       >
         {t.v2.contact.heading}

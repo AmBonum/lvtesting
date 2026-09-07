@@ -19,7 +19,7 @@ export function HeroV2() {
       </p>
       <div className="mt-10 flex flex-wrap gap-4">
         <a
-          href="#contact"
+          href="#get-in-touch"
           className="rounded-full bg-[var(--v2-amber)] px-7 py-3 text-sm font-semibold text-[var(--v2-ink)] transition-transform duration-200 hover:scale-[1.03]"
         >
           {t.v2.hero.cta}
