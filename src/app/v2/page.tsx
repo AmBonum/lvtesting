@@ -1,7 +1,9 @@
 "use client";
 
 import { SceneStage } from "@/components/v2/SceneStage";
-import { SCENES } from "@/lib/v2/scenes";
+import { HeroV2 } from "@/components/v2/sections/HeroV2";
+import { ProcessV2 } from "@/components/v2/sections/ProcessV2";
+import { WorkV2 } from "@/components/v2/sections/WorkV2";
 
 export default function V2Page() {
   return (
@@ -28,20 +30,9 @@ export default function V2Page() {
           it comes later in the DOM, which is enough to sit visually above
           the scenes without the opaque-layer bug. */}
       <main id="main-content" className="relative">
-        <h1 className="sr-only">lvtesting.eu v2</h1>
-        {/* Temporary scaffold: one full viewport per scene, so the stage can
-            be scrolled and judged before the real sections exist.
-            Replaced in Tasks 5–7. */}
-        {SCENES.map((scene) => (
-          <section
-            key={scene.id}
-            className="flex min-h-screen items-center px-8"
-          >
-            <p className="text-sm uppercase tracking-[0.25em] text-v2-muted">
-              {scene.id}
-            </p>
-          </section>
-        ))}
+        <HeroV2 />
+        <ProcessV2 />
+        <WorkV2 />
       </main>
     </>
   );
