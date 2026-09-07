@@ -4,6 +4,9 @@ import { SceneStage } from "@/components/v2/SceneStage";
 import { HeroV2 } from "@/components/v2/sections/HeroV2";
 import { ProcessV2 } from "@/components/v2/sections/ProcessV2";
 import { WorkV2 } from "@/components/v2/sections/WorkV2";
+import { TestingV2 } from "@/components/v2/sections/TestingV2";
+import { TrackV2 } from "@/components/v2/sections/TrackV2";
+import { ContactV2 } from "@/components/v2/sections/ContactV2";
 
 export default function V2Page() {
   return (
@@ -33,6 +36,9 @@ export default function V2Page() {
         <HeroV2 />
         <ProcessV2 />
         <WorkV2 />
+        <TestingV2 />
+        <TrackV2 />
+        <ContactV2 />
       </main>
     </>
   );
