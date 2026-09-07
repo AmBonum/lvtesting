@@ -396,4 +396,46 @@ export const es: Translations = {
   footer: {
     rights: "Todos los derechos reservados.",
   },
+
+  v2: {
+    hero: {
+      kicker: "QA Automatización e ingeniería full-stack",
+      headline: "Construyo software que sobrevive al contacto con usuarios reales.",
+      sub: "Cinco años probando sistemas donde un fallo cuesta dinero — y construyendo esos sistemas también, desde la API hasta la App Store.",
+      cta: "Hablemos",
+      ctaSecondary: "Ver el trabajo",
+    },
+    process: {
+      kicker: "Cómo trabajo",
+      heading: "Una idea solo cuenta cuando sobrevive a la producción.",
+      body: "Cada proyecto sigue el mismo camino: entender el problema, acordar qué significa terminado, construirlo, demostrar que funciona, y luego lanzarlo y observarlo.",
+      steps: [
+        "Entender el problema antes de proponer una solución",
+        "Acordar por escrito qué significa terminado",
+        "Construir en piezas pequeñas, cada una funcionando por sí sola",
+        "Demostrarlo con pruebas, no con confianza",
+        "Lanzarlo y luego observarlo en producción",
+      ],
+    },
+    work: {
+      kicker: "El trabajo",
+      heading: "Construido, probado y todavía en marcha.",
+      body: "Automatización de pruebas empresarial, un producto full-stack, y el sitio que estás leyendo ahora mismo.",
+    },
+    testing: {
+      kicker: "Cómo lo demuestro",
+      heading: "Encontrar el bug antes que tu cliente.",
+      body: "Playwright, Appium, Cypress y pipelines de CI — la herramienta importa menos que saber qué merece la pena probar.",
+    },
+    track: {
+      kicker: "Dónde funcionó",
+      heading: "Seis años, seis empresas, un mismo hábito.",
+      body: "Plataformas empresariales, software médico, telemática y movilidad — dominios distintos, la misma insistencia en que funcione de verdad.",
+    },
+    contact: {
+      kicker: "Producción",
+      heading: "Cuéntame qué estás construyendo.",
+      body: "Una breve descripción del problema basta para empezar. Respondo a todo.",
+    },
+  },
 };

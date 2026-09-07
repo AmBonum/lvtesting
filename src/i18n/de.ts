@@ -396,4 +396,46 @@ export const de: Translations = {
   footer: {
     rights: "Alle Rechte vorbehalten.",
   },
+
+  v2: {
+    hero: {
+      kicker: "QA-Automatisierung und Full-Stack-Entwicklung",
+      headline: "Ich baue Software, die den Kontakt mit echten Nutzern übersteht.",
+      sub: "Seit fünf Jahren teste ich Systeme, in denen ein Fehler Geld kostet — und baue diese Systeme auch selbst, von der API bis zum App Store.",
+      cta: "Kontakt aufnehmen",
+      ctaSecondary: "Arbeiten ansehen",
+    },
+    process: {
+      kicker: "Wie ich arbeite",
+      heading: "Eine Idee zählt erst, wenn sie die Produktion übersteht.",
+      body: "Jedes Projekt läuft denselben Weg: das Problem verstehen, festlegen, was fertig bedeutet, es bauen, beweisen, dass es funktioniert, dann ausliefern und beobachten.",
+      steps: [
+        "Das Problem verstehen, bevor ich eine Lösung vorschlage",
+        "Schriftlich festhalten, was fertig bedeutet",
+        "In kleinen Teilen bauen, die jeweils für sich funktionieren",
+        "Mit Tests beweisen, nicht mit Zuversicht",
+        "Ausliefern und es dann in der Produktion beobachten",
+      ],
+    },
+    work: {
+      kicker: "Die Arbeit",
+      heading: "Gebaut, getestet und läuft immer noch.",
+      body: "Enterprise-Testautomatisierung, ein Full-Stack-Produkt und die Seite, die du gerade liest.",
+    },
+    testing: {
+      kicker: "Wie ich es beweise",
+      heading: "Den Bug finden, bevor dein Kunde ihn findet.",
+      body: "Playwright, Appium, Cypress und CI-Pipelines — die Tools zählen weniger als zu wissen, was es wert ist, getestet zu werden.",
+    },
+    track: {
+      kicker: "Wo es lief",
+      heading: "Sechs Jahre, sechs Unternehmen, eine Gewohnheit.",
+      body: "Enterprise-Plattformen, Medizinsoftware, Telematik und Mobilität — unterschiedliche Domänen, derselbe Anspruch, dass es wirklich funktioniert.",
+    },
+    contact: {
+      kicker: "Produktion",
+      heading: "Erzähl mir, was du baust.",
+      body: "Eine kurze Beschreibung des Problems reicht zum Start. Ich antworte auf alles.",
+    },
+  },
 };

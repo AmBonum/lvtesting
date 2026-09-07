@@ -396,4 +396,46 @@ export const en: Translations = {
   footer: {
     rights: "All rights reserved.",
   },
+
+  v2: {
+    hero: {
+      kicker: "QA automation & full-stack engineering",
+      headline: "I build software that survives contact with real users.",
+      sub: "Five years testing systems where failure costs money — and building the systems too, from API to app store.",
+      cta: "Start a conversation",
+      ctaSecondary: "See the work",
+    },
+    process: {
+      kicker: "How I work",
+      heading: "An idea only counts once it survives production.",
+      body: "Every project runs the same road: understand the problem, agree what done means, build it, prove it works, then ship it and watch it.",
+      steps: [
+        "Understand the problem before proposing a solution",
+        "Agree what done looks like, in writing",
+        "Build in small pieces that each work on their own",
+        "Prove it with tests, not with confidence",
+        "Ship it, then watch it in production",
+      ],
+    },
+    work: {
+      kicker: "The work",
+      heading: "Built, tested, and still running.",
+      body: "Enterprise test automation, a full-stack product, and the site you are reading right now.",
+    },
+    testing: {
+      kicker: "How I prove it",
+      heading: "Finding the bug before your customer does.",
+      body: "Playwright, Appium, Cypress and CI pipelines — the tooling matters less than knowing what is worth testing.",
+    },
+    track: {
+      kicker: "Where it ran",
+      heading: "Six years, six companies, one habit.",
+      body: "Enterprise platforms, medical software, telematics and mobility — different domains, the same insistence that it actually works.",
+    },
+    contact: {
+      kicker: "Production",
+      heading: "Tell me what you are building.",
+      body: "A short description of the problem is enough to start. I reply to everything.",
+    },
+  },
 };

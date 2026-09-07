@@ -208,4 +208,14 @@ export interface Translations {
   footer: {
     rights: string;
   };
+
+  // v2 preview
+  v2: {
+    hero: { kicker: string; headline: string; sub: string; cta: string; ctaSecondary: string };
+    process: { kicker: string; heading: string; body: string; steps: string[] };
+    work: { kicker: string; heading: string; body: string };
+    testing: { kicker: string; heading: string; body: string };
+    track: { kicker: string; heading: string; body: string };
+    contact: { kicker: string; heading: string; body: string };
+  };
 }

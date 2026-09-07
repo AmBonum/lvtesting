@@ -396,4 +396,46 @@ export const cs: Translations = {
   footer: {
     rights: "Všechna práva vyhrazena.",
   },
+
+  v2: {
+    hero: {
+      kicker: "QA automatizace a full-stack vývoj",
+      headline: "Stavím software, který přežije setkání se skutečnými uživateli.",
+      sub: "Pět let testuji systémy, kde chyba stojí peníze — a tyto systémy také sám stavím, od API po App Store.",
+      cta: "Napsat mi",
+      ctaSecondary: "Prohlédnout práci",
+    },
+    process: {
+      kicker: "Jak pracuji",
+      heading: "Nápad platí až tehdy, když přežije produkci.",
+      body: "Každý projekt jde stejnou cestou: pochopit problém, domluvit se, co znamená hotovo, postavit to, dokázat, že to funguje, nasadit a sledovat.",
+      steps: [
+        "Nejdřív pochopit problém, až pak navrhovat řešení",
+        "Písemně se domluvit, co znamená hotovo",
+        "Stavět po malých částech, z nichž každá funguje sama",
+        "Dokazovat testy, ne přesvědčením",
+        "Nasadit a pak to v produkci sledovat",
+      ],
+    },
+    work: {
+      kicker: "Práce",
+      heading: "Postaveno, otestováno a stále to běží.",
+      body: "Podniková automatizace testování, full-stack produkt a stránka, kterou právě čtete.",
+    },
+    testing: {
+      kicker: "Jak to ověřuji",
+      heading: "Najít chybu dřív, než ji najde váš zákazník.",
+      body: "Playwright, Appium, Cypress a CI pipeline — na nástrojích záleží méně než na tom, vědět, co se vyplatí testovat.",
+    },
+    track: {
+      kicker: "Kde to běželo",
+      heading: "Šest let, šest firem, jeden návyk.",
+      body: "Podnikové platformy, zdravotnický software, telematika a mobilita — jiné domény, stejná tvrdohlavost, že to musí opravdu fungovat.",
+    },
+    contact: {
+      kicker: "Produkce",
+      heading: "Řekněte mi, co stavíte.",
+      body: "Na začátek stačí krátký popis problému. Odpovídám na všechno.",
+    },
+  },
 };
