@@ -46,6 +46,21 @@ describe("sceneOpacityRange", () => {
     // scene 2 starts fading in before scene 1 has finished fading out
     expect(b.input[0]).toBeLessThan(a.input[a.input.length - 1]);
   });
+
+  it("returns a strictly increasing input for every scene, including the edges", () => {
+    // useTransform requires a strictly monotonically increasing input array.
+    // Edge scenes (0 and count - 1) clamp to the page boundary, and that
+    // clamp point coincides with the adjacent fade keyframe — so they must
+    // drop the redundant point (a 3-point range) rather than repeat a value
+    // (which a middle scene's 4-point range never does).
+    for (let i = 0; i < 6; i++) {
+      const { input, output } = sceneOpacityRange(i, 6);
+      expect(output.length).toBe(input.length);
+      for (let j = 1; j < input.length; j++) {
+        expect(input[j]).toBeGreaterThan(input[j - 1]);
+      }
+    }
+  });
 });
 
 describe("layerRange", () => {

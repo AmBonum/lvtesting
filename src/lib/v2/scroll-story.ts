@@ -26,6 +26,13 @@ export function sceneWindow(
  * the blend slice after it, so neighbours always overlap and the background
  * never flashes through. The first and last scenes are clamped to the page
  * edges instead — there is nothing before or after them to blend with.
+ *
+ * The clamp point (0 for the first scene, 1 for the last) sits exactly on
+ * top of the adjacent fade keyframe, which is already held at the same
+ * output value. Emitting both would give `useTransform` a repeated `input`
+ * value, which breaks its strictly-increasing requirement, so edge scenes
+ * drop the redundant point and return a 3-point (or, for a single scene,
+ * 2-point) range instead of the 4-point shape middle scenes use.
  */
 export function sceneOpacityRange(
   index: number,
@@ -37,14 +44,19 @@ export function sceneOpacityRange(
   const isFirst = index === 0;
   const isLast = index === count - 1;
 
-  const fadeInStart = isFirst ? 0 : start - blend;
-  const fadeInEnd = isFirst ? 0 : start + blend;
-  const fadeOutStart = isLast ? 1 : end - blend;
-  const fadeOutEnd = isLast ? 1 : end + blend;
+  if (isFirst && isLast) {
+    return { input: [0, 1], output: [1, 1] };
+  }
+  if (isFirst) {
+    return { input: [0, end - blend, end + blend], output: [1, 1, 0] };
+  }
+  if (isLast) {
+    return { input: [start - blend, start + blend, 1], output: [0, 1, 1] };
+  }
 
   return {
-    input: [fadeInStart, fadeInEnd, fadeOutStart, fadeOutEnd],
-    output: [isFirst ? 1 : 0, 1, 1, isLast ? 1 : 0],
+    input: [start - blend, start + blend, end - blend, end + blend],
+    output: [0, 1, 1, 0],
   };
 }
 
@@ -64,5 +76,8 @@ export function layerRange(
 ): { input: [number, number]; output: [number, number] } {
   const { start, end } = sceneWindow(index, count);
   const travel = (speed * amplitude) / 2;
+  // `+ 0` normalises `-0` (produced by `-travel` when `travel` is 0) to `+0`,
+  // since Object.is()-based equality (e.g. Vitest's toEqual) treats them as
+  // distinct.
   return { input: [start, end], output: [travel, -travel + 0] };
 }
