@@ -1,13 +1,14 @@
 "use client";
 
 import { motion, useTransform, type MotionValue } from "framer-motion";
-import { layerRange } from "@/lib/v2/scroll-story";
+import { layerRangeForWindow } from "@/lib/v2/scroll-story";
 import { PARALLAX_AMPLITUDE, type SceneLayerSpec } from "@/lib/v2/scenes";
 
 type Props = {
   layer: SceneLayerSpec;
-  sceneIndex: number;
-  sceneCount: number;
+  /** This layer's scene's window — measured from the section it sits
+   * behind, not assumed from its index (see `sceneWindowsFromSections`). */
+  range: { start: number; end: number };
   progress: MotionValue<number>;
   alt: string;
   /** The first scene is the LCP image and must not be lazy. */
@@ -22,16 +23,14 @@ const srcSet = (src: string, ext: string) =>
 
 export function SceneLayer({
   layer,
-  sceneIndex,
-  sceneCount,
+  range,
   progress,
   alt,
   priority = false,
   reduceMotion,
 }: Props) {
-  const { input, output } = layerRange(
-    sceneIndex,
-    sceneCount,
+  const { input, output } = layerRangeForWindow(
+    range,
     reduceMotion ? 0 : layer.speed,
     PARALLAX_AMPLITUDE,
   );
