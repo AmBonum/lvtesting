@@ -87,25 +87,32 @@ describe("i18n: no empty translation strings", () => {
 // ─── Array length consistency ──────────────────────────────────
 
 describe("i18n: array lengths match across locales", () => {
-  const arrayPaths = [
-    "hero.offers",
-    "hero.badges",
-    "about.paragraphs",
-    "about.stats",
-    "projects.items",
-    "skills.categories",
-    "experience.items",
-    "contact.budgetOptions",
-    "contact.serviceOptions",
-    "contact.detailedServiceOptions",
-    "privacy.sections.controller.content",
-    "privacy.sections.dataCollection.content",
-    "privacy.sections.usage.content",
-    "privacy.sections.rights.content",
-    "privacy.sections.contact.content",
-    "privacy.sections.authority.content",
-    "privacy.sections.changes.content",
-  ];
+  /* Derived from the reference locale rather than hand-listed. A
+     hardcoded list only protects the arrays somebody remembered to add to
+     it: `v2.process.steps` was added in Task 5 and silently went
+     unchecked, so a locale shipping 4 steps against en's 5 would have
+     rendered a visibly broken section with a green test suite. Deriving
+     the list means every array in the translations — including every one
+     added in future — is length-checked automatically.
+     getLeafPaths treats an array as a leaf, so its own output already
+     contains exactly the paths worth checking. */
+  const arrayPaths = getLeafPaths(reference as unknown as Record<string, unknown>).filter(
+    (path) => Array.isArray(getByPath(reference, path))
+  );
+
+  it("derives at least the arrays that used to be hand-listed", () => {
+    // Guards the derivation itself: if getLeafPaths ever stops descending
+    // into a branch, this fails loudly instead of silently checking less.
+    expect(arrayPaths).toEqual(expect.arrayContaining([
+      "hero.offers",
+      "projects.items",
+      "experience.items",
+      "contact.budgetOptions",
+      "privacy.sections.rights.content",
+      "v2.process.steps",
+    ]));
+  });
+
 
   for (const path of arrayPaths) {
     const refValue = getByPath(reference, path);
