@@ -8,6 +8,7 @@ Disallow: /api/
 Disallow: /admin/
 Disallow: /_next/static/
 Disallow: /private/
+Disallow: /v2/
 
 # Google Search
 User-agent: Googlebot

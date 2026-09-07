@@ -1,0 +1,32 @@
+@import "tailwindcss";
+
+/* v2 owns its palette so tuning it can never disturb the live site. */
+@theme inline {
+  --color-v2-ink: #05060B;
+  --color-v2-surface: #0B0D16;
+  --color-v2-text: #F4F5FA;
+  --color-v2-muted: #A9AEC2;
+  --color-v2-amber: #F0A64A;
+  --color-v2-teal: #4ECDC4;
+  --color-v2-violet: #6C63FF;
+  --font-sans: var(--font-inter);
+}
+
+/* overflow-x belongs on body, never on html: on html it silently breaks
+   position: sticky, which the whole scene stage depends on. */
+html.v2-root {
+  scroll-behavior: smooth;
+}
+
+body.v2-body {
+  overflow-x: hidden;
+  background: var(--color-v2-ink);
+  color: var(--color-v2-text);
+  font-family: var(--font-inter, system-ui, sans-serif);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html.v2-root {
+    scroll-behavior: auto;
+  }
+}
