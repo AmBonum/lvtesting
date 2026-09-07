@@ -1,8 +1,12 @@
 "use client";
 
 import { motion, useTransform, type MotionValue } from "framer-motion";
-import { layerRangeForWindow } from "@/lib/v2/scroll-story";
+import {
+  layerRangeForWindow,
+  pinnedToFullProgress,
+} from "@/lib/v2/scroll-story";
 import { PARALLAX_AMPLITUDE, type SceneLayerSpec } from "@/lib/v2/scenes";
+import { SCENE_SIZES, SCENE_SRCSET } from "@/lib/v2/scene-srcset";
 
 type Props = {
   layer: SceneLayerSpec;
@@ -16,11 +20,6 @@ type Props = {
   reduceMotion: boolean;
 };
 
-const WIDTHS = [1280, 1920, 2400] as const;
-
-const srcSet = (src: string, ext: string) =>
-  WIDTHS.map((w) => `${src}-${w}.${ext} ${w}w`).join(", ");
-
 export function SceneLayer({
   layer,
   range,
@@ -29,11 +28,16 @@ export function SceneLayer({
   priority = false,
   reduceMotion,
 }: Props) {
-  const { input, output } = layerRangeForWindow(
+  const travel = layerRangeForWindow(
     range,
     reduceMotion ? 0 : layer.speed,
     PARALLAX_AMPLITUDE,
   );
+  // Task 8, Defect A: same pinning as the scene's opacity — a range that
+  // stops short of progress 1 lets the native ScrollTimeline animation
+  // drift back towards the element's underlying `y` instead of holding at
+  // the end of its travel. See pinnedToFullProgress.
+  const { input, output } = pinnedToFullProgress(travel.input, travel.output);
   const y = useTransform(progress, input, output);
 
   return (
@@ -45,8 +49,8 @@ export function SceneLayer({
       {/* The layer is scaled past the viewport so its parallax travel never
           exposes an edge. */}
       <picture>
-        <source type="image/avif" srcSet={srcSet(layer.src, "avif")} sizes="100vw" />
-        <source type="image/webp" srcSet={srcSet(layer.src, "webp")} sizes="100vw" />
+        <source type="image/avif" srcSet={SCENE_SRCSET(layer.src, "avif")} sizes={SCENE_SIZES} />
+        <source type="image/webp" srcSet={SCENE_SRCSET(layer.src, "webp")} sizes={SCENE_SIZES} />
         <img
           src={`${layer.src}-1920.webp`}
           alt={alt}

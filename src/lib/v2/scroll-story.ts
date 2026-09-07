@@ -191,3 +191,51 @@ export function sceneWindowsFromSections(
     end: boundaries[index + 1],
   }));
 }
+
+/**
+ * Extends a keyframe range so it spans the whole 0 → 1 scroll progress,
+ * holding the first and last output values flat over the added span.
+ *
+ * Semantically this is a no-op: `useTransform` clamps at its range ends by
+ * default, so a value pinned flat outside the original range is exactly
+ * what it already produced there. It exists for a *rendering* reason.
+ *
+ * Framer Motion accelerates a scroll-linked `useTransform` into a native
+ * ScrollTimeline WAAPI animation whenever the browser supports one
+ * (`useScroll` sets `MotionValue.accelerate`; `useTransform` copies the
+ * input range into WAAPI `times`, i.e. keyframe offsets). WAAPI does not
+ * clamp: when the last explicit offset is below 1, it synthesises an
+ * implicit final keyframe holding the element's *underlying* style value
+ * and interpolates towards it. The first scene's window ends around 0.2
+ * and its underlying inline style is `opacity: 1`, so past its fade-out
+ * the browser faded it straight back in over the rest of the page —
+ * measured at 0.29 opacity at 44% scroll and 1.0 at the bottom, ghosting
+ * scene 1's photograph through every later scene (see task-8-report.md,
+ * "Defect A"). The same applies to a layer's parallax `y`.
+ *
+ * Pinning both ends to the full progress range removes the implicit
+ * keyframes, so the accelerated path renders what the clamped JS path
+ * always did.
+ */
+export function pinnedToFullProgress(
+  input: readonly number[],
+  output: readonly number[],
+): { input: number[]; output: number[] } {
+  const pinnedInput = [...input];
+  const pinnedOutput = [...output];
+
+  if (pinnedInput.length === 0) {
+    return { input: pinnedInput, output: pinnedOutput };
+  }
+
+  if (pinnedInput[0] > 0) {
+    pinnedInput.unshift(0);
+    pinnedOutput.unshift(pinnedOutput[0]);
+  }
+  if (pinnedInput[pinnedInput.length - 1] < 1) {
+    pinnedInput.push(1);
+    pinnedOutput.push(pinnedOutput[pinnedOutput.length - 1]);
+  }
+
+  return { input: pinnedInput, output: pinnedOutput };
+}

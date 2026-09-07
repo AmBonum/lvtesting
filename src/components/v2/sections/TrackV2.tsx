@@ -13,11 +13,11 @@ export function TrackV2() {
     <SectionShell id="track" kicker={t.v2.track.kicker}>
       <h2
         id="track-heading"
-        className="text-2xl font-semibold leading-tight text-v2-text sm:text-3xl"
+        className="text-2xl font-semibold leading-tight text-[var(--v2-text)] sm:text-3xl"
       >
         {t.v2.track.heading}
       </h2>
-      <p className="mt-5 text-base leading-relaxed text-v2-muted">
+      <p className="mt-5 text-base leading-relaxed text-[var(--v2-muted)]">
         {t.v2.track.body}
       </p>
 
@@ -37,24 +37,24 @@ export function TrackV2() {
               viewport={{ once: true, margin: "-80px" }}
               transition={{ duration: 0.45, delay: i * 0.06 }}
             >
-              <span className="absolute -left-[23px] top-1.5 h-1.5 w-1.5 rounded-full bg-v2-teal" />
-              <p className="font-mono text-[11px] text-v2-muted/70">
+              <span className="absolute -left-[23px] top-1.5 h-1.5 w-1.5 rounded-full bg-[var(--v2-teal)]" />
+              <p className="font-mono text-[11px] text-[var(--v2-muted)]/70">
                 {translated?.period ?? item.period}
               </p>
-              <p className="mt-0.5 text-sm font-semibold text-v2-text">
+              <p className="mt-0.5 text-sm font-semibold text-[var(--v2-text)]">
                 {translated?.role ?? item.role}
               </p>
-              <p className="text-xs text-v2-amber">
+              <p className="text-xs text-[var(--v2-amber)]">
                 {translated?.company ?? item.company}
               </p>
-              <p className="mt-2 text-sm leading-relaxed text-v2-muted">
+              <p className="mt-2 text-sm leading-relaxed text-[var(--v2-muted)]">
                 {translated?.description ?? item.description}
               </p>
               <ul className="mt-3 flex flex-wrap gap-1.5">
                 {item.stack.map((tech) => (
                   <li
                     key={tech}
-                    className="rounded-full border border-white/15 px-2.5 py-0.5 text-[10px] text-v2-muted"
+                    className="rounded-full border border-white/15 px-2.5 py-0.5 text-[10px] text-[var(--v2-muted)]"
                   >
                     {tech}
                   </li>
@@ -65,7 +65,7 @@ export function TrackV2() {
         })}
       </ol>
 
-      <p className="mt-8 font-mono text-[11px] uppercase tracking-[0.2em] text-v2-muted/70">
+      <p className="mt-8 font-mono text-[11px] uppercase tracking-[0.2em] text-[var(--v2-muted)]/70">
         {t.companies.heading}
       </p>
       <ul className="mt-3 flex flex-wrap gap-x-5 gap-y-2">
@@ -75,7 +75,7 @@ export function TrackV2() {
               href={company.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-xs text-v2-muted/70 transition-colors hover:text-v2-text"
+              className="text-xs text-[var(--v2-muted)]/70 transition-colors hover:text-[var(--v2-text)]"
             >
               {company.name}
             </a>

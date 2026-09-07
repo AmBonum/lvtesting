@@ -29,18 +29,18 @@ function SkillBar({
 
   return (
     <div ref={ref} className="space-y-1.5">
-      <div className="flex items-baseline justify-between text-xs text-v2-muted">
+      <div className="flex items-baseline justify-between text-xs text-[var(--v2-muted)]">
         <span className="font-mono">
           {String(index + 1).padStart(2, "0")} {label}
         </span>
-        <span className="font-mono text-v2-teal">{level}%</span>
+        <span className="font-mono text-[var(--v2-teal)]">{level}%</span>
       </div>
       {/* The pill radius lives on the track (unscaled) and clips the fill
           via overflow-hidden. Putting the radius on the scaled fill instead
           would squash it into an ellipse at low scaleX values. */}
       <div className="h-1 w-full overflow-hidden rounded-full bg-white/10">
         <motion.div
-          className="h-full w-full origin-left bg-gradient-to-r from-v2-teal to-v2-amber"
+          className="h-full w-full origin-left bg-gradient-to-r from-[var(--v2-teal)] to-[var(--v2-amber)]"
           style={reduceMotion ? { scaleX: level / 100 } : { scaleX }}
         />
       </div>
@@ -55,11 +55,11 @@ export function TestingV2() {
     <SectionShell id="testing" kicker={t.v2.testing.kicker}>
       <h2
         id="testing-heading"
-        className="text-2xl font-semibold leading-tight text-v2-text sm:text-3xl"
+        className="text-2xl font-semibold leading-tight text-[var(--v2-text)] sm:text-3xl"
       >
         {t.v2.testing.heading}
       </h2>
-      <p className="mt-5 text-base leading-relaxed text-v2-muted">
+      <p className="mt-5 text-base leading-relaxed text-[var(--v2-muted)]">
         {t.v2.testing.body}
       </p>
       <div className="mt-9 space-y-4">

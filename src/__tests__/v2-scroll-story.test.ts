@@ -4,6 +4,9 @@ import {
   sceneOpacityRange,
   layerRange,
   sceneWindowsFromSections,
+  layerRangeForWindow,
+  pinnedToFullProgress,
+  sceneOpacityRangeForWindow,
   BLEND_FRACTION,
 } from "@/lib/v2/scroll-story";
 
@@ -221,5 +224,125 @@ describe("sceneWindowsFromSections", () => {
     ];
     const windows = sceneWindowsFromSections(sections, 400, 900);
     expect(windows).toEqual([sceneWindow(0, 2), sceneWindow(1, 2)]);
+  });
+});
+
+describe("pinnedToFullProgress", () => {
+  /** The clamped interpolation `useTransform` performs by default. */
+  const clampedAt = (input: number[], output: number[], at: number) => {
+    if (at <= input[0]) return output[0];
+    if (at >= input[input.length - 1]) return output[output.length - 1];
+    for (let i = 1; i < input.length; i++) {
+      if (at <= input[i]) {
+        const span = input[i] - input[i - 1];
+        const t = span === 0 ? 0 : (at - input[i - 1]) / span;
+        return output[i - 1] + (output[i] - output[i - 1]) * t;
+      }
+    }
+    return output[output.length - 1];
+  };
+
+  const SAMPLES = Array.from({ length: 101 }, (_, i) => i / 100);
+
+  it("extends a range that stops short of 1, holding its last output", () => {
+    const { input, output } = pinnedToFullProgress([0, 0.1, 0.2], [1, 1, 0]);
+    expect(input).toEqual([0, 0.1, 0.2, 1]);
+    expect(output).toEqual([1, 1, 0, 0]);
+  });
+
+  it("extends a range that starts after 0, holding its first output", () => {
+    const { input, output } = pinnedToFullProgress([0.8, 0.9, 1], [0, 1, 1]);
+    expect(input).toEqual([0, 0.8, 0.9, 1]);
+    expect(output).toEqual([0, 0, 1, 1]);
+  });
+
+  it("extends both ends of a middle scene's range", () => {
+    const { input, output } = pinnedToFullProgress(
+      [0.3, 0.4, 0.5, 0.6],
+      [0, 1, 1, 0],
+    );
+    expect(input).toEqual([0, 0.3, 0.4, 0.5, 0.6, 1]);
+    expect(output).toEqual([0, 0, 1, 1, 0, 0]);
+  });
+
+  it("leaves a range that already spans 0 to 1 untouched", () => {
+    const { input, output } = pinnedToFullProgress([0, 0.5, 1], [1, 0, 1]);
+    expect(input).toEqual([0, 0.5, 1]);
+    expect(output).toEqual([1, 0, 1]);
+  });
+
+  it("is a no-op on an empty range", () => {
+    expect(pinnedToFullProgress([], [])).toEqual({ input: [], output: [] });
+  });
+
+  it("never mutates its arguments", () => {
+    const input = [0.2, 0.8];
+    const output = [4, -4];
+    pinnedToFullProgress(input, output);
+    expect(input).toEqual([0.2, 0.8]);
+    expect(output).toEqual([4, -4]);
+  });
+
+  it("always spans exactly 0 to 1 and stays strictly increasing", () => {
+    const count = 6;
+    for (let index = 0; index < count; index++) {
+      const raw = sceneOpacityRange(index, count);
+      const { input } = pinnedToFullProgress(raw.input, raw.output);
+      expect(input[0]).toBe(0);
+      expect(input[input.length - 1]).toBe(1);
+      for (let i = 1; i < input.length; i++) {
+        expect(input[i]).toBeGreaterThan(input[i - 1]);
+      }
+    }
+  });
+
+  it("produces the same value as the clamped original at every sample", () => {
+    const count = 6;
+    for (let index = 0; index < count; index++) {
+      const opacity = sceneOpacityRange(index, count);
+      const pinnedOpacity = pinnedToFullProgress(
+        opacity.input,
+        opacity.output,
+      );
+      const travel = layerRange(index, count, 0.6, 120);
+      const pinnedTravel = pinnedToFullProgress(travel.input, travel.output);
+
+      for (const at of SAMPLES) {
+        expect(
+          clampedAt(pinnedOpacity.input, pinnedOpacity.output, at),
+        ).toBeCloseTo(clampedAt(opacity.input, opacity.output, at), 12);
+        expect(
+          clampedAt(pinnedTravel.input, pinnedTravel.output, at),
+        ).toBeCloseTo(clampedAt(travel.input, travel.output, at), 12);
+      }
+    }
+  });
+
+  it("spans 0 to 1 for measured windows too, not just the equal split", () => {
+    const sections = [
+      { top: 0, height: 900 },
+      { top: 900, height: 900 },
+      { top: 1800, height: 900 },
+      { top: 2700, height: 900 },
+      { top: 3600, height: 1806 },
+      { top: 5406, height: 1662 },
+    ];
+    const windows = sceneWindowsFromSections(sections, 7068, 900);
+
+    windows.forEach((window, index) => {
+      const opacity = sceneOpacityRangeForWindow(
+        window,
+        index === 0,
+        index === windows.length - 1,
+      );
+      const pinned = pinnedToFullProgress(opacity.input, opacity.output);
+      expect(pinned.input[0]).toBe(0);
+      expect(pinned.input[pinned.input.length - 1]).toBe(1);
+
+      const travel = layerRangeForWindow(window, 0.4, 120);
+      const pinnedTravel = pinnedToFullProgress(travel.input, travel.output);
+      expect(pinnedTravel.input[0]).toBe(0);
+      expect(pinnedTravel.input[pinnedTravel.input.length - 1]).toBe(1);
+    });
   });
 });
