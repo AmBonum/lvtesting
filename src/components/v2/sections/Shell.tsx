@@ -21,6 +21,7 @@ export function SectionShell({
   return (
     <section
       id={id}
+      aria-labelledby={`${id}-heading`}
       className="flex min-h-screen items-center px-6 py-24 sm:px-10 lg:px-16"
     >
       <motion.div

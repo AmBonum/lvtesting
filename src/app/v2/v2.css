@@ -33,3 +33,39 @@
   color: var(--color-v2-text);
   font-family: var(--font-inter, system-ui, sans-serif);
 }
+
+/* The scrim SceneStage paints over every scene, sized to the section text
+   column instead of the viewport.
+   Shell.tsx puts that column at `px-6 sm:px-10 lg:px-16` with a `max-w-xl`
+   (36rem) cap, so its right edge sits at
+   `min(100vw - pad, pad + 36rem)` — a length, not a fixed fraction of the
+   viewport. A percentage-based gradient darkens a fixed *fraction* of the
+   width, so the plateau and the text column track the viewport at different
+   rates and drift apart between breakpoints (see task-6-report.md, "Fix
+   round 1", for the measured contrast failures this caused). Deriving
+   `--v2-text-edge` the same way Shell.tsx sizes the column, and using it as
+   a gradient stop, keeps the plateau glued to the text at every width.
+   `--v2-pad` mirrors Shell's own breakpoints (Tailwind's default sm/lg) so
+   the two never disagree; +0.5rem is a safety margin for sub-pixel layout
+   rounding. */
+.v2-scene-scrim {
+  --v2-pad: 1.5rem;
+  --v2-text-edge: calc(min(100vw - var(--v2-pad), var(--v2-pad) + 36rem) + 0.5rem);
+  background: linear-gradient(
+    90deg,
+    rgba(5, 6, 11, 0.9) 0,
+    rgba(5, 6, 11, 0.9) var(--v2-text-edge),
+    rgba(5, 6, 11, 0.32) calc(var(--v2-text-edge) + 8rem),
+    rgba(5, 6, 11, 0.5) 100%
+  );
+}
+@media (min-width: 640px) {
+  .v2-scene-scrim {
+    --v2-pad: 2.5rem;
+  }
+}
+@media (min-width: 1024px) {
+  .v2-scene-scrim {
+    --v2-pad: 4rem;
+  }
+}

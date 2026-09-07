@@ -9,7 +9,10 @@ export function WorkV2() {
 
   return (
     <SectionShell id="work" kicker={t.v2.work.kicker}>
-      <h2 className="text-2xl font-semibold leading-tight text-v2-text sm:text-3xl">
+      <h2
+        id="work-heading"
+        className="text-2xl font-semibold leading-tight text-v2-text sm:text-3xl"
+      >
         {t.v2.work.heading}
       </h2>
       <p className="mt-5 text-base leading-relaxed text-v2-muted">

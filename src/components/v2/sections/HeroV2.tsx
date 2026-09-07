@@ -8,7 +8,10 @@ export function HeroV2() {
 
   return (
     <SectionShell id="hero" kicker={t.v2.hero.kicker}>
-      <h1 className="text-3xl font-semibold leading-[1.1] tracking-tight text-v2-text sm:text-4xl lg:text-5xl">
+      <h1
+        id="hero-heading"
+        className="text-3xl font-semibold leading-[1.1] tracking-tight text-v2-text sm:text-4xl lg:text-5xl"
+      >
         {t.v2.hero.headline}
       </h1>
       <p className="mt-6 text-base leading-relaxed text-v2-muted sm:text-lg">

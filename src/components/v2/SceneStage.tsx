@@ -30,11 +30,11 @@ function Scene({
         reduceMotion={reduceMotion}
       />
       {/* Keeps text legible over any frame: the scenes were composed with an
-          empty dark left third, and this deepens it. */}
-      <div
-        aria-hidden="true"
-        className="absolute inset-0 bg-[linear-gradient(100deg,rgba(5,6,11,0.92)_0%,rgba(5,6,11,0.72)_38%,rgba(5,6,11,0.30)_70%,rgba(5,6,11,0.55)_100%)]"
-      />
+          empty dark left third, and this deepens it. Sized off the text
+          column's own length (see .v2-scene-scrim in v2.css), not a
+          percentage of the viewport, so the dark plateau covers the text at
+          every width instead of drifting out from under it. */}
+      <div aria-hidden="true" className="v2-scene-scrim absolute inset-0" />
     </motion.div>
   );
 }

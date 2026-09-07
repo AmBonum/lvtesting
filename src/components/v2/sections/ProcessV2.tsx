@@ -10,7 +10,10 @@ export function ProcessV2() {
 
   return (
     <SectionShell id="process" kicker={t.v2.process.kicker}>
-      <h2 className="text-2xl font-semibold leading-tight text-v2-text sm:text-3xl">
+      <h2
+        id="process-heading"
+        className="text-2xl font-semibold leading-tight text-v2-text sm:text-3xl"
+      >
         {t.v2.process.heading}
       </h2>
       <p className="mt-5 text-base leading-relaxed text-v2-muted">
