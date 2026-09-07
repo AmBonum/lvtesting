@@ -12,21 +12,24 @@
   --font-sans: var(--font-inter);
 }
 
-/* overflow-x belongs on body, never on html: on html it silently breaks
-   position: sticky, which the whole scene stage depends on. */
-html.v2-root {
-  scroll-behavior: smooth;
-}
+/* This is a nested App Router layout, not the root layout — it cannot put a
+   class on the real <html> or <body> (those belong to src/app/layout.tsx).
+   The v2 layout instead renders <div className="v2-body min-h-screen">, so
+   this must be an element-class selector to ever match anything.
 
-body.v2-body {
+   The opaque background here is load-bearing: v1's root <body> paints
+   `bg-bg-primary bg-noise bg-grid` (src/app/layout.tsx), and that real
+   <body> is still an ancestor of this wrapper div on /v2. Without an opaque
+   ground here, v1's grid/noise texture would show through behind the scene.
+
+   overflow-x: hidden stays here too, though it is redundant with the real
+   <body> in src/app/layout.tsx, which already carries `overflow-x-hidden`
+   as a Tailwind class — never on <html>, where it would silently break
+   position: sticky (the scene stage's mechanism). Keeping it on .v2-body
+   as well is harmless belt-and-suspenders for this subtree. */
+.v2-body {
   overflow-x: hidden;
   background: var(--color-v2-ink);
   color: var(--color-v2-text);
   font-family: var(--font-inter, system-ui, sans-serif);
-}
-
-@media (prefers-reduced-motion: reduce) {
-  html.v2-root {
-    scroll-behavior: auto;
-  }
 }
