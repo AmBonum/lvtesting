@@ -216,6 +216,19 @@ export function sceneWindowsFromSections(
  * Pinning both ends to the full progress range removes the implicit
  * keyframes, so the accelerated path renders what the clamped JS path
  * always did.
+ *
+ * ASSUMPTION, stated because it is not enforced here: the incoming range is
+ * expected to lie within 0..1. This only ever PREPENDS 0 / APPENDS 1 when an
+ * endpoint is strictly on the short side of them, so a range that already
+ * overshoots (first < 0 or last > 1) is passed through unpinned rather than
+ * clamped. That cannot happen for any window this module currently
+ * produces: `sceneWindowsFromSections` derives boundaries from real section
+ * offsets, and every section carries `min-h-screen`, which keeps each
+ * scene's blend margin (BLEND_FRACTION of its own window) well inside its
+ * neighbours. It would become reachable only if one section grew extreme
+ * enough relative to its neighbours (roughly >4x) to push a middle scene's
+ * blend margin past the document ends — so if that constraint is ever
+ * relaxed, clamp here rather than assuming.
  */
 export function pinnedToFullProgress(
   input: readonly number[],

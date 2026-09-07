@@ -55,12 +55,52 @@ function measureSceneWindows(): SceneWindow[] | null {
  * which a ResizeObserver on the sections themselves catches without
  * needing to listen to scroll at all.
  */
+function sameWindows(
+  a: SceneWindow[] | null,
+  b: SceneWindow[] | null,
+): boolean {
+  if (a === null || b === null) return a === b;
+  if (a.length !== b.length) return false;
+  return a.every((w, i) => w.start === b[i].start && w.end === b[i].end);
+}
+
 function useSceneWindows(): SceneWindow[] {
   const [windows, setWindows] = useState<SceneWindow[] | null>(null);
 
   useEffect(() => {
-    const measure = () => setWindows(measureSceneWindows());
-    measure();
+    /* Both guards below exist because a Scene's React key is derived from
+       its window boundaries, so a changed measurement REMOUNTS that scene —
+       tearing down its <picture> and rebuilding Framer's native
+       ScrollTimeline animation. That is exactly right when the layout
+       really changed, and wasteful when it did not.
+
+       1. rAF coalescing: a window-edge drag fires `resize` (and the
+          ResizeObserver) many times per second, and below 1024px each tick
+          genuinely reflows the text column, so each one would produce
+          different numbers and remount scenes repeatedly mid-drag. Batching
+          to at most one measurement per frame bounds that to the browser's
+          own paint rate, and reading layout inside rAF also keeps this off
+          the resize handler's synchronous path.
+       2. Value equality: ResizeObserver fires on observe() and on any
+          section resize, including ones that resolve to identical
+          boundaries. Bailing out then avoids re-rendering the stage at all,
+          rather than relying on the key strings coming out equal. */
+    let frame = 0;
+    const measure = () => {
+      if (frame !== 0) return;
+      frame = requestAnimationFrame(() => {
+        frame = 0;
+        setWindows((prev) => {
+          const next = measureSceneWindows();
+          return sameWindows(prev, next) ? prev : next;
+        });
+      });
+    };
+
+    // Measure synchronously on mount so the first paint after hydration
+    // uses real geometry rather than waiting a frame on the equal-split
+    // fallback.
+    setWindows(measureSceneWindows());
 
     window.addEventListener("resize", measure);
 
@@ -71,6 +111,7 @@ function useSceneWindows(): SceneWindow[] {
     }
 
     return () => {
+      if (frame !== 0) cancelAnimationFrame(frame);
       window.removeEventListener("resize", measure);
       observer.disconnect();
     };
