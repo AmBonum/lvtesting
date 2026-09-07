@@ -30,12 +30,26 @@ describe("sceneOpacityRange", () => {
     expect(output[0]).toBe(1);
   });
 
-  it("fades a middle scene in before its window and out after it", () => {
+  it("fades a middle scene in across its start boundary and then holds it", () => {
+    // Deliberately NOT [0, 1, 1, 0]: a scene never fades out, because the
+    // next one arriving on top is what hides it. Fading out at the same
+    // time would uncover the near-black ground behind them both — see the
+    // "scene stack never lets the ground show through" suite below.
     const { input, output } = sceneOpacityRange(2, 6);
-    expect(output).toEqual([0, 1, 1, 0]);
+    expect(output).toEqual([0, 1, 1]);
     expect(input[0]).toBeLessThan(input[1]);
     expect(input[1]).toBeLessThan(input[2]);
-    expect(input[2]).toBeLessThan(input[3]);
+    expect(input[input.length - 1]).toBe(1);
+  });
+
+  it("never decreases a scene's opacity once it has arrived", () => {
+    // The property the fix rests on, stated for every scene at once.
+    for (let i = 0; i < 6; i++) {
+      const { output } = sceneOpacityRange(i, 6);
+      for (let j = 1; j < output.length; j++) {
+        expect(output[j]).toBeGreaterThanOrEqual(output[j - 1]);
+      }
+    }
   });
 
   it("holds the last scene visible to the very bottom of the page", () => {
@@ -44,25 +58,111 @@ describe("sceneOpacityRange", () => {
     expect(output[output.length - 1]).toBe(1);
   });
 
-  it("overlaps neighbouring scenes so one is always fully opaque somewhere", () => {
+  it("starts a scene's fade-in while the one beneath it is still fully opaque", () => {
     const a = sceneOpacityRange(1, 6);
     const b = sceneOpacityRange(2, 6);
-    // scene 2 starts fading in before scene 1 has finished fading out
+    // Scene 1 is at 1 from its own arrival all the way to the bottom of the
+    // page, so scene 2 always fades in over something fully opaque. That is
+    // what keeps the ground covered through the whole transition.
     expect(b.input[0]).toBeLessThan(a.input[a.input.length - 1]);
+    expect(a.output[a.output.length - 1]).toBe(1);
   });
 
   it("returns a strictly increasing input for every scene, including the edges", () => {
     // useTransform requires a strictly monotonically increasing input array.
-    // Edge scenes (0 and count - 1) clamp to the page boundary, and that
-    // clamp point coincides with the adjacent fade keyframe — so they must
-    // drop the redundant point (a 3-point range) rather than repeat a value
-    // (which a middle scene's 4-point range never does).
+    // The first scene collapses to a 2-point [0, 1] range and every other
+    // scene to a 3-point one ending at 1; neither repeats a value, which is
+    // the failure mode that bit this module once already (see the
+    // pinnedToFullProgress suite for the same trap on the accelerated path).
     for (let i = 0; i < 6; i++) {
       const { input, output } = sceneOpacityRange(i, 6);
       expect(output.length).toBe(input.length);
       for (let j = 1; j < input.length; j++) {
         expect(input[j]).toBeGreaterThan(input[j - 1]);
       }
+    }
+  });
+});
+
+/* The ground behind the scenes is near-black (#05060B). If two adjacent
+   scenes crossfade by ramping their opacities independently, both sit near
+   0.5 at the midpoint and (1 - 0.5) * (1 - 0.5) = 25% of that ground shows
+   through the stack — measured live at up to 29.3% before this was fixed,
+   which reads as two photographs superimposed and dimmed toward black.
+
+   Scenes are stacked in DOM order and later ones paint over earlier ones,
+   so a scene never has to fade OUT: it only has to fade IN over the one
+   beneath it. These tests pin that invariant down directly, in the terms
+   that actually matter on screen — how much ground is visible — rather than
+   by asserting a particular keyframe shape. */
+describe("scene stack never lets the ground show through", () => {
+  const evalAt = (input: number[], output: number[], at: number) => {
+    if (at <= input[0]) return output[0];
+    if (at >= input[input.length - 1]) return output[output.length - 1];
+    for (let i = 1; i < input.length; i++) {
+      if (at <= input[i]) {
+        const span = input[i] - input[i - 1];
+        const t = span === 0 ? 0 : (at - input[i - 1]) / span;
+        return output[i - 1] + (output[i] - output[i - 1]) * t;
+      }
+    }
+    return output[output.length - 1];
+  };
+
+  /* What the compositor actually does: each scene paints over the ones
+     below it, so the fraction of ground still visible is the product of
+     (1 - opacity) across the whole stack. */
+  const groundVisibleAt = (
+    ranges: { input: number[]; output: number[] }[],
+    at: number,
+  ) => ranges.reduce((acc, r) => acc * (1 - evalAt(r.input, r.output, at)), 1);
+
+  const SAMPLE_POINTS = Array.from({ length: 1001 }, (_, i) => i / 1000);
+
+  it("keeps the ground fully covered at every scroll position, for equal windows", () => {
+    for (let count = 1; count <= 8; count++) {
+      const ranges = Array.from({ length: count }, (_, i) =>
+        sceneOpacityRange(i, count),
+      );
+      for (const at of SAMPLE_POINTS) {
+        expect(
+          groundVisibleAt(ranges, at),
+          `count=${count} at=${at} leaked ${groundVisibleAt(ranges, at)}`,
+        ).toBeCloseTo(0, 6);
+      }
+    }
+  });
+
+  it("keeps the ground fully covered for measured windows of unequal height", () => {
+    // The real page: contact is roughly twice the height of a hero section.
+    const sections = [
+      { top: 0, height: 900 },
+      { top: 900, height: 900 },
+      { top: 1800, height: 900 },
+      { top: 2700, height: 900 },
+      { top: 3600, height: 1806 },
+      { top: 5406, height: 1662 },
+    ];
+    const windows = sceneWindowsFromSections(sections, 7068, 900);
+    const ranges = windows.map((w, i) =>
+      sceneOpacityRangeForWindow(w, i === 0),
+    );
+    for (const at of SAMPLE_POINTS) {
+      expect(
+        groundVisibleAt(ranges, at),
+        `at=${at} leaked ${groundVisibleAt(ranges, at)}`,
+      ).toBeCloseTo(0, 6);
+    }
+  });
+
+  it("still covers the ground after pinning to full progress", () => {
+    const count = 6;
+    const ranges = Array.from({ length: count }, (_, i) => {
+      const r = sceneOpacityRange(i, count);
+      return pinnedToFullProgress(r.input, r.output);
+    });
+    for (const at of SAMPLE_POINTS) {
+      expect(groundVisibleAt(ranges, at)).toBeCloseTo(0, 6);
     }
   });
 });
@@ -330,11 +430,7 @@ describe("pinnedToFullProgress", () => {
     const windows = sceneWindowsFromSections(sections, 7068, 900);
 
     windows.forEach((window, index) => {
-      const opacity = sceneOpacityRangeForWindow(
-        window,
-        index === 0,
-        index === windows.length - 1,
-      );
+      const opacity = sceneOpacityRangeForWindow(window, index === 0);
       const pinned = pinnedToFullProgress(opacity.input, opacity.output);
       expect(pinned.input[0]).toBe(0);
       expect(pinned.input[pinned.input.length - 1]).toBe(1);

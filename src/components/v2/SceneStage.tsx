@@ -97,10 +97,18 @@ function useSceneWindows(): SceneWindow[] {
       });
     };
 
-    // Measure synchronously on mount so the first paint after hydration
-    // uses real geometry rather than waiting a frame on the equal-split
-    // fallback.
-    setWindows(measureSceneWindows());
+    /* The mount measurement goes through the same coalesced path rather
+       than calling setWindows straight from the effect body — a synchronous
+       setState in an effect is a cascading-render smell (and this repo's
+       lint baseline rejects it outright, react-hooks/set-state-in-effect).
+
+       Costing one frame of the equal-split fallback is free here: at scroll
+       progress 0 the first scene is at opacity 1 and every other scene at 0
+       under BOTH the fallback and the measured windows, because the first
+       scene's range is a flat [0, 1] -> [1, 1] and no other scene has begun
+       its fade-in yet. So the frame the fallback covers is pixel-identical
+       to the frame the measurement would have produced. */
+    measure();
 
     window.addEventListener("resize", measure);
 
@@ -228,11 +236,7 @@ function Scene({
   unlocked: boolean;
 }) {
   const scene = SCENES[index];
-  const keyframes = sceneOpacityRangeForWindow(
-    range,
-    index === 0,
-    index === SCENES.length - 1,
-  );
+  const keyframes = sceneOpacityRangeForWindow(range, index === 0);
   // Task 8, Defect A: pinned to the full 0→1 progress span so the native
   // ScrollTimeline animation Framer Motion compiles this into cannot
   // synthesise an implicit trailing keyframe back to the element's

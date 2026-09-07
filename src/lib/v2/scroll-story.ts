@@ -22,27 +22,33 @@ export function sceneWindow(
 /**
  * Opacity keyframes for one scene.
  *
- * A scene fades in over the blend slice before its window and fades out over
- * the blend slice after it, so neighbours always overlap and the background
- * never flashes through. The first and last scenes are clamped to the page
- * edges instead — there is nothing before or after them to blend with.
+ * A scene fades IN over the blend slice around the start of its window and
+ * then stays at 1. It never fades out.
  *
- * The clamp point (0 for the first scene, 1 for the last) sits exactly on
- * top of the adjacent fade keyframe, which is already held at the same
- * output value. Emitting both would give `useTransform` a repeated `input`
- * value, which breaks its strictly-increasing requirement, so edge scenes
- * drop the redundant point and return a 3-point (or, for a single scene,
- * 2-point) range instead of the 4-point shape middle scenes use.
+ * That asymmetry is the whole point. The scenes are stacked in DOM order
+ * and later ones paint over earlier ones, so scene N+1 arriving on top is
+ * already enough to hide scene N — asking scene N to fade out at the same
+ * time just uncovers what is behind them both. The ground there is
+ * near-black (#05060B), and two neighbours ramping past each other sit near
+ * 0.5 together at the midpoint, leaving (1 - 0.5) * (1 - 0.5) = 25% of it
+ * showing. Measured live on the real page before this change: up to 29.3%
+ * ground at the five transitions, which reads as two photographs
+ * superimposed and dimmed toward black rather than as one dissolving into
+ * the next.
+ *
+ * Holding each scene at 1 once it has arrived means at least one scene is
+ * always fully opaque, so the ground is never visible at any scroll
+ * position — asserted directly in the tests by compositing the whole stack
+ * rather than by checking a keyframe shape.
+ *
+ * The first scene is simply always visible: there is nothing beneath it to
+ * uncover and nothing before it to blend with.
  */
 export function sceneOpacityRange(
   index: number,
   count: number,
 ): { input: number[]; output: number[] } {
-  return sceneOpacityRangeForWindow(
-    sceneWindow(index, count),
-    index === 0,
-    index === count - 1,
-  );
+  return sceneOpacityRangeForWindow(sceneWindow(index, count), index === 0);
 }
 
 /**
@@ -57,25 +63,23 @@ export function sceneOpacityRange(
 export function sceneOpacityRangeForWindow(
   window: { start: number; end: number },
   isFirst: boolean,
-  isLast: boolean,
 ): { input: number[]; output: number[] } {
   const { start, end } = window;
   const blend = (end - start) * BLEND_FRACTION;
 
-  if (isFirst && isLast) {
+  // The first scene is visible from the very top and never yields: every
+  // later scene arrives on top of it. A single-scene page is just this
+  // case, held for the whole document.
+  if (isFirst) {
     return { input: [0, 1], output: [1, 1] };
   }
-  if (isFirst) {
-    return { input: [0, end - blend, end + blend], output: [1, 1, 0] };
-  }
-  if (isLast) {
-    return { input: [start - blend, start + blend, 1], output: [0, 1, 1] };
-  }
 
-  return {
-    input: [start - blend, start + blend, end - blend, end + blend],
-    output: [0, 1, 1, 0],
-  };
+  // Every other scene fades in across its own start boundary and then holds
+  // to the bottom of the page. There is deliberately no `isLast` case: since
+  // nothing fades out, holding to 1 already carries the final scene to the
+  // end, which is exactly what the old dedicated last-scene branch did by
+  // hand.
+  return { input: [start - blend, start + blend, 1], output: [0, 1, 1] };
 }
 
 /**
