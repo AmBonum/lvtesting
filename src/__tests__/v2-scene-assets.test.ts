@@ -1,5 +1,6 @@
 import { describe, it, expect } from "vitest";
 import { existsSync, statSync } from "node:fs";
+import sharp from "sharp";
 import { join, resolve } from "node:path";
 
 const SCENES_DIR = resolve(__dirname, "../../public/images/scenes");
@@ -20,6 +21,41 @@ describe("v2 scene assets", () => {
       }
     }
     expect(missing).toEqual([]);
+  });
+
+  /* Existence + byte size alone would pass a 10x10 placeholder named
+     "01-2400.avif" — the two checks around this one constrain the file's
+     name and its weight, but nothing about the pixels. That matters here
+     because the browser cannot help us notice: with a w-descriptor
+     srcset the HTML spec density-CORRECTS intrinsic size, so a 2400px
+     plate reports naturalWidth 1280 in devtools (confirmed in Task 4 and
+     recorded in the ledger so it is not re-opened as a bug). Reading the
+     real dimensions off disk with sharp is the only place the actual
+     width is observable. */
+  it("encodes every asset at its declared width, in the declared format", async () => {
+    const wrong: string[] = [];
+    for (const id of SCENE_IDS) {
+      for (const w of WIDTHS) {
+        for (const ext of ["avif", "webp"] as const) {
+          const name = `${id}-${w}.${ext}`;
+          const meta = await sharp(join(SCENES_DIR, name)).metadata();
+          if (meta.width !== w) wrong.push(`${name} is ${meta.width}px wide, expected ${w}`);
+          /* AVIF is a HEIF-family container (ISOBMFF), so libvips reports
+             format "heif" for it and identifies the actual codec in
+             `compression`. Asserting av1 rather than just the container is
+             the stronger check: it also rejects a HEIC file renamed .avif,
+             which browsers would refuse to decode. */
+          const okFormat =
+            ext === "avif"
+              ? meta.format === "heif" && meta.compression === "av1"
+              : meta.format === "webp";
+          if (!okFormat) {
+            wrong.push(`${name} is ${meta.format}/${meta.compression ?? "-"}, expected ${ext}`);
+          }
+        }
+      }
+    }
+    expect(wrong).toEqual([]);
   });
 
   it("keeps every asset inside its size budget", () => {
