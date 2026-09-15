@@ -71,13 +71,25 @@ export const cs: Translations = {
         title: "lvtesting.eu",
         subtitle: "Tento web · návrh, vývoj i nasazení",
         description:
-          "Stránka, kterou právě čteš. Staticky exportovaná aplikace v Next.js s kinematickým pozadím řízeným scrollováním, pěti jazyky, vlastní optimalizací obrázků a otestovaným kontaktním formulářem — bez šablony, bez page builderu, bez serveru.",
+          "Stránka, kterou právě čteš. Staticky exportovaná aplikace v Next.js s animacemi ve Framer Motion, pěti jazyky a otestovaným kontaktním formulářem — bez šablony, bez page builderu, bez serveru.",
         highlights: [
-          "Parallax příběh řízený scrollováním, skládaný na GPU",
+          "Motion design ve Framer Motion — odhalování při scrollování a animovaný úvod",
           "Statický export — běží na obyčejném hostingu bez serveru",
           "Pět jazyků, které hlídá test úplnosti překladů",
           "Kontaktní formulář s hCaptcha a souhlasem dle GDPR",
           "Jednotkové testy analytiky, souhlasu i i18n vrstvy",
+        ],
+      },
+      {
+        title: "Full-Stack vývoj @ Monitor zo slovenčiny",
+        subtitle: "Vzdělávací platforma pro přípravu na Testovanie 9 · pro soukromou lektorku",
+        description:
+          "Navrhuji a stavím celou platformu pro přípravu žáků ze slovenštiny — od knihovny materiálů a interaktivních testů přes rezervace doučovacích hodin až po rodičovský portál a platby. Full-stack vývoj na moderním Next.js na Cloudflare Workers, s důrazem na bezpečnost, přístupnost a produkční kvalitu.",
+        highlights: [
+          "Full-stack vývoj: Next.js 16 / React 19 / TypeScript, nasazení na Cloudflare Workers (@opennextjs/cloudflare)",
+          "Datová vrstva a autentizace na Supabase (Postgres, RLS politiky), platby přes Stripe",
+          "Rozsáhlé testování: Playwright (e2e — desktop/mobil/vizuál/R2 vazby), Vitest (unit + integrační), testy přístupnosti, bezpečnosti a výkonu",
+          "Přístupnost WCAG 2.2 AA, i18n (next-intl), vlastní designový systém; subagent-driven vývoj s AI",
         ],
       },
     ],
@@ -101,6 +113,13 @@ export const cs: Translations = {
     subtitle: "Moje profesionální cesta",
     items: [
       {
+        role: "Full-Stack vývojář",
+        company: "Monitor zo slovenčiny · Freelance",
+        period: "Zář 2026 – Současnost",
+        description:
+          "Navrhuji a stavím platformu pro přípravu žáků ze slovenštiny pro soukromou lektorku — materiály, interaktivní testy, rezervace doučovacích hodin, rodičovský portál a platby přes Stripe. Next.js na Cloudflare Workers se Supabase, otestováno end-to-end v Playwright a Vitest.",
+      },
+      {
         role: "QA Automation Engineer",
         company: "Caterpillar Slovakia · přes Moxymind",
         period: "Srp 2024 – Současnost",
@@ -112,7 +131,7 @@ export const cs: Translations = {
         company: "Freelance",
         period: "2024 – Současnost",
         description:
-          "Navrhuji a tvořím produkční mobilní aplikace. Do května 2026 také kompletní platforma pro mobilitu pro klienta v dopravě — aplikace pro cestující i řidiče, sledování jízd v reálném čase a platby kartou i peněženkou. Kompletní životní cyklus — od Figma prototypů po nasazení do App Store.",
+          "Navrhuji a tvořím produkční mobilní aplikace. Do června 2026 také kompletní platforma pro mobilitu pro klienta v dopravě — aplikace pro cestující i řidiče, sledování jízd v reálném čase a platby kartou i peněženkou. Kompletní životní cyklus — od Figma prototypů po nasazení do App Store.",
       },
       {
         role: "Bolt řidič & osobní přestávka",
@@ -387,6 +406,29 @@ export const cs: Translations = {
         "Sponzorská sekce s platbami přes Stripe",
         "Cookie consent respektující volbu uživatele",
         "SEO základ se sitemapou a meta daty",
+      ],
+      year: "2026",
+    },
+    monitor: {
+      tagline:
+        "Monitor zo slovenčiny je full-stack vzdělávací webová aplikace postavená na Next.js, Reactu, Supabase, Stripe a Cloudflare, která připravuje žáky na Testovanie 9 ze slovenštiny prostřednictvím knihovny materiálů, interaktivních testů a doučovacích hodin — a dává lektorce jeden nástroj pro správu obsahu, žáků i plateb.",
+      description:
+        "Platforma pro soukromou lektorku a její žáky. Spojuje vzdělávací obsah (teorie, pojmové mapy, testy, diktáty), online rezervaci doučovacích hodin, sledování pokroku a rodičovský portál pro propojení dětí a nákup balíčků — vše na jednom místě, přístupné i z mobilu a pro čtečky obrazovky.",
+      tech:
+        "Next.js 16 · React 19 · TypeScript · Tailwind CSS v4 · Supabase · Cloudflare Workers · Cloudflare R2 · Stripe · next-intl · Playwright · Vitest",
+      visitSite: "Navštívit stránku",
+      features: [
+        "Knihovna materiálů: teorie, pojmové mapy, testy i diktáty",
+        "Interaktivní testy s automatickým vyhodnocením a bodováním",
+        "Rezervace a správa doučovacích hodin (kalendář, kredit hodin, storna s pravidly)",
+        "Propojení rodič–dítě: zvací kódy, rodičovský přehled, přiřazení balíčků dětem",
+        "Balíčky a platby přes Stripe",
+        "Administrace pro lektorku: lidé, učitelé, obsah, reporty, kupóny, právní dokumenty, zálohy",
+        "Role a náhledy rolí: žák, rodič, učitel, admin",
+        "Doručování souborů a obrázků z Cloudflare R2 (nativně přes worker) s vodoznakem",
+        "Právní dokumenty s verzováním souhlasu",
+        "Instagram sekce a recenze na landing page, vlastní design (papírové sekce), maskot Ypsilonka",
+        "Přístupnost WCAG 2.2 AA, SEO a i18n (slovenština, next-intl)",
       ],
       year: "2026",
     },

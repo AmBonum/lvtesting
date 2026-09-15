@@ -71,13 +71,25 @@ export const es: Translations = {
         title: "lvtesting.eu",
         subtitle: "Este sitio · diseño, desarrollo y despliegue",
         description:
-          "La página que estás leyendo. Una aplicación Next.js de exportación estática con fondo cinematográfico guiado por el scroll, cinco idiomas, optimización de imágenes propia y un formulario de contacto probado — sin plantilla, sin page builder, sin servidor.",
+          "La página que estás leyendo. Una aplicación Next.js de exportación estática con animaciones en Framer Motion, cinco idiomas y un formulario de contacto probado — sin plantilla, sin page builder, sin servidor.",
         highlights: [
-          "Narrativa parallax guiada por scroll, compuesta en la GPU",
+          "Diseño de movimiento con Framer Motion — revelado al hacer scroll y hero animado",
           "Exportación estática — funciona en hosting compartido común",
           "Cinco idiomas, protegidos por un test de completitud",
           "Formulario de contacto con hCaptcha y consentimiento RGPD",
           "Capas de analítica, consentimiento e i18n con tests unitarios",
+        ],
+      },
+      {
+        title: "Desarrollo Full-Stack @ Monitor zo slovenčiny",
+        subtitle: "Plataforma educativa de preparación para el Testovanie 9 · para una profesora particular",
+        description:
+          "Diseñando y construyendo toda la plataforma que prepara a los alumnos para el examen de lengua eslovaca — desde una biblioteca de materiales y tests interactivos, pasando por la reserva de clases particulares, hasta un portal para padres y pagos. Desarrollo full-stack con Next.js moderno sobre Cloudflare Workers, con foco en seguridad, accesibilidad y calidad de producción.",
+        highlights: [
+          "Desarrollo full-stack: Next.js 16 / React 19 / TypeScript, desplegado en Cloudflare Workers (@opennextjs/cloudflare)",
+          "Capa de datos y autenticación en Supabase (Postgres, políticas RLS), pagos con Stripe",
+          "Testing exhaustivo: Playwright (e2e — escritorio/móvil/visual/bindings de R2), Vitest (unitarios + integración), tests de accesibilidad, seguridad y rendimiento",
+          "Accesibilidad WCAG 2.2 AA, i18n (next-intl), sistema de diseño propio; desarrollo con IA basado en subagentes",
         ],
       },
     ],
@@ -101,6 +113,13 @@ export const es: Translations = {
     subtitle: "Mi trayectoria profesional",
     items: [
       {
+        role: "Desarrollador Full-Stack",
+        company: "Monitor zo slovenčiny · Freelance",
+        period: "Sep 2026 – Presente",
+        description:
+          "Diseñando y construyendo una plataforma de preparación para el examen de lengua eslovaca, para alumnos y su profesora particular — materiales, tests interactivos, reserva de clases, portal para padres y pagos con Stripe. Next.js sobre Cloudflare Workers con Supabase, probado de extremo a extremo con Playwright y Vitest.",
+      },
+      {
         role: "QA Automation Engineer",
         company: "Caterpillar Slovakia · vía Moxymind",
         period: "Ago 2024 – Presente",
@@ -112,7 +131,7 @@ export const es: Translations = {
         company: "Freelance",
         period: "2024 – Presente",
         description:
-          "Diseñando y construyendo aplicaciones móviles de producción. Hasta mayo de 2026, una plataforma de movilidad completa para un cliente del sector del transporte — apps de pasajeros y conductores, seguimiento de viajes en tiempo real y pagos con tarjeta y monedero. Ciclo de vida completo — desde prototipos en Figma hasta despliegue en App Store.",
+          "Diseñando y construyendo aplicaciones móviles de producción. Hasta junio de 2026, una plataforma de movilidad completa para un cliente del sector del transporte — apps de pasajeros y conductores, seguimiento de viajes en tiempo real y pagos con tarjeta y monedero. Ciclo de vida completo — desde prototipos en Figma hasta despliegue en App Store.",
       },
       {
         role: "Conductor Bolt & Pausa personal",
@@ -387,6 +406,29 @@ export const es: Translations = {
         "Sección de patrocinadores con pagos Stripe",
         "Cookie consent respetando la preferencia del usuario",
         "Base SEO con sitemap y meta tags",
+      ],
+      year: "2026",
+    },
+    monitor: {
+      tagline:
+        "Monitor zo slovenčiny es una aplicación web educativa full-stack construida con Next.js, React, Supabase, Stripe y Cloudflare que prepara a los alumnos para el examen eslovaco Testovanie 9 mediante una biblioteca de materiales, tests interactivos y clases particulares — y da a la profesora una sola herramienta para gestionar contenidos, alumnos y pagos.",
+      description:
+        "Una plataforma para una profesora particular y sus alumnos. Reúne contenido educativo (teoría, mapas conceptuales, tests, dictados), reserva online de clases particulares, seguimiento del progreso y un portal para padres para vincular a los hijos y comprar paquetes — todo en un solo lugar, accesible desde el móvil y con lectores de pantalla.",
+      tech:
+        "Next.js 16 · React 19 · TypeScript · Tailwind CSS v4 · Supabase · Cloudflare Workers · Cloudflare R2 · Stripe · next-intl · Playwright · Vitest",
+      visitSite: "Visitar sitio",
+      features: [
+        "Biblioteca de materiales: teoría, mapas conceptuales, tests y dictados",
+        "Tests interactivos con evaluación y puntuación automáticas",
+        "Reserva y gestión de clases particulares (calendario, crédito de clases, cancelaciones con reglas)",
+        "Vinculación padre–hijo: códigos de invitación, panel para padres, asignación de paquetes a los hijos",
+        "Paquetes y pagos con Stripe",
+        "Panel de administración para la profesora: personas, profesores, contenido, informes, cupones, documentos legales, copias de seguridad",
+        "Roles y vista previa de roles: alumno, padre, profesor, administrador",
+        "Entrega de archivos e imágenes desde Cloudflare R2 (de forma nativa a través del worker) con marca de agua",
+        "Documentos legales con consentimiento versionado",
+        "Sección de Instagram y reseñas en la landing, diseño propio (secciones de papel), la mascota Ypsilonka",
+        "Accesibilidad WCAG 2.2 AA, SEO e i18n (eslovaco, next-intl)",
       ],
       year: "2026",
     },

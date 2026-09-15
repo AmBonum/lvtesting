@@ -71,13 +71,25 @@ export const en: Translations = {
         title: "lvtesting.eu",
         subtitle: "This Site · Designed, Built & Deployed Solo",
         description:
-          "The site you are reading right now. A static-export Next.js application with a scroll-driven cinematic background, five languages, hand-rolled image optimisation and a tested contact pipeline — no template, no page builder, no server.",
+          "The site you are reading right now. A static-export Next.js application with Framer Motion animations, five languages and a tested contact pipeline — no template, no page builder, no server.",
         highlights: [
-          "Scroll-driven parallax narrative, composited on the GPU",
+          "Motion design with Framer Motion — scroll reveals and an animated hero",
           "Static export — runs on plain shared hosting, no server",
           "Five languages, guarded by a translation completeness test",
           "Contact form with hCaptcha and GDPR-compliant consent",
           "Unit-tested analytics, consent and i18n layers",
+        ],
+      },
+      {
+        title: "Full-Stack Development @ Monitor zo slovenčiny",
+        subtitle: "Education Platform for Testovanie 9 Prep · for a Private Tutor",
+        description:
+          "Designing and building the whole platform that prepares pupils for the Slovak-language exam — from a library of study materials and interactive tests, through tutoring-session bookings, to a parent portal and payments. Full-stack development on modern Next.js running on Cloudflare Workers, with a focus on security, accessibility and production quality.",
+        highlights: [
+          "Full-stack development: Next.js 16 / React 19 / TypeScript, deployed to Cloudflare Workers (@opennextjs/cloudflare)",
+          "Data layer and authentication on Supabase (Postgres, RLS policies), payments via Stripe",
+          "Extensive testing: Playwright (e2e — desktop/mobile/visual/R2 bindings), Vitest (unit + integration), accessibility, security and performance tests",
+          "WCAG 2.2 AA accessibility, i18n (next-intl), a custom design system; subagent-driven development with AI",
         ],
       },
     ],
@@ -101,6 +113,13 @@ export const en: Translations = {
     subtitle: "My professional journey",
     items: [
       {
+        role: "Full-Stack Developer",
+        company: "Monitor zo slovenčiny · Freelance",
+        period: "Sep 2026 – Present",
+        description:
+          "Designing and building an exam-prep platform for Slovak-language pupils and their private tutor — study materials, interactive tests, tutoring-session bookings, a parent portal and Stripe payments. Next.js on Cloudflare Workers with Supabase, tested end to end with Playwright and Vitest.",
+      },
+      {
         role: "QA Automation Engineer",
         company: "Caterpillar Slovakia · via Moxymind",
         period: "Aug 2024 – Present",
@@ -112,7 +131,7 @@ export const en: Translations = {
         company: "Freelance",
         period: "2024 – Present",
         description:
-          "Designing and building production mobile applications. Through May 2026, a full mobility platform for a transport-sector client — rider and driver apps, real-time ride tracking, and card and wallet payments. Full lifecycle — from Figma prototypes to App Store deployment.",
+          "Designing and building production mobile applications. Through June 2026, a full mobility platform for a transport-sector client — rider and driver apps, real-time ride tracking, and card and wallet payments. Full lifecycle — from Figma prototypes to App Store deployment.",
       },
       {
         role: "Bolt Driver & Personal Break",
@@ -387,6 +406,29 @@ export const en: Translations = {
         "Sponsor/support section with Stripe payments",
         "Cookie consent and privacy-respecting analytics",
         "SEO foundation with sitemap and meta tags",
+      ],
+      year: "2026",
+    },
+    monitor: {
+      tagline:
+        "Monitor zo slovenčiny is a full-stack educational web application built on Next.js, React, Supabase, Stripe and Cloudflare that prepares pupils for the Slovak-language Testovanie 9 exam through a library of study materials, interactive tests and tutoring sessions — and gives the tutor a single tool to manage content, pupils and payments.",
+      description:
+        "A platform for a private tutor and her pupils. It brings together learning content (theory, concept maps, tests, dictations), online booking of tutoring sessions, progress tracking and a parent portal for linking children and buying packages — all in one place, usable on mobile and with screen readers.",
+      tech:
+        "Next.js 16 · React 19 · TypeScript · Tailwind CSS v4 · Supabase · Cloudflare Workers · Cloudflare R2 · Stripe · next-intl · Playwright · Vitest",
+      visitSite: "Visit site",
+      features: [
+        "Study library: theory, concept maps, tests and dictations",
+        "Interactive tests with automatic evaluation and scoring",
+        "Booking and managing tutoring sessions (calendar, lesson credits, cancellations with rules)",
+        "Parent–child linking: invite codes, parent overview, assigning packages to children",
+        "Packages and payments via Stripe",
+        "Admin desk for the tutor: people, teachers, content, reports, coupons, legal documents, backups",
+        "Roles and role previews: pupil, parent, teacher, admin",
+        "Files and images served from Cloudflare R2 (natively through the Worker) with watermarks",
+        "Legal documents with versioned consent",
+        "Instagram section and reviews on the landing page, custom design (paper sections), the Ypsilonka mascot",
+        "WCAG 2.2 AA accessibility, SEO and i18n (Slovak, next-intl)",
       ],
       year: "2026",
     },

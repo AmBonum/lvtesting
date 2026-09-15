@@ -98,6 +98,8 @@ describe("i18n: array lengths match across locales", () => {
     "contact.budgetOptions",
     "contact.serviceOptions",
     "contact.detailedServiceOptions",
+    "portfolio.subenai.features",
+    "portfolio.monitor.features",
     "privacy.sections.controller.content",
     "privacy.sections.dataCollection.content",
     "privacy.sections.usage.content",

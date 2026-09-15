@@ -71,13 +71,25 @@ export const de: Translations = {
         title: "lvtesting.eu",
         subtitle: "Diese Website · Konzept, Umsetzung und Deployment",
         description:
-          "Die Seite, die Sie gerade lesen. Eine statisch exportierte Next.js-Anwendung mit scrollgesteuertem, filmischem Hintergrund, fünf Sprachen, eigener Bildoptimierung und getestetem Kontaktformular — keine Vorlage, kein Page Builder, kein Server.",
+          "Die Seite, die Sie gerade lesen. Eine statisch exportierte Next.js-Anwendung mit Framer-Motion-Animationen, fünf Sprachen und getestetem Kontaktformular — keine Vorlage, kein Page Builder, kein Server.",
         highlights: [
-          "Scrollgesteuerte Parallax-Erzählung, auf der GPU komponiert",
+          "Motion Design mit Framer Motion — Scroll-Reveals und animierter Hero-Bereich",
           "Statischer Export — läuft auf einfachem Shared Hosting",
           "Fünf Sprachen, abgesichert durch einen Vollständigkeitstest",
           "Kontaktformular mit hCaptcha und DSGVO-konformer Einwilligung",
           "Unit-getestete Analytics-, Consent- und i18n-Schicht",
+        ],
+      },
+      {
+        title: "Full-Stack-Entwicklung @ Monitor zo slovenčiny",
+        subtitle: "Lernplattform zur Vorbereitung auf das Testovanie 9 · für eine Privatlehrerin",
+        description:
+          "Konzeption und Entwicklung der gesamten Plattform, die Schülerinnen und Schüler auf die Slowakisch-Prüfung vorbereitet — von der Materialbibliothek und interaktiven Tests über die Buchung von Nachhilfestunden bis zum Elternportal und zu Zahlungen. Full-Stack-Entwicklung mit modernem Next.js auf Cloudflare Workers, mit Fokus auf Sicherheit, Barrierefreiheit und Produktionsqualität.",
+        highlights: [
+          "Full-Stack-Entwicklung: Next.js 16 / React 19 / TypeScript, Deployment auf Cloudflare Workers (@opennextjs/cloudflare)",
+          "Datenschicht und Authentifizierung mit Supabase (Postgres, RLS-Policies), Zahlungen über Stripe",
+          "Umfassende Tests: Playwright (E2E — Desktop/Mobil/visuell/R2-Bindings), Vitest (Unit + Integration), Barrierefreiheits-, Sicherheits- und Performance-Tests",
+          "Barrierefreiheit nach WCAG 2.2 AA, i18n (next-intl), eigenes Designsystem; Subagent-gestützte Entwicklung mit KI",
         ],
       },
     ],
@@ -101,6 +113,13 @@ export const de: Translations = {
     subtitle: "Mein beruflicher Werdegang",
     items: [
       {
+        role: "Full-Stack Developer",
+        company: "Monitor zo slovenčiny · Freelance",
+        period: "Sep 2026 – Gegenwart",
+        description:
+          "Konzeption und Entwicklung einer Lernplattform für die Slowakisch-Prüfung, für Schüler und ihre Privatlehrerin — Lernmaterialien, interaktive Tests, Buchung von Nachhilfestunden, Elternportal und Stripe-Zahlungen. Next.js auf Cloudflare Workers mit Supabase, durchgängig getestet mit Playwright und Vitest.",
+      },
+      {
         role: "QA Automation Engineer",
         company: "Caterpillar Slovakia · über Moxymind",
         period: "Aug 2024 – Gegenwart",
@@ -112,7 +131,7 @@ export const de: Translations = {
         company: "Freelance",
         period: "2024 – Gegenwart",
         description:
-          "Gestaltung und Entwicklung produktionsreifer mobiler Anwendungen. Bis Mai 2026 zudem eine vollständige Mobilitätsplattform für einen Kunden aus dem Transportsektor — Fahrgast- und Fahrer-Apps, Echtzeit-Fahrtverfolgung sowie Karten- und Wallet-Zahlungen. Vollständiger Lebenszyklus — von Figma-Prototypen bis zum App-Store-Deployment.",
+          "Gestaltung und Entwicklung produktionsreifer mobiler Anwendungen. Bis Juni 2026 zudem eine vollständige Mobilitätsplattform für einen Kunden aus dem Transportsektor — Fahrgast- und Fahrer-Apps, Echtzeit-Fahrtverfolgung sowie Karten- und Wallet-Zahlungen. Vollständiger Lebenszyklus — von Figma-Prototypen bis zum App-Store-Deployment.",
       },
       {
         role: "Bolt-Fahrer & persönliche Pause",
@@ -387,6 +406,29 @@ export const de: Translations = {
         "Sponsor-/Unterstützungsbereich mit Stripe-Zahlungen",
         "Cookie-Consent und datenschutzkonforme Analytics",
         "SEO-Grundlage mit Sitemap und Meta-Tags",
+      ],
+      year: "2026",
+    },
+    monitor: {
+      tagline:
+        "Monitor zo slovenčiny ist eine Full-Stack-Lern-Webanwendung auf Basis von Next.js, React, Supabase, Stripe und Cloudflare, die Schüler über eine Materialbibliothek, interaktive Tests und Nachhilfestunden auf die slowakische Sprachprüfung Testovanie 9 vorbereitet — und der Lehrerin ein einziges Werkzeug für Inhalte, Schüler und Zahlungen gibt.",
+      description:
+        "Eine Plattform für eine Privatlehrerin und ihre Schüler. Sie vereint Lerninhalte (Theorie, Begriffslandkarten, Tests, Diktate), die Online-Buchung von Nachhilfestunden, Lernfortschritt und ein Elternportal zum Verknüpfen von Kindern und Kaufen von Paketen — alles an einem Ort, mobil nutzbar und mit Screenreadern zugänglich.",
+      tech:
+        "Next.js 16 · React 19 · TypeScript · Tailwind CSS v4 · Supabase · Cloudflare Workers · Cloudflare R2 · Stripe · next-intl · Playwright · Vitest",
+      visitSite: "Website besuchen",
+      features: [
+        "Materialbibliothek: Theorie, Begriffslandkarten, Tests und Diktate",
+        "Interaktive Tests mit automatischer Auswertung und Punktevergabe",
+        "Buchung und Verwaltung von Nachhilfestunden (Kalender, Stundenguthaben, Stornierungen nach Regeln)",
+        "Eltern-Kind-Verknüpfung: Einladungscodes, Elternübersicht, Zuweisung von Paketen an Kinder",
+        "Pakete und Zahlungen über Stripe",
+        "Admin-Bereich für die Lehrerin: Personen, Lehrkräfte, Inhalte, Berichte, Gutscheine, Rechtsdokumente, Backups",
+        "Rollen und Rollenvorschau: Schüler, Eltern, Lehrkraft, Admin",
+        "Auslieferung von Dateien und Bildern aus Cloudflare R2 (nativ über den Worker) mit Wasserzeichen",
+        "Rechtsdokumente mit versionierter Einwilligung",
+        "Instagram-Bereich und Bewertungen auf der Landingpage, eigenes Design (Papier-Sektionen), Maskottchen Ypsilonka",
+        "Barrierefreiheit nach WCAG 2.2 AA, SEO und i18n (Slowakisch, next-intl)",
       ],
       year: "2026",
     },

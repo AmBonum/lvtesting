@@ -180,6 +180,14 @@ export interface Translations {
       features: string[];
       year: string;
     };
+    monitor: {
+      tagline: string;
+      description: string;
+      tech: string;
+      visitSite: string;
+      features: string[];
+      year: string;
+    };
     ongoingLabel: string;
   };
 

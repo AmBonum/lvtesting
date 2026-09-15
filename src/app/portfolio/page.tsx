@@ -11,7 +11,7 @@ import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { useI18n } from "@/i18n/provider";
 
 // ─── Tech stack data ──────────────────────────────────────────────────────────
-const techStack = [
+const subenaiTechStack = [
   {
     name: "React 19",
     url: "https://react.dev",
@@ -54,6 +54,23 @@ const techStack = [
   },
 ];
 
+// Playwright and next-intl have no Simple Icons entry (the CDN answers 404),
+// so they carry no icon and TechIcon renders its initials badge instead of
+// requesting an image that is known to fail.
+const monitorTechStack = [
+  { name: "Next.js 16", url: "https://nextjs.org", icon: "https://cdn.simpleicons.org/nextdotjs/FFFFFF" },
+  { name: "React 19", url: "https://react.dev", icon: "https://cdn.simpleicons.org/react/61DAFB" },
+  { name: "TypeScript", url: "https://www.typescriptlang.org", icon: "https://cdn.simpleicons.org/typescript/60A5FA" },
+  { name: "Tailwind CSS v4", url: "https://tailwindcss.com", icon: "https://cdn.simpleicons.org/tailwindcss/38BDF8" },
+  { name: "Supabase", url: "https://supabase.com", icon: "https://cdn.simpleicons.org/supabase/3ECF8E" },
+  { name: "Cloudflare Workers", url: "https://workers.cloudflare.com", icon: "https://cdn.simpleicons.org/cloudflareworkers/F38020" },
+  { name: "Cloudflare R2", url: "https://developers.cloudflare.com/r2/", icon: "https://cdn.simpleicons.org/cloudflare/F38020" },
+  { name: "Stripe", url: "https://stripe.com", icon: "https://cdn.simpleicons.org/stripe/9B8DFF" },
+  { name: "next-intl", url: "https://next-intl.dev" },
+  { name: "Playwright", url: "https://playwright.dev" },
+  { name: "Vitest", url: "https://vitest.dev", icon: "https://cdn.simpleicons.org/vitest/A8D232" },
+];
+
 
 // ─── Color helper ─────────────────────────────────────────────────────────────
 // Appends / alpha) to an oklch() color string: withAlpha("oklch(0.8 0.2 130)", 0.15) → "oklch(0.8 0.2 130 / 0.15)"
@@ -62,9 +79,9 @@ function withAlpha(color: string, alpha: number) {
 }
 
 // ─── Tech icon with fallback ──────────────────────────────────────────────────
-function TechIcon({ src, alt }: { src: string; alt: string }) {
+function TechIcon({ src, alt }: { src?: string; alt: string }) {
   const [failed, setFailed] = useState(false);
-  if (failed) {
+  if (failed || !src) {
     return (
       <span className="flex h-3.5 w-3.5 flex-shrink-0 items-center justify-center rounded-sm bg-white/15 text-[7px] font-bold leading-none text-white/70">
         {alt.slice(0, 2).toUpperCase()}
@@ -161,7 +178,7 @@ interface WebProjectData {
   visitUrl?: string;
   visitLabel: string;
   subtitle: string;
-  techStack: { name: string; url: string; icon: string }[];
+  techStack: { name: string; url: string; icon?: string }[];
   accentColor: string;
   accentColorEnd: string;
   glassAccent: "green" | "teal" | "purple" | "coral" | "yellow";
@@ -396,9 +413,29 @@ export default function PortfolioPage() {
       visitUrl: "https://subenai.sk",
       visitLabel: p.subenai.visitSite,
       subtitle: "Digital Safety · Education · Full-Stack",
-      techStack,      accentColor: "oklch(0.88 0.22 130)",
+      techStack: subenaiTechStack,
+      accentColor: "oklch(0.88 0.22 130)",
       accentColorEnd: "oklch(0.78 0.18 165)",
       glassAccent: "green",
+      ongoing: true,
+    },
+    {
+      id: "monitor",
+      name: "Monitor zo slovenčiny",
+      logo: "/monitor-logo.svg",
+      year: p.monitor.year,
+      tagline: p.monitor.tagline,
+      description: p.monitor.description,
+      features: p.monitor.features,
+      visitUrl: "https://monitor-zo-slovenciny.volckin.workers.dev",
+      visitLabel: p.monitor.visitSite,
+      subtitle: "Education · Full-Stack · EdTech",
+      techStack: monitorTechStack,
+      // Monitor zo slovenčiny's own brand gold and blue (#ffbb4c, #7c7ce8 in
+      // its dark theme), in oklch because withAlpha() appends to oklch().
+      accentColor: "oklch(0.84 0.15 76)",
+      accentColorEnd: "oklch(0.64 0.16 281)",
+      glassAccent: "yellow",
       ongoing: true,
     },
   ];

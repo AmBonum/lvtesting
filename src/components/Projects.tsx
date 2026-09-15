@@ -10,11 +10,19 @@ import { useI18n } from "@/i18n/provider";
 const dotColors = {
   purple: "bg-accent-purple",
   coral: "bg-accent-coral",
+  teal: "bg-accent-teal",
+} as const;
+
+const subtitleColors = {
+  purple: "text-accent-purple",
+  coral: "text-accent-coral",
+  teal: "text-accent-teal",
 } as const;
 
 const glowStyles = {
   purple: "glow-purple",
   coral: "glow-coral",
+  teal: "glow-teal",
 } as const;
 
 export default function Projects() {
@@ -31,15 +39,30 @@ export default function Projects() {
           />
         </ScrollReveal>
 
-        <div className="grid gap-8 md:grid-cols-2">
-          {projects.map((project, i) => (
-            <ScrollReveal
-              key={project.title}
-              delay={0.1 + i * 0.15}
-              direction={i === 0 ? "left" : "right"}
-            >
+        {/* Below lg the projects are a swipeable carousel: each card takes
+            most of the width so the next one peeks in and shows there is
+            more. From lg up they sit three abreast in a grid.
+
+            The track reveals as one unit rather than card by card.
+            ScrollReveal fires on viewport intersection with a -100px margin,
+            so a card parked to the side of the carousel would stay at
+            opacity 0 — and the peeking edge that makes the carousel
+            discoverable would be invisible.
+
+            The cards hold nothing focusable, so the track itself takes
+            focus; that is what lets keyboard users scroll it with the arrow
+            keys. */}
+        <ScrollReveal delay={0.1}>
+          <div
+            role="region"
+            aria-label={t.projects.heading}
+            tabIndex={0}
+            className="-mx-6 flex snap-x snap-mandatory scroll-px-6 gap-6 overflow-x-auto px-6 pb-4 pt-2 [scrollbar-width:none] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-accent-purple)] [&::-webkit-scrollbar]:hidden lg:mx-0 lg:grid lg:grid-cols-3 lg:gap-8 lg:overflow-visible lg:px-0 lg:pb-0 lg:pt-0"
+          >
+            {projects.map((project, i) => (
               <GlassCard
-                className="group relative h-full overflow-hidden p-8"
+                key={project.title}
+                className="group relative flex w-[85%] flex-shrink-0 snap-start flex-col overflow-hidden p-8 sm:w-[70%] md:w-[55%] lg:w-auto lg:p-6"
                 accent={project.accent}
               >
                 {/* Decorative corner glow */}
@@ -60,16 +83,15 @@ export default function Projects() {
                   </Badge>
                 </div>
 
-                {/* Title block */}
-                <div className="relative z-10 mb-4">
+                {/* Title block — right padding keeps a title that wraps in a
+                    narrow three-column card from running under the badge. */}
+                <div className="relative z-10 mb-4 pr-14">
                   <h3 className="text-xl font-bold text-[var(--color-text-primary)]">
                     {t.projects.items[i]?.title ?? project.title}
                   </h3>
                   <p
                     className={`mt-1 text-sm font-medium ${
-                      project.accent === "purple"
-                        ? "text-accent-purple"
-                        : "text-accent-coral"
+                      subtitleColors[project.accent]
                     }`}
                   >
                     {t.projects.items[i]?.subtitle ?? project.subtitle}
@@ -98,8 +120,11 @@ export default function Projects() {
                   ))}
                 </ul>
 
-                {/* Tags */}
-                <div className="relative z-10 flex flex-wrap gap-2">
+                {/* Tags — pinned to the bottom of the card. The three cards
+                    share one row height, set by whichever has the most text;
+                    mt-auto puts the slack above the tags instead of leaving a
+                    hole under them, so the tag rows line up across cards. */}
+                <div className="relative z-10 mt-auto flex flex-wrap gap-2">
                   {project.tags.map((tag) => (
                     <Badge key={tag} accent={project.accent} className="text-xs">
                       {tag}
@@ -114,9 +139,9 @@ export default function Projects() {
                   }`}
                 />
               </GlassCard>
-            </ScrollReveal>
-          ))}
-        </div>
+            ))}
+          </div>
+        </ScrollReveal>
       </div>
     </section>
   );

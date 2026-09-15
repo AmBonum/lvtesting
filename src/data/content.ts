@@ -58,7 +58,7 @@ export const projects = [
     title: "lvtesting.eu",
     subtitle: "This Site · Designed, Built & Deployed Solo",
     description:
-      "The site you are reading right now. A static-export Next.js application with a scroll-driven cinematic background, five languages, hand-rolled image optimisation and a tested contact pipeline — no template, no page builder, no server.",
+      "The site you are reading right now. A static-export Next.js application with Framer Motion animations, five languages and a tested contact pipeline — no template, no page builder, no server.",
     tags: [
       "Next.js 16",
       "TypeScript",
@@ -69,11 +69,33 @@ export const projects = [
     ],
     accent: "coral" as const,
     highlights: [
-      "Scroll-driven parallax narrative, composited on the GPU",
+      "Motion design with Framer Motion — scroll reveals and an animated hero",
       "Static export — runs on plain shared hosting, no server",
       "Five languages, guarded by a translation completeness test",
       "Contact form with hCaptcha and GDPR-compliant consent",
       "Unit-tested analytics, consent and i18n layers",
+    ],
+  },
+  {
+    title: "Full-Stack Development @ Monitor zo slovenčiny",
+    subtitle: "Education Platform for Testovanie 9 Prep · for a Private Tutor",
+    description:
+      "Designing and building the whole platform that prepares pupils for the Slovak-language exam — from a library of study materials and interactive tests, through tutoring-session bookings, to a parent portal and payments. Full-stack development on modern Next.js running on Cloudflare Workers, with a focus on security, accessibility and production quality.",
+    tags: [
+      "Next.js 16",
+      "React 19",
+      "TypeScript",
+      "Supabase",
+      "Cloudflare",
+      "Stripe",
+      "Playwright",
+    ],
+    accent: "teal" as const,
+    highlights: [
+      "Full-stack development: Next.js 16 / React 19 / TypeScript, deployed to Cloudflare Workers (@opennextjs/cloudflare)",
+      "Data layer and authentication on Supabase (Postgres, RLS policies), payments via Stripe",
+      "Extensive testing: Playwright (e2e — desktop/mobile/visual/R2 bindings), Vitest (unit + integration), accessibility, security and performance tests",
+      "WCAG 2.2 AA accessibility, i18n (next-intl), a custom design system; subagent-driven development with AI",
     ],
   },
 ];
@@ -125,6 +147,24 @@ export const skills = [
 
 export const experience = [
   {
+    role: "Full-Stack Developer",
+    company: "Monitor zo slovenčiny · Freelance",
+    period: "Sep 2026 – Present",
+    description:
+      "Designing and building an exam-prep platform for Slovak-language pupils and their private tutor — study materials, interactive tests, tutoring-session bookings, a parent portal and Stripe payments. Next.js on Cloudflare Workers with Supabase, tested end to end with Playwright and Vitest.",
+    stack: [
+      "Next.js",
+      "React",
+      "TypeScript",
+      "Supabase",
+      "Cloudflare",
+      "Stripe",
+      "Playwright",
+      "Vitest",
+    ],
+    accent: "teal" as const,
+  },
+  {
     role: "QA Automation Engineer",
     company: "Caterpillar Slovakia · via Moxymind",
     period: "Aug 2024 – Present",
@@ -138,7 +178,7 @@ export const experience = [
     company: "Freelance",
     period: "2024 – Present",
     description:
-      "Designing and building production mobile applications. Through May 2026, a full mobility platform for a transport-sector client — rider and driver apps, real-time ride tracking, and card and wallet payments. Full lifecycle — from Figma prototypes to App Store deployment.",
+      "Designing and building production mobile applications. Through June 2026, a full mobility platform for a transport-sector client — rider and driver apps, real-time ride tracking, and card and wallet payments. Full lifecycle — from Figma prototypes to App Store deployment.",
     stack: [
       "Flutter",
       "Firebase",

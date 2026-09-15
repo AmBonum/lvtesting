@@ -61,41 +61,56 @@ Career stats: 5+ years in QA, 100+ test suites built, 6 companies served.
 
 ### lvtesting.eu — This Site
 - Type: Portfolio site, designed, built and deployed solo
-- Description: The site itself, built from scratch as a static-export Next.js application with a scroll-driven cinematic background telling the story of how software is made, from idea to release.
-- Features: Scroll-driven parallax narrative composited on the GPU, static export running on plain shared hosting, five languages guarded by a translation completeness test, contact form with hCaptcha and GDPR-compliant consent, unit-tested analytics, consent and i18n layers
+- Description: The site itself, built from scratch as a static-export Next.js application with Framer Motion animations, five languages and a tested contact pipeline.
+- Features: Motion design with Framer Motion (scroll reveals and an animated hero), static export running on plain shared hosting, five languages guarded by a translation completeness test, contact form with hCaptcha and GDPR-compliant consent, unit-tested analytics, consent and i18n layers
 - Tech stack: Next.js 16, TypeScript, Tailwind CSS 4, Framer Motion, Vitest
+
+### Monitor zo slovenčiny — Education Platform (ongoing)
+- Type: Full-stack educational web application, freelance, for a private Slovak-language tutor
+- Period: Sep 2026 – Present
+- Live: https://monitor-zo-slovenciny.volckin.workers.dev
+- Description: Prepares pupils for the Slovak-language Testovanie 9 exam through a library of study materials, interactive tests and tutoring sessions, and gives the tutor one tool to manage content, pupils and payments
+- Features: study library (theory, concept maps, tests, dictations), auto-scored interactive tests, tutoring-session booking with lesson credits and cancellation rules, parent–child linking and a parent portal, Stripe packages and payments, an admin desk (people, teachers, content, reports, coupons, legal documents, backups), role previews, Cloudflare R2 file delivery with watermarks, versioned legal consent, WCAG 2.2 AA accessibility, SEO and i18n
+- Testing: Playwright end-to-end (desktop, mobile, visual, R2 bindings), Vitest unit and integration, accessibility, security and performance tests
+- Tech stack: Next.js 16, React 19, TypeScript, Tailwind CSS v4, Supabase (Postgres, RLS), Cloudflare Workers, Cloudflare R2, Stripe, next-intl, Playwright, Vitest
 
 ## Professional Experience (Chronological)
 
-1. **QA Automation Engineer at Caterpillar Slovakia (via Moxymind)** — Aug 2024 – Present
+1. **Full-Stack Developer — Monitor zo slovenčiny (Freelance)** — Sep 2026 – Present
+   - Designing and building an exam-prep platform for Slovak-language pupils and their private tutor
+   - Study materials, interactive tests, tutoring-session bookings, a parent portal and Stripe payments
+   - Tools: Next.js, React, TypeScript, Supabase, Cloudflare Workers, Stripe, Playwright, Vitest
+
+2. **QA Automation Engineer at Caterpillar Slovakia (via Moxymind)** — Aug 2024 – Present
    - Building automated tests for an internal platform handling dynamic inspection forms and workflows
    - Contributing to QA process improvements with modern tooling
    - Tools: Playwright, VS Code, Copilot, Azure DevOps
 
-2. **Flutter Engineer & Designer (Freelance)** — 2024 – Present
+3. **Flutter Engineer & Designer (Freelance)** — 2024 – Present
    - Designing and building production mobile applications
+   - Through June 2026: a full mobility platform for a transport-sector client — rider and driver apps, real-time ride tracking, card and wallet payments
    - Full lifecycle: Figma prototypes to App Store deployment
    - Tools: Flutter, Firebase, GoogleAuth, Figma, iOS, Android
 
-3. **Bolt Driver & Personal Break** — Aug 2022 – Dec 2023
+4. **Bolt Driver & Personal Break** — Aug 2022 – Dec 2023
    - Took a deliberate break from IT to recharge and gain different perspective
 
-4. **QA Engineer at GlobalLogic Slovakia** — Jan 2022 – Jul 2022
+5. **QA Engineer at GlobalLogic Slovakia** — Jan 2022 – Jul 2022
    - Automated testing for medical web applications
    - Ensured compliance and reliability in highly regulated domain
    - Tools: Serenity, Selenium, REST API, Jira, Java
 
-5. **QA Engineer at Ness KE** — Jun 2019 – Dec 2021
+6. **QA Engineer at Ness KE** — Jun 2019 – Dec 2021
    - Manual and automated testing for telematics management applications
    - Built and maintained test suites across mobile and web
    - Tools: Selenium, TestRail, Postman, Jenkins, Jira
 
-6. **Graphic Designer at IAESTE Slovakia** — Jul 2019 – Feb 2021
+7. **Graphic Designer at IAESTE Slovakia** — Jul 2019 – Feb 2021
    - Creating designs for social media and print materials
    - Promotional content, posters, digital graphics
    - Tools: Figma, Illustrator, Photoshop
 
-7. **Trainee Mobile Developer at GlobalLogic Slovakia** — Mar 2019 – Jun 2019
+8. **Trainee Mobile Developer at GlobalLogic Slovakia** — Mar 2019 – Jun 2019
    - Developed PoC mobile app 'Bethesda' for eldercare
    - Features: pill organization, blood pressure tracking, daily care management
    - Tools: Android Studio, Flutter, Dart, JSON, XML
@@ -139,4 +154,4 @@ Slovakia, EU. Available for remote work and on-site projects across Europe.
 Through the contact form at https://lvtesting.eu/#contact. Specify your project type and budget range.
 
 **What industries have been served?**
-Enterprise/industrial (Caterpillar), mobility/transport, medical software (GlobalLogic), telematics (Masternaut/Ness KE), and non-profit (IAESTE).
+Enterprise/industrial (Caterpillar), mobility/transport, medical software (GlobalLogic), telematics (Masternaut/Ness KE), education (EdTech), and non-profit (IAESTE).
