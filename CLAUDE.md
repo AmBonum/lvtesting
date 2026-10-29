@@ -8,4 +8,4 @@
 - Deploy is manual: `npm run build` → post-build renames `out/_next` → `out/assets` (host blocks `_next`) and rewrites references → upload the contents of `out/` into `web/` on the host. CI (`.github/workflows/ci.yml`) lints, tests and builds; it never deploys.
 - `/v2` (branch `v2-cinematic`) is `robots: noindex, nofollow` and stays that way until the redesign is chosen.
 - Redesign: two competing directions — Figma "Signal" vs branch `v2-cinematic`. Decision pending (Lubomír). Do not merge either into `main` before that decision.
-- Design tooling: `/impeccable` is installed per project in `.claude/skills/impeccable`; findings for the current homepage are in `docs/impeccable-audit-2026-10.md`.
+- Design tooling: the third-party Impeccable skill (`/impeccable`) is installed per machine into `.claude/skills/impeccable` (gitignored — its launcher downloads a binary engine, so it is not vendored); findings for the current homepage are in `docs/impeccable-audit-2026-10.md`.

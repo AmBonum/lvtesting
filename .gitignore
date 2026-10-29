@@ -49,3 +49,6 @@ next-env.d.ts
 
 # zdrojove PNG zo scen (velke, do gitu ide len optimalizovany vystup)
 assets-src/
+
+# third-party Claude skill installed per machine (its launcher downloads a binary engine); not vendored
+.claude/skills/impeccable/
