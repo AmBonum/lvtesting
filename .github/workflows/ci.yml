@@ -1,0 +1,105 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  verify:
+    name: Lint, test, build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install
+        run: npm ci
+
+      - name: Lint
+        run: npm run lint
+        # TODO: remove continue-on-error once the pre-existing lint errors
+        # (src/__tests__/*, src/app/error.tsx, global-error.tsx, i18n/provider.tsx,
+        # lib/ConsentProvider.tsx) are fixed. Until then lint is reported, not enforced.
+        continue-on-error: true
+
+      - name: Test
+        run: npm test
+
+      - name: Build (static export + post-build rename _next -> assets)
+        run: npm run build
+
+      - name: Upload static export
+        uses: actions/upload-artifact@v4
+        with:
+          name: out
+          path: out/
+          retention-days: 7
+
+  # ---------------------------------------------------------------------------
+  # Deploy template (intentionally disabled). Deploy today is a manual upload of
+  # out/ into web/ on the shared host. To automate it, uncomment ONE of the two
+  # variants below and add the listed secrets under Settings → Secrets → Actions.
+  #
+  # Variant A — rsync over SSH (preferred if the host allows SSH/SFTP):
+  #   secrets: DEPLOY_HOST, DEPLOY_USER, DEPLOY_SSH_KEY (private key, no passphrase),
+  #            DEPLOY_KNOWN_HOSTS (output of `ssh-keyscan <host>`), DEPLOY_PATH (e.g. /home/<user>/web)
+  #
+  # deploy:
+  #   name: Deploy to shared hosting
+  #   needs: verify
+  #   if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+  #   runs-on: ubuntu-latest
+  #   environment: production
+  #   steps:
+  #     - uses: actions/download-artifact@v4
+  #       with:
+  #         name: out
+  #         path: out
+  #     - name: Configure SSH
+  #       run: |
+  #         mkdir -p ~/.ssh
+  #         echo "${{ secrets.DEPLOY_SSH_KEY }}" > ~/.ssh/id_ed25519
+  #         chmod 600 ~/.ssh/id_ed25519
+  #         echo "${{ secrets.DEPLOY_KNOWN_HOSTS }}" >> ~/.ssh/known_hosts
+  #     - name: rsync out/ -> web/
+  #       run: |
+  #         rsync -az --delete \
+  #           -e "ssh -i ~/.ssh/id_ed25519 -o StrictHostKeyChecking=yes" \
+  #           out/ "${{ secrets.DEPLOY_USER }}@${{ secrets.DEPLOY_HOST }}:${{ secrets.DEPLOY_PATH }}/"
+  #
+  # Variant B — FTP/FTPS (if the host only offers FTP):
+  #   secrets: FTP_SERVER, FTP_USERNAME, FTP_PASSWORD
+  #
+  # deploy:
+  #   name: Deploy to shared hosting (FTP)
+  #   needs: verify
+  #   if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+  #   runs-on: ubuntu-latest
+  #   environment: production
+  #   steps:
+  #     - uses: actions/download-artifact@v4
+  #       with:
+  #         name: out
+  #         path: out
+  #     - uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+  #       with:
+  #         server: ${{ secrets.FTP_SERVER }}
+  #         username: ${{ secrets.FTP_USERNAME }}
+  #         password: ${{ secrets.FTP_PASSWORD }}
+  #         protocol: ftps
+  #         local-dir: out/
+  #         server-dir: web/
+  # ---------------------------------------------------------------------------

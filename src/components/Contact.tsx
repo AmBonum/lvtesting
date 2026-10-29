@@ -29,6 +29,10 @@ const socials = [
   // },
 ];
 
+// Public by design: this is a static export, so the key ships in the client bundle
+// regardless of where it is defined (no env / server to hide it behind). Abuse
+// protection comes from hCaptcha + the honeypot below AND from the domain
+// allow-list that MUST stay enabled for lvtesting.eu in the web3forms dashboard.
 const WEB3FORMS_KEY = "97715316-29bc-4431-b889-b48f1c2d04be";
 const HCAPTCHA_SITEKEY = "50b2fe65-b00b-4b9e-ad62-3ba471098be2";
 
