@@ -32,6 +32,9 @@ export function I18nProvider({ children }: { children: ReactNode }) {
   useEffect(() => {
     const saved = localStorage.getItem("locale") as Locale | null;
     if (saved && saved in translations) {
+      // Statically exported: the server snapshot is always the default locale;
+      // the persisted locale can only be applied once after hydration.
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setLocaleState(saved);
       document.documentElement.lang = saved;
     }

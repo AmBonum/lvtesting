@@ -9,20 +9,25 @@ import {
 import Contact from "@/components/Contact";
 
 // Mock framer-motion
-vi.mock("framer-motion", () => {
-  const React = require("react");
+vi.mock("framer-motion", async () => {
+  const React = await import("react");
+  const motionOnlyProps = [
+    "initial", "animate", "exit", "transition", "variants",
+    "whileInView", "viewport", "whileHover", "whileTap",
+  ];
   return {
     motion: {
-      div: React.forwardRef(({ children, ...rest }: any, ref: any) => {
-        const {
-          initial, animate, exit, transition, variants,
-          whileInView, viewport, whileHover, whileTap,
-          ...domProps
-        } = rest;
+      div: React.forwardRef<
+        HTMLDivElement,
+        React.ComponentPropsWithoutRef<"div">
+      >(function MotionDiv({ children, ...rest }, ref) {
+        const domProps = Object.fromEntries(
+          Object.entries(rest).filter(([key]) => !motionOnlyProps.includes(key))
+        );
         return React.createElement("div", { ...domProps, ref }, children);
       }),
     },
-    AnimatePresence: ({ children }: any) => children,
+    AnimatePresence: ({ children }: { children?: React.ReactNode }) => children,
   };
 });
 
@@ -32,10 +37,13 @@ vi.mock("@/components/ui/ScrollReveal", () => ({
 }));
 
 // Mock hCaptcha — renders a button that triggers onVerify with a token
-vi.mock("@hcaptcha/react-hcaptcha", () => {
-  const React = require("react");
+vi.mock("@hcaptcha/react-hcaptcha", async () => {
+  const React = await import("react");
   return {
-    default: React.forwardRef(({ onVerify }: any, ref: any) => {
+    default: React.forwardRef<
+      { resetCaptcha: () => void },
+      { onVerify?: (token: string) => void }
+    >(function HCaptchaMock({ onVerify }, ref) {
       React.useImperativeHandle(ref, () => ({ resetCaptcha: vi.fn() }));
       return (
         <button

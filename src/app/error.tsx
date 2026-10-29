@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
+import Link from "next/link";
 import { useI18n } from "@/i18n/provider";
 
 export default function Error({
@@ -47,12 +48,12 @@ export default function Error({
             </svg>
             {t.errors.serverError.tryAgain}
           </button>
-          <a
+          <Link
             href="/"
             className="inline-flex items-center gap-2 rounded-full border border-border-glass px-6 py-3 text-sm font-semibold text-text-muted transition-all duration-300 hover:scale-105 hover:text-text-primary"
           >
             {t.errors.serverError.backHome}
-          </a>
+          </Link>
         </div>
       </div>
     </div>
