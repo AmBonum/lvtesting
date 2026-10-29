@@ -30,10 +30,6 @@ jobs:
 
       - name: Lint
         run: npm run lint
-        # TODO: remove continue-on-error once the pre-existing lint errors
-        # (src/__tests__/*, src/app/error.tsx, global-error.tsx, i18n/provider.tsx,
-        # lib/ConsentProvider.tsx) are fixed. Until then lint is reported, not enforced.
-        continue-on-error: true
 
       - name: Test
         run: npm test
