@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Link from "next/link";
 
 const errorTranslations: Record<string, { title: string; description: string; reload: string; backHome: string }> = {
   en: {
@@ -48,6 +49,9 @@ export default function GlobalError({
     try {
       const saved = localStorage.getItem("locale");
       if (saved && saved in errorTranslations) {
+        // Statically exported: the server snapshot is always "en"; the
+        // persisted locale can only be applied once after hydration.
+        // eslint-disable-next-line react-hooks/set-state-in-effect
         setT(errorTranslations[saved]);
         setLang(saved);
       }
@@ -135,7 +139,7 @@ export default function GlobalError({
             >
               {t.reload}
             </button>
-            <a
+            <Link
               href="/"
               style={{
                 display: "inline-flex",
@@ -152,7 +156,7 @@ export default function GlobalError({
               }}
             >
               {t.backHome}
-            </a>
+            </Link>
           </div>
         </div>
       </body>

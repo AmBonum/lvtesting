@@ -11,7 +11,8 @@ permissions:
 
 concurrency:
   group: ci-${{ github.ref }}
-  cancel-in-progress: true
+  # A newer PR push cancels the older run; on main a running deploy is never cut off.
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
 
 jobs:
   verify:
@@ -30,10 +31,6 @@ jobs:
 
       - name: Lint
         run: npm run lint
-        # TODO: remove continue-on-error once the pre-existing lint errors
-        # (src/__tests__/*, src/app/error.tsx, global-error.tsx, i18n/provider.tsx,
-        # lib/ConsentProvider.tsx) are fixed. Until then lint is reported, not enforced.
-        continue-on-error: true
 
       - name: Test
         run: npm test
@@ -48,58 +45,30 @@ jobs:
           path: out/
           retention-days: 7
 
-  # ---------------------------------------------------------------------------
-  # Deploy template (intentionally disabled). Deploy today is a manual upload of
-  # out/ into web/ on the shared host. To automate it, uncomment ONE of the two
-  # variants below and add the listed secrets under Settings → Secrets → Actions.
-  #
-  # Variant A — rsync over SSH (preferred if the host allows SSH/SFTP):
-  #   secrets: DEPLOY_HOST, DEPLOY_USER, DEPLOY_SSH_KEY (private key, no passphrase),
-  #            DEPLOY_KNOWN_HOSTS (output of `ssh-keyscan <host>`), DEPLOY_PATH (e.g. /home/<user>/web)
-  #
-  # deploy:
-  #   name: Deploy to shared hosting
-  #   needs: verify
-  #   if: github.event_name == 'push' && github.ref == 'refs/heads/main'
-  #   runs-on: ubuntu-latest
-  #   environment: production
-  #   steps:
-  #     - uses: actions/download-artifact@v4
-  #       with:
-  #         name: out
-  #         path: out
-  #     - name: Configure SSH
-  #       run: |
-  #         mkdir -p ~/.ssh
-  #         echo "${{ secrets.DEPLOY_SSH_KEY }}" > ~/.ssh/id_ed25519
-  #         chmod 600 ~/.ssh/id_ed25519
-  #         echo "${{ secrets.DEPLOY_KNOWN_HOSTS }}" >> ~/.ssh/known_hosts
-  #     - name: rsync out/ -> web/
-  #       run: |
-  #         rsync -az --delete \
-  #           -e "ssh -i ~/.ssh/id_ed25519 -o StrictHostKeyChecking=yes" \
-  #           out/ "${{ secrets.DEPLOY_USER }}@${{ secrets.DEPLOY_HOST }}:${{ secrets.DEPLOY_PATH }}/"
-  #
-  # Variant B — FTP/FTPS (if the host only offers FTP):
-  #   secrets: FTP_SERVER, FTP_USERNAME, FTP_PASSWORD
-  #
-  # deploy:
-  #   name: Deploy to shared hosting (FTP)
-  #   needs: verify
-  #   if: github.event_name == 'push' && github.ref == 'refs/heads/main'
-  #   runs-on: ubuntu-latest
-  #   environment: production
-  #   steps:
-  #     - uses: actions/download-artifact@v4
-  #       with:
-  #         name: out
-  #         path: out
-  #     - uses: SamKirkland/FTP-Deploy-Action@v4.3.5
-  #       with:
-  #         server: ${{ secrets.FTP_SERVER }}
-  #         username: ${{ secrets.FTP_USERNAME }}
-  #         password: ${{ secrets.FTP_PASSWORD }}
-  #         protocol: ftps
-  #         local-dir: out/
-  #         server-dir: web/
-  # ---------------------------------------------------------------------------
+      # The same out/ that was linted, tested and built is what GitHub Pages serves.
+      - name: Upload Pages artifact
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: out/
+
+  # Hosting is GitHub Pages (custom domain lvtesting.eu, set in Settings → Pages;
+  # public/CNAME records it in the export). Only main deploys; a PR never does.
+  deploy:
+    name: Deploy to GitHub Pages
+    needs: verify
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    concurrency:
+      group: pages
+      cancel-in-progress: false
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
+

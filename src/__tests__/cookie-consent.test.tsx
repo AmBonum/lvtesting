@@ -20,20 +20,25 @@ import * as analytics from "@/lib/analytics";
 
 // ─── Mocks ──────────────────────────────────────────────────────
 
-vi.mock("framer-motion", () => {
-  const React = require("react");
+vi.mock("framer-motion", async () => {
+  const React = await import("react");
+  const motionOnlyProps = [
+    "initial", "animate", "exit", "transition", "variants",
+    "whileInView", "viewport", "whileHover", "whileTap",
+  ];
   return {
     motion: {
-      div: React.forwardRef(({ children, ...rest }: any, ref: any) => {
-        const {
-          initial, animate, exit, transition, variants,
-          whileInView, viewport, whileHover, whileTap,
-          ...domProps
-        } = rest;
+      div: React.forwardRef<
+        HTMLDivElement,
+        React.ComponentPropsWithoutRef<"div">
+      >(function MotionDiv({ children, ...rest }, ref) {
+        const domProps = Object.fromEntries(
+          Object.entries(rest).filter(([key]) => !motionOnlyProps.includes(key))
+        );
         return React.createElement("div", { ...domProps, ref }, children);
       }),
     },
-    AnimatePresence: ({ children }: any) => children,
+    AnimatePresence: ({ children }: { children?: React.ReactNode }) => children,
   };
 });
 

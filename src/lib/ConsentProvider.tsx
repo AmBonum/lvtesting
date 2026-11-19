@@ -53,6 +53,9 @@ export function ConsentProvider({ children }: { children: ReactNode }) {
   useEffect(() => {
     const record = getStoredConsent();
     if (record) {
+      // Statically exported: the server snapshot is always the default
+      // preferences; stored consent can only be applied once after hydration.
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setPreferences(record.preferences);
       if (record.preferences.analytics) {
         initGA4();
