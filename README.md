@@ -12,7 +12,7 @@ Personal portfolio and freelance services website of **Lubomir Volcko** — QA A
 - **Animations:** Framer Motion
 - **Testing:** Vitest + React Testing Library
 - **Captcha:** hCaptcha
-- **Deployment:** Static export (`next build` &rarr; static HTML)
+- **Deployment:** Static export (`next build` &rarr; static HTML) on GitHub Pages
 
 ## Features
 
@@ -59,18 +59,19 @@ npm run build
 
 ## Deployment
 
-There is no CI/CD deploy and no server — the site is a static export that is uploaded by hand to shared hosting.
+The site is a static export served by **GitHub Pages** with the custom domain `lvtesting.eu`. Every push to `main` deploys; pull requests only verify.
 
-1. `npm test && npm run build` (the build also runs `scripts/post-build.sh`).
-2. `post-build.sh` renames `out/_next` → `out/assets` and rewrites every `/_next/` reference in the HTML, JS, CSS and TXT files, because the host blocks requests to `_next` directories (404s).
-3. Upload the **contents** of `out/` into the `web/` folder on the host (FTP/SFTP or the hosting file manager), replacing the previous files.
+1. `.github/workflows/ci.yml` runs `npm ci`, `npm run lint`, `npm test` and `npm run build` (the build also runs `scripts/post-build.sh`).
+2. On `main`, the same `out/` is uploaded as the Pages artifact and published by the `deploy` job.
+3. `post-build.sh` renames `out/_next` → `out/assets` and rewrites every `/_next/` reference. Pages would serve `_next` too; the rename stays so asset URLs match the previous host and the export can still be uploaded to plain shared hosting (rollback: upload the contents of `out/` into `web/`).
 
 Hosting constraints to keep in mind:
 
 - Plain static files only: no Node runtime, no API routes, no middleware, no server components that fetch data at request time.
-- `trailingSlash: true` is set so every route is a `folder/index.html`, which the host serves without rewrite rules.
+- `trailingSlash: true` is set so every route is a `folder/index.html`, which static hosts serve without rewrite rules.
 - `images.unoptimized: true` — `next/image` optimisation needs a server; assets are served as-is from `public/`.
-- `.github/workflows/ci.yml` lints, tests and builds on every push/PR to `main` and keeps the built `out/` as a downloadable artifact; a commented-out rsync/FTP deploy job is included as a template if automated deploys are wanted later.
+- `public/CNAME` holds the domain; the custom domain itself is set in Settings → Pages (with "Enforce HTTPS"). DNS: apex A/AAAA records point at GitHub Pages, `www` is a CNAME to `ambonum.github.io` (Pages redirects it to the apex).
+- `public/.htaccess` only matters for the old Apache host (rollback); Pages ignores it.
 
 ## License
 
